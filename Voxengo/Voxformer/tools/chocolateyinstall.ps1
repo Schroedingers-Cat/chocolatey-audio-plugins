@@ -54,12 +54,14 @@ CreateInstallerObjects
 CreatePackageParametersObjects
 DetermineExecutionOfAllObjects($installerComponentsList)
 Foreach ($item in $installerComponentsList)  { CreateInstallerParameters($item) }
-Foreach ($item in $packageParametersObjectsList) { HandlePackageArgs($item)     }
 
 # Now that previous settings have been gathered, the package parameters have been evaluated
 # as well as the installer components, it's time to determine which settings will be used
 #  during installation
 CheckPreviousInstallerSettingsAgainstParameters
+
+# Decision to use previous values or package parameters have been made. Whatever it is, finalize and append to installer call.
+Foreach ($item in $packageParametersObjectsList) { HandlePackageArgs($item)     }
 
 # Installer components are now fully evaluated and can be written to registry in case some installers don't save these settings on their own (needed for upgrades)
 CreateRegistryObjects

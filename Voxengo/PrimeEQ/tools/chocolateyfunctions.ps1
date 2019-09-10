@@ -101,7 +101,7 @@ function CreateInstallerParameters ($instParamObject) {
     Write-Debug "Checking Installer Components for: "; Write-Debug $instParamObject.value
     $global:installerComponents += $instParamObject.value
     $global:installerComponents += ","
-    Write-Debug ("These are the current installerComponents: " + $installerComponents + ".")
+    Write-Debug ("These are the current installerComponents: " + $global:installerComponents + ".")
   }
 }
 
@@ -445,7 +445,7 @@ function HandlePackageArgs ($packageParameterObject) {
   if ($global:installerComponents) {
     If ($global:installerComponents.EndsWith(',')) {
       Write-Debug ("Components list ends with , - removing.")
-      $global:installerComponents = $installerComponents.Substring(0,$installerComponents.Length-1)
+      $global:installerComponents = $global:installerComponents.Substring(0,$global:installerComponents.Length-1)
     }
     $packageParameterObject["silentArgs"] += " /Components=$global:installerComponents"
   }
