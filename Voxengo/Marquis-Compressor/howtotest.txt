@@ -1,0 +1,6 @@
+choco install voxengo-marquis-compressor -d -s "'.;https://chocolatey.org/api/v2/'" -y --debug -f
+choco install voxengo-marquis-compressor -d -s "'.;https://chocolatey.org/api/v2/'" -y --debug -f --package-parameters "'/NoAaxx86 /NoAaxx64 /NoVst3x86 /NoVst2x86 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo /Vst2Path:${env:CommonProgramFiles}\VST2\Voxengo /CompanyPath:${env:PROGRAMFILES}\AudioTools\Voxengo /UserFolderPath:${env:USERPROFILE}\Sounds '"
+choco install voxengo-marquis-compressor -d -s "'.;https://chocolatey.org/api/v2/'" -y --debug -f --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo /Vst2Path:${env:CommonProgramFiles}\VST2\Voxengo /CompanyPath:${env:ALLUSERSPROFILE}\Voxengo '"
+choco install voxengo-marquis-compressor -d -s "'.;https://chocolatey.org/api/v2/'" -y --debug -f --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo /Vst2Path:${env:CommonProgramFiles}\VST2\Voxengo /UserFolderPath:${env:USERPROFILE}\Sounds '"
+
+choco uninstall voxengo-marquis-compressor -d -s "'.;https://chocolatey.org/api/v2/'" -y --debug -f
