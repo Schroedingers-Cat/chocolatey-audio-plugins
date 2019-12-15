@@ -1,14 +1,21 @@
-﻿$packageName    = 'r8brain PRO'
+﻿$packageName    = 'MSED'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/Voxengor8brainPRO_25_Win64_setup.exe'
-$releases       = 'https://www.voxengo.com/product/r8brainpro/'
-$checksum32     = 'ba26761f6d719db0cef39a17b3c6d90a8bd0f02055d3bcf5441966a131866106'
+$url32          = 'https://www.voxengo.com/files/VoxengoMSED_33_Win32_64_VST_VST3_AAX_setup.exe'
+$releases       = 'https://www.voxengo.com/product/msed/'
+$checksum32     = 'a379e818428da9bdd1254d2601a5db4d94b9410ea119ad0651bfd0b458a84092'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
+$global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
+$global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
 
 function CreateRegistryObjects () {
+  # The installer does not have an option for custom paths so we need to create the registry entry before
   $global:regKeys =
+  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_64";  'value'="$vst2Path";        'bit'=64;    'validpp'="NoVst2x64"},
+  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_32";  'value'="$vst2x86BitAware"; 'bit'=64,32; 'validpp'="NoVst2x86"},
   @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="CompanyPath";          'value'="$global:companyPath";          'bit'=64,32;  'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"},
+  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="Vst64Path";            'value'="$global:vst2Path";             'bit'=64;     'validpp'="NoVst2x64"},
+  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="Vst32Path";            'value'="$global:vst2x86BitAware";      'bit'=64,32;  'validpp'="NoVst2x86"},
   @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="InstallerComponents";  'value'="$global:installerComponents";  'bit'=64,32;  'validpp'="Always"}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
@@ -23,10 +30,14 @@ function CreateSymlinkObjects () {
 }
 function CreateInstallerObjects () {
   $global:installerComponentsList =
-  @{'value'="exec_64";   'bit'=64; 'validpp'="Always"},
-  @{'value'="guides";    'bit'=64,32; 'validpp'="Always"},
   @{'value'="shortcuts"; 'bit'=64,32; 'validpp'="NoShortcuts"},
-  @{'value'="desktopsc"; 'bit'=64,32; 'validpp'="NoShortcuts"}
+  @{'value'="guides";    'bit'=64,32; 'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"},
+  @{'value'="vst2_32";   'bit'=64,32; 'validpp'="NoVst2x86"},
+  @{'value'="vst2_64";   'bit'=64;    'validpp'="NoVst2x64"},
+  @{'value'="vst3_32";   'bit'=64,32; 'validpp'="NoVst3x86"},
+  @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
+  @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
+  @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () { $global:PackageNewFiles }

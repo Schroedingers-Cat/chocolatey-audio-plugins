@@ -22,11 +22,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>voxengo-boogex</id>
+    <id>voxengo-ebuslim</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.6</version>
+    <version>1.3</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,23 +34,23 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Voxengo Boogex (Install)</title>
+    <title>Voxengo EBusLim (Install)</title>
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://www.voxengo.com/product/boogex/</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/c9bf5e6539617e9629eaf8de7f8c3831aa77e60d/Icons/Boogex.png</iconUrl>
+    <projectUrl>https://www.voxengo.com/product/ebuslim/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/95b88f69b335cbcc81150c32db986cfb3924be9b/Icons/Voxengo/EBusLim.png</iconUrl>
     <copyright>2002-2019 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <!-- <licenseUrl>Software License Location __REMOVE_OR_FILL_OUT__</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>-->
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoBoogex_en.pdf/getbyname/Voxengo%20Boogex%20User%20Guide%20en.pdf</docsUrl>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoEBusLim_en.pdf/getbyname/Voxengo%20EBusLim%20User%20Guide%20en.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>boogex guitar amp vst aax audio mixing mastering recording free</tags>
-    <summary>A guitar amp plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
+    <tags>ebuslim brickwall limiter vst aax audio mixing mastering recording trial</tags>
+    <summary>A brickwall limiter plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
     <description>
-Boogex is a guitar amplifier AAX, AU, and VST plugin with a variety of sound shaping features for professional music production applications.  With Boogex it is possible to get a heavy distorted sound as well as slight “jazzy” saturation sound.  Boogex is also able to apply any speaker cabinet impulse response (selection of built-in impulses is available).  The processing latency is close to zero making it possible to use Boogex for real-time guitar processing.  Boogex also includes reverberation module derived from Voxengo OldSkoolVerb reverb.
+EBusLim is a brickwall peak limiter and loudness maximization plug-in for professional music production applications.  EBusLim implements a single EL-4-based limiter mode originally designed in Elephant mastering limiter plug-in.  This mode is suitable for bus, drum bus, master bus and track processing.  The design idea behind EBusLim is to produce an extremely easy-to-use yet effective limiter.
 
 ## Package Specific
 
@@ -71,7 +71,7 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install voxengo-boogex --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
+choco install voxengo-ebuslim --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
 ```
     </description>
     <releaseNotes>http://www.voxengo.com/press/</releaseNotes>

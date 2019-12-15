@@ -1,9 +1,9 @@
 ﻿$packageName    = 'OVC-128'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoOVC128_13_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoOVC128_14_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/ovc128/'
-$checksum32     = 'e7819f353e453f96871e33004aafe917bf12a9d06eb97c0793eb267007c4cc65'
+$checksum32     = '0458a94067de232abb5336aaff3e4683134936594162f1a50f99e7f7ed1a7357'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
