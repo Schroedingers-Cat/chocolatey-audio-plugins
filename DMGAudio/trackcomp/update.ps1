@@ -5,7 +5,6 @@ $url32        = 'https://dmgaudio.com/dl/TrackComp_v2.00/TrackCompWin_v2.00.zip'
 $releases = 'https://dmgaudio.com/products_trackcomp.php'
 $checksum32 = '7f05411ee7e2177cb6e5240e10935fa21970190862a536694b2e53e21de7da29'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
-$dataPathRegKey = "$packageName"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
 $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
