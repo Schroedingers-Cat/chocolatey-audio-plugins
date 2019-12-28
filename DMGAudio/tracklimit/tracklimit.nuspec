@@ -9,7 +9,7 @@
     <authors>DMGAudio</authors>
     <projectUrl>https://dmgaudio.com/products_tracklimit.php</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/04cf8dd8839151d38029bdb2f98d71f57d23f248/Icons/DMGAudio/tracklimit.png</iconUrl>
-    <docsUrl>https://dmgaudio.com/dl/DMGAudio_TrackLimit_Manual.pdf</docsUrl>
+    <docsUrl>https://dmgaudio.com/dl/DMGAudio_TrackRange_Manual.pdf</docsUrl>
     <tags>tracklimit vst aax audio mixing admin trial</tags>
     <summary>A simple limiter plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
     <copyright>2011-2019 DMGAudio</copyright>
