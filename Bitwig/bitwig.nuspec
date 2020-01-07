@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>bitwig</id>
+    <version>3.1.1</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Bitwig (Install)</title>
+    <authors>Bitwig GmbH</authors>
+    <!-- projectUrl is required for the community feed -->
+    <projectUrl>https://www.bitwig.com/en/bitwig-studio.html</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/c1471e120fc979af1bb3008529c5196d2e641c35/Icons/bitwig.png</iconUrl>
+    <copyright>2020 Bitwig GmbH</copyright>
+    <!-- If there is a license Url available, it is is required for the community feed -->
+    <!-- <licenseUrl>Software License Location __REMOVE_OR_FILL_OUT__</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>-->
+    <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
+    <docsUrl>https://dash.bitwig.com/documentation/Bitwig%20Studio%20User%20Guide%20English.pdf</docsUrl>
+    <!--<mailingListUrl></mailingListUrl>-->
+    <!--<bugTrackerUrl></bugTrackerUrl>-->
+    <tags>bitwig admin daw digital audio workstation</tags>
+    <summary>A cross-platform DAW for sound design, recording, live performance, and beyond.</summary>
+    <description>Bitwig Studio is a dynamic software for creating and performing your musical ideas in the studio and on stage.
+
+Here's a quick overview of what Bitwig Studio is all about:
+
+* A professional Digital Audio Workstation for Windows, macOS, and Linux
+* Super-fast workflow for sound design, recording, live performance, and beyond
+* A complete package with 80+ instruments and effects
+* Enjoy over 10 GB (and counting) of world-class sound content from Bitwig and selected partners
+* Out-of-the-box support for standard audio interfaces and controllers
+* A unique and highly flexible modulation system for unbound creativity
+* Excellent hardware integration
+
+Bitwig Studio inspires you to take greater control of your music, giving you access to every aspect of your production. Streamline your creative process and quickly evolve your ideas into complete songs, tracks, and compositions. Record and arrange, improvise and perform, or do it all at once. Welcome to the next generation of music creation and performance software.
+</description>
+    <releaseNotes>https://downloads-eu.bitwig.com/stable/3.1.1/Release-Notes-3.1.1.html</releaseNotes>
+    <!-- =============================== -->      
+
+    <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
+    <!--<dependencies>
+      <dependency id="" version="__MINIMUM_VERSION__" />
+      <dependency id="" version="[__EXACT_VERSION__]" />
+      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_INCLUSIVE]" />
+      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_EXCLUSIVE)" />
+      <dependency id="" />
+      <dependency id="chocolatey-uninstall.extension" />
+    </dependencies>-->
+    <!-- chocolatey-uninstall.extension - If supporting 0.9.9.x (or below) and including a chocolateyUninstall.ps1 file to uninstall an EXE/MSI, you probably want to include chocolatey-uninstall.extension as a dependency. Please verify whether you are using a helper function from that package. -->
+
+    <!--<provides>NOT YET IMPLEMENTED</provides>-->
+    <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
+    <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
+</package>
