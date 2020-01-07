@@ -38,7 +38,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://www.voxengo.com/product/spatifier/</projectUrl>
-    <iconUrl>https://www.voxengo.com/files/scrnalt/spatifier-large1024.jpg/getbyname/2ags7/spatifier-large1024.jpg</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/a52ca957fbf214fbcfb5fba42ffa00e2ddad941a/Icons/Voxengo/Spatifier.png</iconUrl>
     <copyright>2002-2019 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
