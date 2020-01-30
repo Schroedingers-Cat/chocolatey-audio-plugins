@@ -37,14 +37,14 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <title>Repro (Install)</title>
     <authors>u-he</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://www.u-he.com/cms/diva</projectUrl>
+    <projectUrl>https://www.u-he.com/products/repro</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/cea53d40c0ed5cabb4a17af985954f315bce6bea/Icons/u-he/repro.png</iconUrl>
     <copyright>2019 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
+    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/repro/Repro-5-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>repro-1 audio u-he vst synthesizer aax admin trial</tags>
@@ -75,7 +75,7 @@ You must pass the package parameters like this:
 choco install uhe-repro --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
 ```
     </description>
-    <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
+    <releaseNotes>https://u-he.com/products/repro/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
