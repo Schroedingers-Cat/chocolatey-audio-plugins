@@ -1,9 +1,9 @@
-﻿$packageName = 'Zebra2'
+﻿$packageName = 'ACE'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_291_9709_Win.zip'
-$releases = 'https://u-he.com/products/zebra2/'
-$checksum32 = '73b9e0b4bc5e07716bb6af7029e32d48e639e590a9984efa1260e5cb6f397541'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/ACE_141_9709_Win.zip'
+$releases = 'https://u-he.com/products/ace/'
+$checksum32 = '4f599659cec37df5a8f4ce84e28201d36583ece670ec00ba85152e6dba10360e'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,8 +15,8 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '291'
-$unzInstPath = "${packageName}_Win\Zebra${unzipInstVersion}Winstaller.exe"
+$unzipInstVersion = '141'
+$unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
 # This needs to be wrapped into a function so this object also has the data from the package parameters
@@ -35,18 +35,12 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
-function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Presets\$packageName"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\Zebralette";   'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Presets\Zebralette";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\Zebrify";      'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Presets\Zebrify";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\ZRev";         'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Presets\ZRev";         'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Modules\MSEG";             'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Modules\MSEG";         'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Modules\Oscillator";       'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Modules\Oscillator";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}";  'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";          'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Z2";   'destPath'="$companyPath\Third Party Presets\$packageName\Presets";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Modules\MSEG";             'linkName'="Third Party MSEGs";'destPath'="$companyPath\Third Party Presets\$packageName\MSEGs";        'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Modules\Oscillator";       'linkName'="Third Party OSCs"; 'destPath'="$companyPath\Third Party Presets\$packageName\OSCs";         'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+function CreateSymlinkObjects () {
+  $global:symlinks =
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\$packageName"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -56,30 +50,20 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
   @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
-  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"},
-  @{'value'="nks";       'bit'=64,32; 'validpp'="NoNks"}
+  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
   $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
-$companyPath\$packageName.data\Modules\MSEG\Factory MSEGs
-$companyPath\$packageName.data\Modules\Oscillator\Factory OSCs
+$companyPath\$packageName.data\Extras
 $companyPath\$packageName.data\NKS
-$companyPath\$packageName.data\Presets
 $companyPath\$packageName.data\PresetDatabase
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$packageName user guide.pdf
-$companyPath\$packageName.data\Zebralette user guide.pdf
 $vst2Path\$packageName(x64).dll
-$vst2Path\Zebralette(x64).dll
-$vst2Path\Zebrify(x64).dll
-$vst2Path\ZRev(x64).dll
 $vst2Path\$packageName.data.lnk
 $vst2x86BitAware\$packageName.dll
-$vst2x86BitAware\Zebralette.dll
-$vst2x86BitAware\Zebrify.dll
-$vst2x86BitAware\ZRev.dll
 $vst2x86BitAware\$packageName.data.lnk
 $vst3Path\$packageName(x64).vst3
 $vst3Path\$packageName.data.lnk
@@ -92,16 +76,9 @@ $aaxx86BitAware\$packageName.aaxplugin"
     $global:PackageNewFiles["value"] +=
 "
 $companyPath\$packageName.data\Support
-$companyPath\$packageName.data\UserPresets\$packageName\${env:username}
-$companyPath\$packageName.data\UserPresets\Zebralette\${env:username}
-$companyPath\$packageName.data\UserPresets\Zebrify\${env:username}
-$companyPath\$packageName.data\UserPresets\ZRev\${env:username}
-$companyPath\$packageName.data\Modules\Oscillator\${env:username}
-$companyPath\$packageName.data\Modules\MSEG\${env:username}
+$companyPath\$packageName.data\Presets\$packageName\${env:username}
 $companyPath\$packageName.data\Tunefiles\${env:username}
-$companyPath\$packageName.data\Presets\$packageName\Third Party Z2
-$companyPath\$packageName.data\Modules\MSEG\Third Party MSEGs
-$companyPath\$packageName.data\Modules\Oscillator\Third Party OSCs
+$companyPath\$packageName.data\Presets\$packageName\Third Party Libs
 "
   }
 }

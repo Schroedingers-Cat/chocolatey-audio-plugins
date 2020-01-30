@@ -22,11 +22,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>uhe-zebra2</id>
+    <id>uhe-hive</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.9.9709</version>
+    <version>2.0.9709</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,23 +34,23 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Zebra 2 (Install)</title>
+    <title>Hive (Install)</title>
     <authors>u-he</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://u-he.com/products/zebra2/</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/b695ca94b0b4c3825450d24e027a79bc80e211dc/Icons/u-he/zebra2.png</iconUrl>
+    <projectUrl>http://www.u-he.com/cms/hive</projectUrl>
+    <iconUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins/blob/cea53d40c0ed5cabb4a17af985954f315bce6bea/Icons/u-he/hive2.png</iconUrl>
     <copyright>2019 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/zebra2/Zebra2-user-guide.pdf</docsUrl>
+    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/hive/Hive-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>zebra audio u-he vst synthesizer aax admin trial</tags>
+    <tags>hive audio u-he vst synthesizer aax admin trial</tags>
     <summary>A virtual-analog synthesizer by u-he.</summary>
-<description>Zebra2: A synth of all stripes
-Zebra2 is a sound-design playground. The powerful, high quality (but still CPU friendly) sound engine and the numerous sound sculpting tools make Zebra2 capable of a near-limitless range of new sounds and textures. A favourite amongst soundtrack composers, producers and sound designers, Zebra2 provides all the tools you need—the rest is up to you.
+<description> Hive: Built for fast results
+With its effortless workflow and low processor usage, you can create your patches in next to no time at all. Hive is quick and uncomplicated but that doesn’t mean sacrificing flexibility, sound quality or creativity. It's packed with features and controls - with a dazzling character that delivers stunning sound.
 
 ## Package Specific
 
@@ -72,7 +72,7 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install uhe-zebra2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
+choco install uhe-hive --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
 ```
     </description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
@@ -90,7 +90,10 @@ choco install uhe-zebra2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:Co
   </metadata>
   <files>
     <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\**" target="tools" />
+    <file src="tools\chocolateyinstall.ps1" target="tools" />
+    <file src="tools\chocolateyuninstall.ps1" target="tools" />
+    <file src="tools\chocolateyfunctions.ps1" target="tools" />
+    <file src="tools\chocolateyvariables.ps1" target="tools" />
     <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
   </files>
 </package>
