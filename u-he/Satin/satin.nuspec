@@ -22,11 +22,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>uhe-mfm2</id>
+    <id>uhe-satin</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.2.1.20200131</version>
+    <version>1.3.1.20200131</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,23 +34,23 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>MFM2 (Install)</title>
+    <title>Satin (Install)</title>
     <authors>u-he</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://u-he.com/products/mfm2</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/cea53d40c0ed5cabb4a17af985954f315bce6bea/Icons/u-he/mfm2.png</iconUrl>
+    <projectUrl>http://www.u-he.com/products/satin</projectUrl>
+    <iconUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins/blob/a38c089d2a528cb75df73ef9ea46269589782c91/Icons/u-he/satin.png</iconUrl>
     <copyright>2019 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/mfm2/MFM2-user-guide.pdf</docsUrl>
+    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/repro/Repro-1-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>mfm2 more feedback machine audio u-he vst effect delay aax admin trial</tags>
-    <summary>A virtual-analog delay effect by u-he.</summary>
-    <description>MFM2: More Feedback Machine
-MFM2 is an ultra-flexible delay unit. Manipulate, shape, modulate and filter to create subtle textures or wild tonal and rhythmic deconstructions. MFM2 offers as much control and inspiration as possible in a delay effect and the advanced options push things even further. More feedback, more control, more inspiration.
+    <tags>satin audio u-he vst effects aax admin trial</tags>
+    <summary>A recording tape simulator by u-he.</summary>
+<description>Satin: Tape machine
+Nothing else quite sounds like tape. Satin puts the legacy of tape recording in your hands: from top-of-the-line multi-track consoles to humble cassette decks. All the good (saturation, transient smoothing, compression) as well as the bad (noise modulation, flutter, hiss) qualities are under your control. Construct your (im)perfect tape machine.
 
 ## Package Specific
 
@@ -64,6 +64,7 @@ The following package parameters can be set:
  * `/NoAaxx86`        - Do not install the x86 AAX version
  * `/NoAaxx64`        - Do not install the x64 AAX version
  * `/NoPresets`       - Do not install factory presets
+ * `/NoNks`           - Do not install the nks integration
  * `/Vst2Path:`       - Installation path of the VST2 version
  * `/Vst2x86Path:`    - Installation path of the x86 VST2 version on x64 CPU architecture
  * `/UserFolderPath:` - Path of the user data (presets, settings, themes) to link outside factory data (optional)
@@ -71,10 +72,10 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install uhe-mfm2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
+choco install uhe-satin --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
 ```
     </description>
-    <releaseNotes>https://u-he.com/products/mfm2/releasenotes.html</releaseNotes>
+    <releaseNotes>https://u-he.com/products/satin/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
@@ -89,7 +90,10 @@ choco install uhe-mfm2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:Comm
   </metadata>
   <files>
     <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\**.ps1" target="tools" />
+    <file src="tools\chocolateyinstall.ps1" target="tools" />
+    <file src="tools\chocolateyuninstall.ps1" target="tools" />
+    <file src="tools\chocolateyfunctions.ps1" target="tools" />
+    <file src="tools\chocolateyvariables.ps1" target="tools" />
     <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
   </files>
 </package>

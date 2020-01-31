@@ -27,21 +27,21 @@ function CreateRegistryObjects () { $global:regKeys =
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts =
-  @{'linkPath'="$vst2Path";        'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64,32; 'validpp'="NoVst2x64","NoVst2x86"},
-  @{'linkPath'="$vst2x86BitAware"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst2x86"},
-  @{'linkPath'="$vst3Path";        'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64,32; 'validpp'="NoVst3x64","NoVst3x86"},
-  @{'linkPath'="$vst3x86BitAware"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst3x86"},
-  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
+  @{'linkPath'="$vst2Path";        'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64,32; 'validpp'="NoVst2x64","NoVst2x86"},
+  @{'linkPath'="$vst2x86BitAware"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64;    'validpp'="NoVst2x86"},
+  @{'linkPath'="$vst3Path";        'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64,32; 'validpp'="NoVst3x64","NoVst3x86"},
+  @{'linkPath'="$vst3x86BitAware"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64;    'validpp'="NoVst3x86"},
+  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64; 'validpp'="NoAaxx64"},
+  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
+  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$softwareName.data.lnk"; 'destPath'="$companyPath\$softwareName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\Repro-1";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\Repro-1";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\Repro-5";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\Repro-5";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\Repro-1";      'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\Repro-1";                   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\Repro-5";      'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\Repro-5";                   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$softwareName.data\UserPresets\Repro-1";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\Repro-1";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$softwareName.data\UserPresets\Repro-5";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\Repro-5";      'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$softwareName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$softwareName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$softwareName.data\Presets\Repro-1";      'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\Repro-1";                   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$softwareName.data\Presets\Repro-5";      'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\Repro-5";                   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -57,14 +57,14 @@ function CreateInstallerObjects () { $global:installerComponentsList =
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
   $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
-"$companyPath\$packageName.data\Data
-$companyPath\$packageName.data\Modules
-$companyPath\$packageName.data\NKS
-$companyPath\$packageName.data\Presets
-$companyPath\$packageName.data\PresetDatabase
-$companyPath\$packageName.data\license.txt
-$companyPath\$packageName.data\$softwareName user guide.pdf
-$companyPath\$packageName.data\Repro-5 user guide.pdf
+"$companyPath\$softwareName.data\Data
+$companyPath\$softwareName.data\Modules
+$companyPath\$softwareName.data\NKS
+$companyPath\$softwareName.data\Presets
+$companyPath\$softwareName.data\PresetDatabase
+$companyPath\$softwareName.data\license.txt
+$companyPath\$softwareName.data\$softwareName user guide.pdf
+$companyPath\$softwareName.data\Repro-5 user guide.pdf
 $vst2Path\$softwareName(x64).dll
 $vst2Path\$packageName-5(x64).dll
 $vst2Path\$softwareName.data.lnk
@@ -80,12 +80,12 @@ $aaxx86BitAware\$softwareName.aaxplugin"
   If (-not ($userFolderPath -eq "" -or $userFolderPath -eq $null)) {
     $global:PackageNewFiles["value"] +=
 "
-$companyPath\$packageName.data\Support
-$companyPath\$packageName.data\UserPresets\$softwareName\${env:username}
-$companyPath\$packageName.data\UserPresets\Repro-5\${env:username}
-$companyPath\$packageName.data\Tunefiles\${env:username}
-$companyPath\$packageName.data\Presets\Repro-1\Third Party Libs
-$companyPath\$packageName.data\Presets\Repro-5\Third Party Libs
+$companyPath\$softwareName.data\Support
+$companyPath\$softwareName.data\UserPresets\$softwareName\${env:username}
+$companyPath\$softwareName.data\UserPresets\Repro-5\${env:username}
+$companyPath\$softwareName.data\Tunefiles\${env:username}
+$companyPath\$softwareName.data\Presets\Repro-1\Third Party Libs
+$companyPath\$softwareName.data\Presets\Repro-5\Third Party Libs
 "
   }
 }

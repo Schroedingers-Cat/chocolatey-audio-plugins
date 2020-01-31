@@ -1,9 +1,9 @@
-﻿$packageName = 'Diva'
+﻿$packageName = 'Uhbik'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Diva_144_9709_Win.zip'
-$releases = 'https://u-he.com/products/diva/'
-$checksum32 = 'c0fd26ac2b5c97f36847598d36601328900de4d9fbf659506a544c2a1406716d'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Uhbik_131_3898_Win.zip'
+$releases = 'https://u-he.com/products/uhbik/'
+$checksum32 = '3687e5e721c53acc330d85690ee7c97a668aea8022683ab7a0d51bf1d3039163'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '144'
+$unzipInstVersion = '131'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
@@ -36,10 +36,16 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Runciter"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Runciter"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-A";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-A";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-D";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-D";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-F";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-F";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-G";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-G";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-P";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-P";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-Q";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-Q";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-S";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-S";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\Uhbik-T";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Uhbik-T";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                  'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";  'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -55,14 +61,27 @@ function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList
 function CreateTxtFileObjects () {
   $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
-$companyPath\$packageName.data\NKS
-$companyPath\$packageName.data\Presets
-$companyPath\$packageName.data\PresetDatabase
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$packageName user guide.pdf
-$vst2Path\$packageName(x64).dll
+$vst2Path\Runciter(x64).dll
+$vst2Path\Uhbik-A(x64).dll
+$vst2Path\Uhbik-D(x64).dll
+$vst2Path\Uhbik-F(x64).dll
+$vst2Path\Uhbik-G(x64).dll
+$vst2Path\Uhbik-P(x64).dll
+$vst2Path\Uhbik-Q(x64).dll
+$vst2Path\Uhbik-S(x64).dll
+$vst2Path\Uhbik-T(x64).dll
 $vst2Path\$packageName.data.lnk
-$vst2x86BitAware\$packageName.dll
+$vst2x86BitAware\Runciter.dll
+$vst2x86BitAware\Uhbik-A.dll
+$vst2x86BitAware\Uhbik-D.dll
+$vst2x86BitAware\Uhbik-F.dll
+$vst2x86BitAware\Uhbik-G.dll
+$vst2x86BitAware\Uhbik-P.dll
+$vst2x86BitAware\Uhbik-Q.dll
+$vst2x86BitAware\Uhbik-S.dll
+$vst2x86BitAware\Uhbik-T.dll
 $vst2x86BitAware\$packageName.data.lnk
 $vst3Path\$packageName(x64).vst3
 $vst3Path\$packageName.data.lnk
@@ -72,13 +91,7 @@ $aaxPath\$packageName.aaxplugin
 $aaxx86BitAware\$packageName.aaxplugin"
 ;'encoding'="UTF8"; 'bom'=$false; 'validpp'="Always"; 'bit'=64,32}
   If (-not ($userFolderPath -eq "" -or $userFolderPath -eq $null)) {
-    $global:PackageNewFiles["value"] +=
-"
-$companyPath\$packageName.data\Support
-$companyPath\$packageName.data\UserPresets\$packageName\${env:username}
-$companyPath\$packageName.data\Tunefiles\${env:username}
-$companyPath\$packageName.data\Presets\$packageName\Third Party Libs
-"
+    $global:PackageNewFiles["value"] += "`n$companyPath\$packageName.data\Support"
   }
 }
 function CreatePackageParametersObjects () {

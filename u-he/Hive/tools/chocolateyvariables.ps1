@@ -36,10 +36,10 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\$packageName"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important

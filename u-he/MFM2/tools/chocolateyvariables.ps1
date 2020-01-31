@@ -1,7 +1,7 @@
 ﻿$packageName = 'MFM2'
 $softwareName = "$packageName"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/MFM2_2_2_1_Win.zip'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/MFM2_221_3898_Win.zip'
 $releases = 'https://u-he.com/products/mfm2/'
 $checksum32 = '4e68ca9ecd6eade1bb6ede30a0b16ede49ac15018736760a199d82e3009321d5'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
@@ -36,8 +36,8 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\$packageName"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -54,7 +54,6 @@ function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList
 function CreateTxtFileObjects () {
   $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
-$companyPath\$packageName.data\Presets
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$softwareName user guide.pdf
 $vst2Path\$packageName(x64).dll
@@ -69,7 +68,7 @@ $aaxPath\$packageName.aaxplugin
 $aaxx86BitAware\$packageName.aaxplugin"
 ;'encoding'="UTF8"; 'bom'=$false; 'validpp'="Always"; 'bit'=64,32}
   If (-not ($userFolderPath -eq "" -or $userFolderPath -eq $null)) {
-    $global:PackageNewFiles["value"] += "`n$companyPath\$packageName.data\Support`n$companyPath\$packageName.data\UserPresets\$packageName\${env:username}"
+    $global:PackageNewFiles["value"] += "`n$companyPath\$packageName.data\Support`n$companyPath\$packageName.data\Presets\$packageName\${env:username}"
   }
 }
 function CreatePackageParametersObjects () {

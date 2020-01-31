@@ -37,10 +37,10 @@ function CreateShortcutObjects () { $global:shortcuts =
 }
 function CreateSymlinkObjects () {
   $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\$packageName"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";            'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";              'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";     'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";     'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -58,6 +58,7 @@ function CreateTxtFileObjects () {
 "$companyPath\$packageName.data\Data
 $companyPath\$packageName.data\Extras
 $companyPath\$packageName.data\NKS
+$companyPath\$softwareName.data\Presets
 $companyPath\$packageName.data\PresetDatabase
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$packageName user guide.pdf
@@ -76,7 +77,7 @@ $aaxx86BitAware\$packageName.aaxplugin"
     $global:PackageNewFiles["value"] +=
 "
 $companyPath\$packageName.data\Support
-$companyPath\$packageName.data\Presets\$packageName\${env:username}
+$companyPath\$packageName.data\UserPresets\$packageName\${env:username}
 $companyPath\$packageName.data\Tunefiles\${env:username}
 $companyPath\$packageName.data\Presets\$packageName\Third Party Libs
 "

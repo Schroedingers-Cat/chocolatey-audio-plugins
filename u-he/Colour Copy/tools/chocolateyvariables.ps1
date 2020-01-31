@@ -1,9 +1,9 @@
-﻿$packageName = 'Diva'
-$softwareName = "${packageName}"
+﻿$packageName = 'ColourCopy'
+$softwareName = "Colour Copy"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Diva_144_9709_Win.zip'
-$releases = 'https://u-he.com/products/diva/'
-$checksum32 = 'c0fd26ac2b5c97f36847598d36601328900de4d9fbf659506a544c2a1406716d'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/ColourCopy_10_7675_Win.zip'
+$releases = 'https://u-he.com/products/colour-copy/'
+$checksum32 = '05bb8c897a03421d82568808160fae69b3e8a4666762f96e01ab3d5eced80cff'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '144'
+$unzipInstVersion = '10'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
@@ -36,10 +36,8 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -49,7 +47,8 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
   @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
-  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"}
+  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"},
+  @{'value'="nks";       'bit'=64,32; 'validpp'="NoPresets"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
@@ -59,7 +58,7 @@ $companyPath\$packageName.data\NKS
 $companyPath\$packageName.data\Presets
 $companyPath\$packageName.data\PresetDatabase
 $companyPath\$packageName.data\license.txt
-$companyPath\$packageName.data\$packageName user guide.pdf
+$companyPath\$packageName.data\$softwareName user guide.pdf
 $vst2Path\$packageName(x64).dll
 $vst2Path\$packageName.data.lnk
 $vst2x86BitAware\$packageName.dll
@@ -72,13 +71,7 @@ $aaxPath\$packageName.aaxplugin
 $aaxx86BitAware\$packageName.aaxplugin"
 ;'encoding'="UTF8"; 'bom'=$false; 'validpp'="Always"; 'bit'=64,32}
   If (-not ($userFolderPath -eq "" -or $userFolderPath -eq $null)) {
-    $global:PackageNewFiles["value"] +=
-"
-$companyPath\$packageName.data\Support
-$companyPath\$packageName.data\UserPresets\$packageName\${env:username}
-$companyPath\$packageName.data\Tunefiles\${env:username}
-$companyPath\$packageName.data\Presets\$packageName\Third Party Libs
-"
+    $global:PackageNewFiles["value"] += "`n$companyPath\$packageName.data\Support`n$companyPath\$packageName.data\UserPresets\$packageName\${env:username}"
   }
 }
 function CreatePackageParametersObjects () {
