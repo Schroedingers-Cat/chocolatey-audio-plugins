@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>essence</id>
+    <version>1.09</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Essence (Install)</title>
+    <authors>DMGAudio</authors>
+    <projectUrl>https://dmgaudio.com/products_essence.php</projectUrl>
+    <iconUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins/blob/b8d3132e04017c26ba9d108c81a1b90a725743c1/Icons/DMGAudio/essence.png</iconUrl>
+    <docsUrl>https://dmgaudio.com/dl/DMGAudio_Essence_Manual.pdf</docsUrl>
+    <tags>essence vst aax audio mixing admin trial</tags>
+    <summary>A de-esser plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
+    <copyright>2011-2019 DMGAudio</copyright>
+    <description>
+# Essence
+## Description
+Essence is the most powerful and transparent De-Esser in the world. It's much more than just a vocal de-esser; it's a flexible sub-band processor that can reach in and invisibly control any element in a mix. For the first time in audio software history, Essence provides the power to de-ess a full mix with all of the adaptability and subtlety of hardware.
+
+## Package Specific
+
+### Package Parameters
+The following package parameters can be set:
+
+* `/Vst2Path:` - Installation path of the VST2 version
+* `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+* `/Vst3Path:` - Installation path of the VST3 version
+* `/Vst3x86Path:` - Installation path of the x86 VST3 version on x64 CPU architecture
+* `/CompanyPath:` - Path of the company to put all program files in. Override if you want to have all the program files at a custom location.
+* `/InstallerPath:` - Do not download the installer from the official website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your computer.
+
+You must pass the package parameters like this:
+```
+choco install essence --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\DMGAudio '"
+```
+    </description>
+    <releaseNotes>https://dmgaudio.com/products_essence.php#history</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\chocolateyinstall.ps1" target="tools" />
+    <file src="tools\chocolateyuninstall.ps1" target="tools" />
+    <file src="tools\chocolateyfunctions.ps1" target="tools" />
+    <file src="tools\chocolateyvariables.ps1" target="tools" />
+  </files>
+</package>

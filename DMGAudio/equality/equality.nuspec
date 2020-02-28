@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>equality</id>
+    <version>1.35</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>EQuality (Install)</title>
+    <authors>DMGAudio</authors>
+    <projectUrl>https://dmgaudio.com/products_equality.php</projectUrl>
+    <iconUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins/blob/b8d3132e04017c26ba9d108c81a1b90a725743c1/Icons/DMGAudio/equality.png</iconUrl>
+    <docsUrl>https://dmgaudio.com/dl/DMGAudio_EQuality_Manual.pdf</docsUrl>
+    <tags>equality vst aax audio mixing admin trial</tags>
+    <summary>An equalizer plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
+    <copyright>2011-2019 DMGAudio</copyright>
+    <description>
+# Equality
+## Description
+EQuality has been designed to be the perfect EQ to let your mixdowns shine. Something for every track of your session. For it to sound at least as good as any high-end console or rack gear, and with all the features and functionality that digital brings.
+
+## Package Specific
+
+### Package Parameters
+The following package parameters can be set:
+
+* `/Vst2Path:` - Installation path of the VST2 version
+* `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+* `/Vst3Path:` - Installation path of the VST3 version
+* `/Vst3x86Path:` - Installation path of the x86 VST3 version on x64 CPU architecture
+* `/CompanyPath:` - Path of the company to put all program files in. Override if you want to have all the program files at a custom location.
+* `/InstallerPath:` - Do not download the installer from the official website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your computer.
+
+You must pass the package parameters like this:
+```
+choco install equality --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\DMGAudio '"
+```
+    </description>
+    <releaseNotes>https://dmgaudio.com/products_equality.php#history</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\chocolateyinstall.ps1" target="tools" />
+    <file src="tools\chocolateyuninstall.ps1" target="tools" />
+    <file src="tools\chocolateyfunctions.ps1" target="tools" />
+    <file src="tools\chocolateyvariables.ps1" target="tools" />
+  </files>
+</package>
