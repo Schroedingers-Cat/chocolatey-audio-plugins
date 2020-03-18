@@ -65,11 +65,24 @@ function CreateRegKey ($regKeyObject) {
   }
 
   if($regKeyObject.execute -eq $true) {
+    # Determine value type
+    if (${regKeyObject}.value -is [String]) {
+      $registryValueType = "String"
+      Write-Debug("Registry value type is String.")
+    } elseif (${regKeyObject}.value -is [Int32]) {
+      $registryValueType = "DWORD"
+      Write-Debug("Registry value type is DWORD.")
+    } else {
+      $registryValueType = "String"
+      Write-Warning("Registry value type unknown. Using String as type.")
+    }
+
+    # Write reg key
     if($regKeyObject.key -eq '') {
-      New-Item -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
+      New-Item -PropertyType $registryValueType -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
     } else {
       if (Test-Path ${regKeyObject}.path) { } else { New-Item ${regKeyObject}.path -force }
-      New-ItemProperty -Type String -Path ${regKeyObject}.path -Name ${regKeyObject}.key -Value ${regKeyObject}.value -force
+      New-ItemProperty -PropertyType $registryValueType -Path ${regKeyObject}.path -Name ${regKeyObject}.key -Value ${regKeyObject}.value -force
     }
   }
 }
