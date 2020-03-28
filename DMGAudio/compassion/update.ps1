@@ -1,9 +1,9 @@
 $packageName = 'Compassion'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/Compassion_v1.21/CompassionWin_v1.21.zip'
+$url32        = 'https://dmgaudio.com/dl/Compassion_v1.20/CompassionWin_v1.20.zip'
 $releases = 'https://dmgaudio.com/products_compassion.php'
-$checksum32 = '74033e031b2e0ad7e2bcf740cc8f61515d5fa85efe6cf8971952d2a80e3e38ba'
+$checksum32 = '4cf8ec16e19518664e8f4da23202fc311d5b1e871ba3ac08fcdc4d554f5a6da3'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.21'
+$unzipInstVersion = '1.20'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

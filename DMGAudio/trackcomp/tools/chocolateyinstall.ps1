@@ -11,6 +11,8 @@ if(Test-Path Env:\ChocolateyPackageFolder) {
   . ((Get-Item -Path ".\" -Verbose).FullName + "\tools\chocolateyvariables.ps1")
 }
 
+# Check for any settings from previous installations of this package
+CheckPreviousInstallerSettings
 # Get default values that may or may not be already on the machein
 GetDefaultValues
 
@@ -53,9 +55,10 @@ CreatePackageParametersObjects
 DetermineExecutionOfAllObjects($installerComponentsList)
 Foreach ($item in $installerComponentsList)  { CreateInstallerParameters($item) }
 
-# Now that the package parameters (from possibly previous installations) have been evaluated
-# as well as the installer components, we pick default values for any settings without overrides
-PickDefaultValuesFromSystem
+# Now that previous settings have been gathered, the package parameters have been evaluated
+# as well as the installer components, it's time to determine which settings will be used
+#  during installation
+CheckPreviousInstallerSettingsAgainstParameters
 
 # Decision to use previous values or package parameters have been made. Whatever it is, finalize and append to installer call.
 Foreach ($item in $packageParametersObjectsList) { HandlePackageArgs($item)     }
