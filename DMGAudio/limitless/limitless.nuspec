@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>limitless</id>
-    <version>1.11</version>
+    <version>1.11.20200329</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Limitless (Install)</title>
     <authors>DMGAudio</authors>
     <projectUrl>https://dmgaudio.com/products_limitless.php</projectUrl>
-    <iconUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins/blob/b8d3132e04017c26ba9d108c81a1b90a725743c1/Icons/DMGAudio/limitless.png</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/b8d3132e04017c26ba9d108c81a1b90a725743c1/Icons/DMGAudio/limitless.png</iconUrl>
     <docsUrl>https://dmgaudio.com/dl/DMGAudio_Limitless_Manual.pdf</docsUrl>
     <tags>limitless vst aax audio mixing admin trial</tags>
     <summary>A limiter plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
