@@ -1,9 +1,9 @@
-﻿$packageName    = 'Crunchessor'
+﻿$packageName    = 'Marvel GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCrunchessor_213_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/crunchessor/'
-$checksum32     = 'a743db44615c8ff60516575bb74d1856c24942f7938aa8ee90800b56a68dae65'
+$url32          = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_17_Win32_64_VST_VST3_AAX_setup.exe'
+$releases       = 'https://www.voxengo.com/product/marvel-geq/'
+$checksum32     = 'b3fb97b92f1c783224172fc4068ab57ff7bc3e7c6b98f43daef0248cbc329cf8'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
