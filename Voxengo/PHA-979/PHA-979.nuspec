@@ -22,7 +22,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>voxengo-tube-amp</id>
+    <id>voxengo-pha-979</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
@@ -34,23 +34,23 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Voxengo Tube Amp (Install)</title>
+    <title>Voxengo PHA-979 (Install)</title>
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://www.voxengo.com/product/tubeamp/</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/23056ac31f41c1bb044e523bdc5e790cf80331ea/Icons/Voxengo/TubeAmp.png</iconUrl>
+    <projectUrl>https://www.voxengo.com/product/pha979/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/84e4652ba31753ce18f5b4a9dc6032a80afe4e73/Icons/Voxengo/pha-979.png</iconUrl>
     <copyright>2002-2020 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoTubeAmp_en.pdf/getbyname/Voxengo%20Tube%20Amp%20User%20Guide%20en.pdf</docsUrl>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoPHA979_en.pdf/getbyname/Voxengo%20PHA-979%20User%20Guide%20en.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>tube-amp distortion vst aax audio mixing mastering recording free</tags>
-    <summary>A distortion plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
+    <tags>pha-979 phase shift vst aax audio mixing mastering recording trial</tags>
+    <summary>A phase shift plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
     <description>
-Tube Amp is an audio effect AU and VST plugin that applies asymmetric tube triode overdrive usually found in single-tube microphone pre-amp boxes.  The sound this plugin produces varies from a mild “warm” overdrive to a fuzzy distortion.
+PHA-979 is a professional audio AU and VST plugin which allows you to apply an arbitrary phase shift to sound material.  What is meant by the phase shift here is simultaneous shifting of all frequencies across the active frequency range of the signal by the given value in degrees.  This is achieved by linear-phase design.
 
 ## Package Specific
 
@@ -71,7 +71,7 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install voxengo-tube-amp --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
+choco install voxengo-pha-979 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
 ```
     </description>
     <releaseNotes>http://www.voxengo.com/press/</releaseNotes>

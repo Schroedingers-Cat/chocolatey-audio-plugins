@@ -337,32 +337,40 @@ function RunInstallerWithPackageParametersObject ($packageParameterObject) {
   $installerDownload = (($packageParameterObject.url -ne $null) -Or ($packageParameterObject.url64 -ne $null))
   $installerDownloadExe = (($packageParameterObject.url -ne $null) -And ($packageParameterObject.url).EndsWith(".exe"))
   Write-Debug ("This is the InstallerPath Variable: " + $pp["InstallerPath"])
-  Write-Debug ("Installer embedded path: " + ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file))
-  Write-Debug ("Installer embedded path: " + ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file64))
-  if(Test-Path variable:packageParameterObject.url]) {Write-Debug ("Installer url: " + $packageParameterObject.url)}
-  if($installerDownloadExe -eq $true) {Write-Debug "Installer is exe"}
 
   if($installerPathViaPP -eq $true) {
+    Write-Debug "Installer overridden via package parameter"
     $packageParameterObject["file"] = $fileLocation
     Install-ChocolateyInstallPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-install-package
+    return
   }
 
   if($installerEmbedded -eq $true) {
+    Write-Debug "Installer is embedded"
     $packageParameterObject.file = ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file)
     $packageParameterObject.file64 = ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file64)
-    Write-Debug ("Installer embedded path: " + $packageParameterObject.file)
+    Write-Debug ("Installer (32 bit referenced) embedded path: " + $packageParameterObject.file)
+    Write-Debug ("Installer (64 bit referenced) embedded path: " + $packageParameterObject.file64)
     Install-ChocolateyInstallPackage @packageParameterObject
+    return
   }
 
   if($installerDownload -eq $true -And $installerPathViaPP -eq $false) {
-    if($installerDownloadExe -eq $true) { "Installer is exe, running now..."
+    Write-Debug ("Installer needs to be downloaded from " + $packageParameterObject.url)
+    if($installerDownloadExe -eq $true) { 
+      Write-Debug "Installer is exe, running now..."
       Install-ChocolateyPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-package
-    } else { Write-Debug "Installer inside zip"; Write-Debug ("UnzipLocation is: " + $packageParameterObject.unzipLocation)
+    } else { 
+      Write-Debug "Installer inside zip"
+      Write-Debug ("UnzipLocation is: " + $packageParameterObject.unzipLocation)
       $packageParameterObject["file"] = $fileLocation
       Install-ChocolateyZipPackage @packageParameterObject
       Install-ChocolateyInstallPackage @packageParameterObject
     }
+    return
   }
+
+  Write-Warning ("No installer found!");
 }
 
 function RemoveInstallerObjects ($packageParameterObject) {
@@ -554,6 +562,7 @@ function CreateFileList ($packagePaths, $targetPath) {
   }
 }
 function CreateDataArchive ($packagePaths, $targetPath) {
+  # This cmdlet does not include hidden files/folders https://github.com/PowerShell/Microsoft.PowerShell.Archive/issues/66
   Compress-Archive $packagePaths $targetPath -CompressionLevel Optimal -Force
 }
 
