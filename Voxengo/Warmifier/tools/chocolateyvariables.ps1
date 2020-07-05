@@ -1,9 +1,9 @@
-﻿$packageName    = 'Voxformer'
+﻿$packageName    = 'Warmifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoVoxformer_218_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/voxformer/'
-$checksum32     = 'ca5c33caefe0c2d8529c8683e9817272d03e747d0c43025f5446f53c8087f925'
+$url32          = 'https://www.voxengo.com/files/VoxengoWarmifier_24_Win32_64_VST_VST3_AAX_setup.exe'
+$releases       = 'https://www.voxengo.com/product/warmifier/'
+$checksum32     = 'aaa563f0b61f3bfad03c5cfb21364a727ce0cb8c3879cc560b971ecc2d2a0667'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -18,7 +18,7 @@ function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts }
 function CreateSymlinkObjects () {
   if($pp["CompanyPath"] -ne $false) {
-    $global:linkUserDataSupport = @{'linkPath'="$standardCompanyPath"; 'linkName'=""; 'destPath'=$global:companyPath; 'bit'=64,32; 'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"}
+    $global:linkUserDataSupport = @{'linkPath'="$standardCompanyPath"; 'linkName'=""; 'destPath'=$companyPath; 'bit'=64,32; 'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"}
     $global:symlinks = $linkUserDataSupport
   } else {
     $global:symlinks
