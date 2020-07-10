@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Elephant'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoElephant_410_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoElephant_411_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/elephant/'
-$checksum32     = '602f80972b697464825e323390ab01ff15156b737b463b448e449c7cb7ef4ef0'
+$checksum32     = 'cdd9b40354dc32373061f2cd8b1845e54a4aa8e316660d4b30ed16b72f14e68c'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -12,11 +12,7 @@ function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
   $global:regKeys =
   @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_64";  'value'="$vst2Path";        'bit'=64;    'validpp'="NoVst2x64"},
-  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_32";  'value'="$vst2x86BitAware"; 'bit'=64,32; 'validpp'="NoVst2x86"},
-  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="CompanyPath";          'value'="$global:companyPath";          'bit'=64,32;  'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"},
-  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="Vst64Path";            'value'="$global:vst2Path";             'bit'=64;     'validpp'="NoVst2x64"},
-  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="Vst32Path";            'value'="$global:vst2x86BitAware";      'bit'=64,32;  'validpp'="NoVst2x86"},
-  @{'path'="HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"; 'key'="InstallerComponents";  'value'="$global:installerComponents";  'bit'=64,32;  'validpp'="Always"}
+  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_32";  'value'="$vst2x86BitAware"; 'bit'=64,32; 'validpp'="NoVst2x86"}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts }
