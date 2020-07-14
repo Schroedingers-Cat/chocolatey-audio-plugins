@@ -135,41 +135,6 @@ function CreateTxtFiles ($txtFileObject) {
 
 <#
 .SYNOPSIS
-Check for settings of previously run installer
-#>
-function CheckPreviousInstallerSettings() {
-  $registryKey = "HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"
-  $registryNames = @("CompanyPath", "Vst64Path", "Vst32Path", "UserFolderPath", "InstallerComponents")
-
-  If (!(Test-Path -Path $registryKey)) {
-    Write-Debug ("Registry key $registryKey is NULL")
-    return
-  }
-  Foreach ($name in $registryNames) {
-    $value = Get-ItemProperty -Path $registryKey -ErrorAction SilentlyContinue | Select-Object -ExpandProperty $name -ErrorAction SilentlyContinue
-    If (![string]::IsNullOrWhiteSpace($value)) {
-      If ($name -eq "CompanyPath") {
-        $global:prevCompanyPath = $value
-      }
-      If ($name -eq "Vst64Path") {
-        $global:prevVst64Path = $value
-      }
-      If ($name -eq "Vst32Path") {
-        $global:prevVst32Path = $value
-      }
-      If ($name -eq "UserFolderPath") {
-        $global:prevUserFolderPath = $value
-      }
-      If ($name -eq "InstallerComponents") {
-        $global:prevInstallerComponents = $value
-      }
-      Write-Debug ("Value found: " + $value)
-    }
-  }
-}
-
-<#
-.SYNOPSIS
 Checks for default installer values
 #>
 function GetDefaultValues () {
@@ -186,36 +151,24 @@ function GetDefaultValues () {
 }
 <#
 .SYNOPSIS
-Picks one of the found default, previous and current installer settings
+If default values were found (for instance in the registry) and no overrides have been given, set default installer settings
 
 .DESCRIPTION
-Picks one of the found default, previous and current installer settings. Priority is:
-1. Package parameters (by checking for a given package parameter)
-2. Previous parameters (by using the prev variable)
-3. System default hint used by installer (by using the default variable)
-4. Installer default (by doing nothing)
+If default values were found (for instance in the registry) and no overrides have been given, set default installer settings
 
 #>
-function CheckPreviousInstallerSettingsAgainstParameters () {
+function PickDefaultValuesFromSystem () {
   If ([string]::IsNullOrWhiteSpace($pp["Vst2Path"])) {
     If (![string]::IsNullOrWhiteSpace($global:vst2DefaultPath)) {
-      Write-Debug("Overwriting Vst2Path with vst2DefaultPath: " + $vst2DefaultPath)
+      Write-Debug("Overwriting VST2 path with value found in registry: " + $vst2DefaultPath)
       $global:vst2Path = $global:vst2DefaultPath
-    }
-    If ($global:prevVst64Path) {
-      Write-Debug("Overwriting Vst2Path with prevVst64Path: " + $prevVst64Path)
-      $global:vst2Path = $global:prevVst64Path
     }
   }
 
   If ([string]::IsNullOrWhiteSpace($pp["Vst2x86Path"])) {
     If (![string]::IsNullOrWhiteSpace($global:vst2x86_64DefaultPath)) {
-      Write-Debug("Overwriting Vst2x86Path with vst2x86_64DefaultPath: " + $global:vst2x86_64DefaultPath)
+      Write-Debug("Overwriting VST2x86 path with value found in registry: " + $global:vst2x86_64DefaultPath)
       $global:vst2x86_64Path = $global:vst2x86_64DefaultPath
-    }
-    If ($global:prevVst32Path) {
-      Write-Debug("Overwriting Vst2x86Path with prevVst32Path: " + $global:prevVst32Path)
-      $global:vst2x86_64Path = $global:prevVst32Path
     }
   }
 
@@ -230,29 +183,6 @@ function CheckPreviousInstallerSettingsAgainstParameters () {
         Write-Debug("AutoInstDetectionCompanyPath: " + $autoInstDetectionCompanyPath)
         $global:companyPath = $autoInstDetectionCompanyPath
       }
-    }
-
-    If ($global:prevCompanyPath) {
-      Write-Debug("prevCompanyPath: " + $prevCompanyPath)
-      $global:companyPath = $prevCompanyPath
-    }
-  }
-
-  If ([string]::IsNullOrWhiteSpace($pp["UserFolderPath"])) {
-    If ($prevUserFolderPath) {
-      Write-Debug("UserFolderPath: " + $prevUserFolderPath)
-      $userFolderPath = $prevUserFolderPath
-    }
-  }
-  # If the user has not given any package parameters to control the installer components (-> expects default)
-  # but there has been found a previous configuration of installed components, we ignore the default configuration
-  # and use the previous configuration
-  If (![string]::IsNullOrWhiteSpace($global:prevInstallerComponents)) {
-    If ( $pp["NoVst2x86"] -Or $pp["NoVst2x64"] -Or $pp["NoVst3x86"] -Or $pp["NoVst3x64"] -Or $pp["NoAaxx86"] -Or $pp["NoAaxx64"] -Or $pp["NoRtas"] -Or $pp["NoPresets"] -Or $pp["NoNks"] ) {
-      Write-Debug ("Components: Previous configuration found but package parameters override have been set so ignoring previous configuration.")
-    } else {
-      $global:installerComponents = $global:prevInstallerComponents
-      Write-Debug ("Components: Previous configuration found, using for installation now.")
     }
   }
 }
@@ -298,7 +228,7 @@ function ResolvePath($target) {
 
 <#
 .SYNOPSIS
-Checks if given an array of paths has an entry with a kind of link and returns teh first value resolved
+Checks if given an array of paths has an entry with a kind of link and returns the first value resolved
 
 .DESCRIPTION
 Checks if a given an array of paths it checks for link and returns the first value resolved. Also returns the first path if it's a directory or a file. Returns $null if nothing exists.
@@ -709,5 +639,5 @@ Comment added because reviewer asked to do so.
 #>
 function CreateUninstallFile () {
   # Create empty uninstall file
-Out-File -FilePath ($env:ChocolateyPackageFolder + "\uninstall.txt")
+  Out-File -FilePath ($env:ChocolateyPackageFolder + "\uninstall.txt")
 }
