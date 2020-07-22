@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Drumformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoDrumformer_18_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoDrumformer_19_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/drumformer/'
-$checksum32     = '39cfdab129d2d55efecbac4e650a04d2bdf5c28b4e157a734676c5f58784e387'
+$checksum32     = '8a02823ea048ecd7a0f8a2c0ac1a70c28d6f35478b26e8210b4c36cde8fb7d77'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
