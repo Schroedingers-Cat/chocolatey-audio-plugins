@@ -1,9 +1,9 @@
 ﻿$packageName    = 'r8brain PRO'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/Voxengor8brainPRO_27_Win64_setup.exe'
+$url32          = 'https://www.voxengo.com/files/Voxengor8brainPRO_28_Win64_setup.exe'
 $releases       = 'https://www.voxengo.com/product/r8brainpro/'
-$checksum32     = '4149e3fb87139b1a95618d1e2e2f707ca834b8d8923834eef1bdb021a567ab20'
+$checksum32     = '62438562d4442a57fc0462235f1aac3d6be9ffde0d3720c38fbed3989bd9c348'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 
 function CreateRegistryObjects () {
