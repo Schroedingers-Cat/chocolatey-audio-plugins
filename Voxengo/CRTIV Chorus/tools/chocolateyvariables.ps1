@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CRTIV Chorus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVChorus_13_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVChorus_14_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crtivchorus/'
-$checksum32     = 'f5d441983269ab074e9327d5a92661591b1a62ca60048d2173ffdd38a8a8a993'
+$checksum32     = '17be8c4e4adf999b599f9e366d4fbc34fe649b8eafcfb2ad90ed3745344af547'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

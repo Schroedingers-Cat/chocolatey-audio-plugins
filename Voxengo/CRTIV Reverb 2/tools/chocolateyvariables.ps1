@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CRTIV Reverb 2'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVReverb2_22_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVReverb2_23_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crtivreverb/'
-$checksum32     = '4f1c8b0a937f3d51021f5d4823e1ff836b00ab3a0d62b2fbd589977eb81bb14b'
+$checksum32     = 'f44477b71ddd54dc1c7a38bf408eb553e087548774a6d5f0d4fb9d03c8af6f37'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
