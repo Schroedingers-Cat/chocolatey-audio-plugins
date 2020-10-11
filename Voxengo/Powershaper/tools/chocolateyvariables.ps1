@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Powershaper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPowershaper_12_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPowershaper_13_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/powershaper/'
-$checksum32     = '461ebbf86d9b6bfb551cc0457965d41144e92189fa6aeccf70892c8ef5376a51'
+$checksum32     = '3e6e435b56bfea05d250f0268b4c0cbd353b484efa21e1f86b33f52c3eb7d218'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

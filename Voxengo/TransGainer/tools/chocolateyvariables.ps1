@@ -1,9 +1,9 @@
 ﻿$packageName    = 'TransGainer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTransGainer_110_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoTransGainer_111_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/transgainer/'
-$checksum32     = 'de9bc4a16601462ac27677c742650e63602af316dab8c482c324630d6f668d7a'
+$checksum32     = '1eb8839a93ba6f00e208654c211044614e72ee3538a3314dfd2095840f73a07d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

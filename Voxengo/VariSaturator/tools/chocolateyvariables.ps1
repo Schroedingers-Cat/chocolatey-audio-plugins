@@ -1,9 +1,9 @@
 ﻿$packageName    = 'VariSaturator'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoVariSaturator_21_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoVariSaturator_22_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/varisaturator/'
-$checksum32     = '45944788e6ace4535646fddc6c0f0a7a915067b8fa02433185d0f96eeda9f428'
+$checksum32     = '368c3b7f8ab29ed294302b6be5f38fe3da9d63a1a77e603d42d306c6a473dc4c'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
