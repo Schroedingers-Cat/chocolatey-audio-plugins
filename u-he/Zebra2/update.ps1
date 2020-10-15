@@ -1,9 +1,9 @@
 $packageName = 'Zebra2'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_291_9709_Win.zip'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_292_10374_Win.zip'
 $releases = 'https://u-he.com/products/zebra2/'
-$checksum32 = '73b9e0b4bc5e07716bb6af7029e32d48e639e590a9984efa1260e5cb6f397541'
+$checksum32 = '0e628dd77a0635d68dad8db1e36fa323d90a30b2591d4ca1c77c380d564030ef'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '291'
+$unzipInstVersion = '292'
 $unzInstPath = "${packageName}_Win\Zebra${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
@@ -125,25 +125,25 @@ function InstallerCompanyPathAutomaticDetection () {
 import-module au
 
 function global:au_GetLatest {
-     $download_page = Invoke-WebRequest -Uri $releases #1
-     $regex   = "$zipSuffix" + '$'
-     $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href #2
-     $version = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -First 1
-    #  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the build number included (1.4.6987 
-    #  is a higher version number than 1.4.1.8978) so drop the build number alltogether
-    #  $build = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
-     $stringLength = $version | measure-object -character | select -expandproperty characters
-     $i = $stringLength
-     while($i -gt 1) {
-       $version = $version.ToString().Insert($i-1,'.')
-       $i = $i -1
-     }
-     $global:workaroundPackageName = ("uhe-" + (Split-Path -Leaf $PSScriptRoot)).ToLower() -replace '\s+', '-'
-     return @{ Version = $version; URL32 = $url; PackageName = $workaroundPackageName }
+  $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases #1
+  $regex   = "$zipSuffix" + '$'
+  $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href #2
+  $version = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -First 1
+#  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the build number included (1.4.6987 
+#  is a higher version number than 1.4.1.8978) so drop the build number alltogether
+#  $build = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
+  $stringLength = $version | measure-object -character | select -expandproperty characters
+  $i = $stringLength
+  while($i -gt 1) {
+    $version = $version.ToString().Insert($i-1,'.')
+    $i = $i -1
+  }
+  $global:workaroundPackageName = ("uhe-" + (Split-Path -Leaf $PSScriptRoot)).ToLower() -replace '\s+', '-'
+  return @{ Version = $version; URL32 = $url; PackageName = $workaroundPackageName }
 }
 
 function global:au_BeforeUpdate() {
-   $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
+  $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
 }
 
 function global:au_SearchReplace {
