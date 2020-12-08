@@ -1,9 +1,9 @@
 $packageName = 'Zebra2'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_292_10374_Win.zip'
+$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_292_10409_Win.zip'
 $releases = 'https://u-he.com/products/zebra2/'
-$checksum32 = '0e628dd77a0635d68dad8db1e36fa323d90a30b2591d4ca1c77c380d564030ef'
+$checksum32 = 'e5449a6025b3b904f1281f975be6801851d882940c9d36504778e5ea4823bd0a'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
