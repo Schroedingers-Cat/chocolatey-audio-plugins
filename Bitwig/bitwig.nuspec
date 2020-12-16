@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>bitwig</id>
-    <version>3.3.0</version>
+    <version>3.3.1</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Bitwig (Install)</title>
@@ -15,7 +15,7 @@
     <!-- <licenseUrl>Software License Location __REMOVE_OR_FILL_OUT__</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>-->
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://dash.bitwig.com/documentation/Bitwig%20Studio%20User%20Guide%20English.pdf</docsUrl>
+    <docsUrl>https://www.bitwig.com/pery/download/14</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>bitwig admin daw digital audio workstation</tags>
@@ -34,7 +34,7 @@ Here's a quick overview of what Bitwig Studio is all about:
 
 Bitwig Studio inspires you to take greater control of your music, giving you access to every aspect of your production. Streamline your creative process and quickly evolve your ideas into complete songs, tracks, and compositions. Record and arrange, improvise and perform, or do it all at once. Welcome to the next generation of music creation and performance software.
 </description>
-    <releaseNotes>https://downloads.bitwig.com/stable/3.3/Release-Notes-3.3.html</releaseNotes>
+    <releaseNotes>https://downloads.bitwig.com/stable/3.3.1/Release-Notes-3.3.1.html</releaseNotes>
     <!-- =============================== -->      
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
