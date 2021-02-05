@@ -1,9 +1,9 @@
-﻿$packageName    = 'Boogex'
+﻿$packageName    = 'Overtone GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBoogex_33_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/boogex/'
-$checksum32     = '541b516f5fc6644731376aadd8b06fe4195b49eecbf707cf0d573b5e215cc459'
+$url32          = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_114_Win32_64_VST_VST3_AAX_setup.exe'
+$releases       = 'https://www.voxengo.com/product/overtone-geq/'
+$checksum32     = '8f23668f9bce8d26b2c27e20a5a790dbf9a8cf17d524330b1ba6716bdaa27f92'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,14 +11,14 @@ $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
   $global:regKeys =
-  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_64";  'value'="$global:vst2Path"; 'bit'=64;    'validpp'="NoVst2x64"},
-  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_32";  'value'="$global:vst2x86BitAware"; 'bit'=64,32; 'validpp'="NoVst2x86"}
+  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_64";  'value'="$vst2Path";        'bit'=64;    'validpp'="NoVst2x64"},
+  @{'path'="HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key'="DirVST2_32";  'value'="$vst2x86BitAware"; 'bit'=64,32; 'validpp'="NoVst2x86"}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts }
 function CreateSymlinkObjects () {
   if($pp["CompanyPath"] -ne $false) {
-    $global:linkUserDataSupport = @{'linkPath'="$standardCompanyPath"; 'linkName'=""; 'destPath'=$global:companyPath; 'bit'=64,32; 'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"}
+    $global:linkUserDataSupport = @{'linkPath'="$standardCompanyPath"; 'linkName'=""; 'destPath'=$companyPath; 'bit'=64,32; 'validpp'="NoVst2x64", "NoVst2x86", "NoVst3x64", "NoVst3x86", "NoAaxx86", "NoAaxx64"}
     $global:symlinks = $linkUserDataSupport
   } else {
     $global:symlinks
