@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Overtone GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_114_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_115_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/overtone-geq/'
-$checksum32     = '8f23668f9bce8d26b2c27e20a5a790dbf9a8cf17d524330b1ba6716bdaa27f92'
+$checksum32     = '056075d0a5cb161f57055d63cd82f1bff2e1a99c50f3c3a9cbb3bc7fc4391e44'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
