@@ -1,9 +1,9 @@
 ﻿$packageName    = 'GlissEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoGlissEQ_313_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoGlissEQ_314_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/glisseq/'
-$checksum32     = '5fe185884c42350cd9604bda41839b00992ab875dd7816df8bc5256d1e898e35'
+$checksum32     = 'ddea3c52d410cc5a7b11e15d18ebb2298bb6f48191fabd89e0d8e8a6922ac4c9'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

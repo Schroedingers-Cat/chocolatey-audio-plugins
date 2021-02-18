@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Stereo Touch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoStereoTouch_213_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoStereoTouch_214_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/stereotouch/'
-$checksum32     = '96b5387b3e36411f40ff0275611ed0c47f1e827bea1609add73983cb491a87c6'
+$checksum32     = '8154402c50976f248330c7eef859bce4dbbffdd7dab48825b7546338ef94fbc8'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
