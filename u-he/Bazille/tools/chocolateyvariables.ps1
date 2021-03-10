@@ -49,8 +49,7 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
   @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
-  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"},
-  @{'value'="nks";       'bit'=64,32; 'validpp'="NoNks"}
+  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {

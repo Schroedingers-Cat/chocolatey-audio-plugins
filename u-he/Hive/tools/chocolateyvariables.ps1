@@ -1,9 +1,9 @@
 ﻿$packageName = 'Hive'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Hive_201_9709_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Hive_21_11037_Win.zip'
 $releases = 'https://u-he.com/products/hive/'
-$checksum32 = 'a15a15e6a3e98406901b7bfd7ce8813a4ace1da8fb1c671e04755d2d73bdb14b'
+$checksum32 = 'b3ede965b0cc9e487bd7b4a915f25c082a0dc504f37494bdfc3ad5f13b57b0f1'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '201'
+$unzipInstVersion = '21'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
@@ -49,17 +49,23 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
   @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
-  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"}
+  @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"},
+  @{'value'="nks";       'bit'=64,32; 'validpp'="NoNks"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
   $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
+$companyPath\$packageName.data\Documentation
 $companyPath\$packageName.data\NKS
 $companyPath\$packageName.data\Presets
 $companyPath\$packageName.data\PresetDatabase
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$packageName user guide.pdf
+$companyPath\$packageName.data\Hive Wavetables.pdf
+$companyPath\$packageName.data\u-he Hive 2 Upgrade.pdf
+$companyPath\$packageName.data\$packageName readme.rtf
+$companyPath\$packageName.data\$packageName Preset Contributors.rtf
 $vst2Path\$packageName(x64).dll
 $vst2Path\$packageName.data.lnk
 $vst2x86BitAware\$packageName.dll
