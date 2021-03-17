@@ -1,9 +1,9 @@
 ﻿$packageName = 'Dualism'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/Dualism_v1.12/DualismWin_v1.12.zip'
+$url32        = 'https://dmgaudio.com/dl/Dualism_v1.13/DualismWin_v1.13.zip'
 $releases = 'https://dmgaudio.com/products_dualism.php'
-$checksum32 = 'd680b55a2596ddf6e6e67306fb46c8bf5cb8f5877dd2c02734c71700e55b6ea7'
+$checksum32 = 'aeb9046e6fbfe7c83de353121bf26bed5f0f194e833040bc76a6d3ca8e01c129'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.12'
+$unzipInstVersion = '1.13'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

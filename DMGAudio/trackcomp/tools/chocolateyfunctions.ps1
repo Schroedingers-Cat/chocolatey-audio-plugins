@@ -65,11 +65,24 @@ function CreateRegKey ($regKeyObject) {
   }
 
   if($regKeyObject.execute -eq $true) {
+    # Determine value type
+    if (${regKeyObject}.value -is [String]) {
+      $registryValueType = "String"
+      Write-Debug("Registry value type is String.")
+    } elseif (${regKeyObject}.value -is [Int32]) {
+      $registryValueType = "DWORD"
+      Write-Debug("Registry value type is DWORD.")
+    } else {
+      $registryValueType = "String"
+      Write-Warning("Registry value type unknown. Using String as type.")
+    }
+
+    # Write reg key
     if($regKeyObject.key -eq '') {
-      New-Item -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
+      New-Item -PropertyType $registryValueType -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
     } else {
       if (Test-Path ${regKeyObject}.path) { } else { New-Item ${regKeyObject}.path -force }
-      New-ItemProperty -Type String -Path ${regKeyObject}.path -Name ${regKeyObject}.key -Value ${regKeyObject}.value -force
+      New-ItemProperty -PropertyType $registryValueType -Path ${regKeyObject}.path -Name ${regKeyObject}.key -Value ${regKeyObject}.value -force
     }
   }
 }
@@ -135,41 +148,6 @@ function CreateTxtFiles ($txtFileObject) {
 
 <#
 .SYNOPSIS
-Check for settings of previously run installer
-#>
-function CheckPreviousInstallerSettings() {
-  $registryKey = "HKLM:\\SOFTWARE\chocolatey\$env:ChocolateyPackageName"
-  $registryNames = @("CompanyPath", "Vst64Path", "Vst32Path", "UserFolderPath", "InstallerComponents")
-
-  If (!(Test-Path -Path $registryKey)) {
-    Write-Debug ("Registry key $registryKey is NULL")
-    return
-  }
-  Foreach ($name in $registryNames) {
-    $value = Get-ItemProperty -Path $registryKey -ErrorAction SilentlyContinue | Select-Object -ExpandProperty $name -ErrorAction SilentlyContinue
-    If (![string]::IsNullOrWhiteSpace($value)) {
-      If ($name -eq "CompanyPath") {
-        $global:prevCompanyPath = $value
-      }
-      If ($name -eq "Vst64Path") {
-        $global:prevVst64Path = $value
-      }
-      If ($name -eq "Vst32Path") {
-        $global:prevVst32Path = $value
-      }
-      If ($name -eq "UserFolderPath") {
-        $global:prevUserFolderPath = $value
-      }
-      If ($name -eq "InstallerComponents") {
-        $global:prevInstallerComponents = $value
-      }
-      Write-Debug ("Value found: " + $value)
-    }
-  }
-}
-
-<#
-.SYNOPSIS
 Checks for default installer values
 #>
 function GetDefaultValues () {
@@ -186,36 +164,24 @@ function GetDefaultValues () {
 }
 <#
 .SYNOPSIS
-Picks one of the found default, previous and current installer settings
+If default values were found (for instance in the registry) and no overrides have been given, set default installer settings
 
 .DESCRIPTION
-Picks one of the found default, previous and current installer settings. Priority is:
-1. Package parameters (by checking for a given package parameter)
-2. Previous parameters (by using the prev variable)
-3. System default hint used by installer (by using the default variable)
-4. Installer default (by doing nothing)
+If default values were found (for instance in the registry) and no overrides have been given, set default installer settings
 
 #>
-function CheckPreviousInstallerSettingsAgainstParameters () {
+function PickDefaultValuesFromSystem () {
   If ([string]::IsNullOrWhiteSpace($pp["Vst2Path"])) {
     If (![string]::IsNullOrWhiteSpace($global:vst2DefaultPath)) {
-      Write-Debug("Overwriting Vst2Path with vst2DefaultPath: " + $vst2DefaultPath)
+      Write-Debug("Overwriting VST2 path with value found in registry: " + $vst2DefaultPath)
       $global:vst2Path = $global:vst2DefaultPath
-    }
-    If ($global:prevVst64Path) {
-      Write-Debug("Overwriting Vst2Path with prevVst64Path: " + $prevVst64Path)
-      $global:vst2Path = $global:prevVst64Path
     }
   }
 
   If ([string]::IsNullOrWhiteSpace($pp["Vst2x86Path"])) {
     If (![string]::IsNullOrWhiteSpace($global:vst2x86_64DefaultPath)) {
-      Write-Debug("Overwriting Vst2x86Path with vst2x86_64DefaultPath: " + $global:vst2x86_64DefaultPath)
+      Write-Debug("Overwriting VST2x86 path with value found in registry: " + $global:vst2x86_64DefaultPath)
       $global:vst2x86_64Path = $global:vst2x86_64DefaultPath
-    }
-    If ($global:prevVst32Path) {
-      Write-Debug("Overwriting Vst2x86Path with prevVst32Path: " + $global:prevVst32Path)
-      $global:vst2x86_64Path = $global:prevVst32Path
     }
   }
 
@@ -230,29 +196,6 @@ function CheckPreviousInstallerSettingsAgainstParameters () {
         Write-Debug("AutoInstDetectionCompanyPath: " + $autoInstDetectionCompanyPath)
         $global:companyPath = $autoInstDetectionCompanyPath
       }
-    }
-
-    If ($global:prevCompanyPath) {
-      Write-Debug("prevCompanyPath: " + $prevCompanyPath)
-      $global:companyPath = $prevCompanyPath
-    }
-  }
-
-  If ([string]::IsNullOrWhiteSpace($pp["UserFolderPath"])) {
-    If ($prevUserFolderPath) {
-      Write-Debug("UserFolderPath: " + $prevUserFolderPath)
-      $userFolderPath = $prevUserFolderPath
-    }
-  }
-  # If the user has not given any package parameters to control the installer components (-> expects default)
-  # but there has been found a previous configuration of installed components, we ignore the default configuration
-  # and use the previous configuration
-  If (![string]::IsNullOrWhiteSpace($global:prevInstallerComponents)) {
-    If ( $pp["NoVst2x86"] -Or $pp["NoVst2x64"] -Or $pp["NoVst3x86"] -Or $pp["NoVst3x64"] -Or $pp["NoAaxx86"] -Or $pp["NoAaxx64"] -Or $pp["NoRtas"] -Or $pp["NoPresets"] -Or $pp["NoNks"] ) {
-      Write-Debug ("Components: Previous configuration found but package parameters override have been set so ignoring previous configuration.")
-    } else {
-      $global:installerComponents = $global:prevInstallerComponents
-      Write-Debug ("Components: Previous configuration found, using for installation now.")
     }
   }
 }
@@ -298,7 +241,7 @@ function ResolvePath($target) {
 
 <#
 .SYNOPSIS
-Checks if given an array of paths has an entry with a kind of link and returns teh first value resolved
+Checks if given an array of paths has an entry with a kind of link and returns the first value resolved
 
 .DESCRIPTION
 Checks if a given an array of paths it checks for link and returns the first value resolved. Also returns the first path if it's a directory or a file. Returns $null if nothing exists.
@@ -394,32 +337,40 @@ function RunInstallerWithPackageParametersObject ($packageParameterObject) {
   $installerDownload = (($packageParameterObject.url -ne $null) -Or ($packageParameterObject.url64 -ne $null))
   $installerDownloadExe = (($packageParameterObject.url -ne $null) -And ($packageParameterObject.url).EndsWith(".exe"))
   Write-Debug ("This is the InstallerPath Variable: " + $pp["InstallerPath"])
-  Write-Debug ("Installer embedded path: " + ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file))
-  Write-Debug ("Installer embedded path: " + ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file64))
-  if(Test-Path variable:packageParameterObject.url]) {Write-Debug ("Installer url: " + $packageParameterObject.url)}
-  if($installerDownloadExe -eq $true) {Write-Debug "Installer is exe"}
 
   if($installerPathViaPP -eq $true) {
+    Write-Debug "Installer overridden via package parameter"
     $packageParameterObject["file"] = $fileLocation
     Install-ChocolateyInstallPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-install-package
+    return
   }
 
   if($installerEmbedded -eq $true) {
+    Write-Debug "Installer is embedded"
     $packageParameterObject.file = ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file)
     $packageParameterObject.file64 = ($env:ChocolateyPackageFolder + "\" + $packageParameterObject.file64)
-    Write-Debug ("Installer embedded path: " + $packageParameterObject.file)
+    Write-Debug ("Installer (32 bit referenced) embedded path: " + $packageParameterObject.file)
+    Write-Debug ("Installer (64 bit referenced) embedded path: " + $packageParameterObject.file64)
     Install-ChocolateyInstallPackage @packageParameterObject
+    return
   }
 
   if($installerDownload -eq $true -And $installerPathViaPP -eq $false) {
-    if($installerDownloadExe -eq $true) { "Installer is exe, running now..."
+    Write-Debug ("Installer needs to be downloaded from " + $packageParameterObject.url)
+    if($installerDownloadExe -eq $true) { 
+      Write-Debug "Installer is exe, running now..."
       Install-ChocolateyPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-package
-    } else { Write-Debug "Installer inside zip"; Write-Debug ("UnzipLocation is: " + $packageParameterObject.unzipLocation)
+    } else { 
+      Write-Debug "Installer inside zip"
+      Write-Debug ("UnzipLocation is: " + $packageParameterObject.unzipLocation)
       $packageParameterObject["file"] = $fileLocation
       Install-ChocolateyZipPackage @packageParameterObject
       Install-ChocolateyInstallPackage @packageParameterObject
     }
+    return
   }
+
+  Write-Warning ("No installer found!");
 }
 
 function RemoveInstallerObjects ($packageParameterObject) {
@@ -611,6 +562,7 @@ function CreateFileList ($packagePaths, $targetPath) {
   }
 }
 function CreateDataArchive ($packagePaths, $targetPath) {
+  # This cmdlet does not include hidden files/folders https://github.com/PowerShell/Microsoft.PowerShell.Archive/issues/66
   Compress-Archive $packagePaths $targetPath -CompressionLevel Optimal -Force
 }
 
@@ -709,5 +661,5 @@ Comment added because reviewer asked to do so.
 #>
 function CreateUninstallFile () {
   # Create empty uninstall file
-Out-File -FilePath ($env:ChocolateyPackageFolder + "\uninstall.txt")
+  Out-File -FilePath ($env:ChocolateyPackageFolder + "\uninstall.txt")
 }

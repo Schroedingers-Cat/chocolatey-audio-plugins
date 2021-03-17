@@ -1,9 +1,9 @@
 ﻿$packageName = 'TrackDS'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/TrackDS_v1.06/TrackDSWin_v1.06.zip'
+$url32        = 'https://dmgaudio.com/dl/TrackDS_v1.07/TrackDSWin_v1.07.zip'
 $releases = 'https://dmgaudio.com/products_trackds.php'
-$checksum32 = 'a876d2f7518503d837833287e2c0760a4a8a4c6ef74da8d85c286931efeed349'
+$checksum32 = '89da7753b3f47a58b5f2597621881e7924d7ab59ab179f25a3ed0d6748fb4c57'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.06'
+$unzipInstVersion = '1.07'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

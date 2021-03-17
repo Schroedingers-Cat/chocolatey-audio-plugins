@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>trackmeter</id>
-    <version>1.06</version>
+    <version>1.07</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>TrackMeter (Install)</title>
@@ -12,7 +12,7 @@
     <docsUrl>https://dmgaudio.com/dl/DMGAudio_TrackRange_Manual.pdf</docsUrl>
     <tags>trackmeter vst aax audio mixing admin trial</tags>
     <summary>A simple meter plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
-    <copyright>2011-2019 DMGAudio</copyright>
+    <copyright>2011-2021 DMGAudio</copyright>
     <description>
 # TrackMeter
 ## Description
