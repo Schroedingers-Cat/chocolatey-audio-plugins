@@ -44,7 +44,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVReverb2_en.pdf/getbyname/Voxengo%20CRTIV%20Reverb%202%20User%20Guide%20en.pdf</docsUrl>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVReverb_en.pdf/getbyname/Voxengo%20CRTIV%20Reverb%20User%20Guide%20en.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>crtiv-reverb-2 reverb vst aax audio mixing mastering recording trial</tags>
