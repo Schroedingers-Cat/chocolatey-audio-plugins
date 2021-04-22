@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CRTIV Shumovick'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVShumovick_12_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVShumovick_13_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crtivshumovick/'
-$checksum32     = 'b21696b17638883d3ec0c785853266176c457af1ead56c16069597b0d9205ce5'
+$checksum32     = 'c6908a91f0f412ffa500346aec0e36a1394ad8af46de8692d2986a88121dd11d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
