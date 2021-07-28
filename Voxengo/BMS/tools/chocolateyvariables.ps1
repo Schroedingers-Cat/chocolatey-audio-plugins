@@ -1,9 +1,9 @@
 ﻿$packageName    = 'BMS'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBMS_24_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoBMS_25_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/bms/'
-$checksum32     = '98fa6e9c1062d16695849eb2733027754aa04903eac0c5d59297b4c723079c3d'
+$checksum32     = 'b35ac7d99e31f4654967c230e36791f628fb0acae33298722337cfc80883bb3a'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
