@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Marquis Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_25_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_26_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/marquiscomp/'
-$checksum32     = '4521ef4e6fd1a3750f6023ca233f06452ff15f8dcff3e173dd15deb1657f1d4b'
+$checksum32     = '8eae1438a94bd9bd8987e6bf89188222adbabc9acb610a3414fc140049f6bc46'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
