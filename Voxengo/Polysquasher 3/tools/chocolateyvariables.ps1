@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Polysquasher 3'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPolysquasher3_32_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPolysquasher_33_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/psquasher/'
-$checksum32     = '4d41d2798ab59117581482d67109d98c03e08fee1f51fd400f89d8fb0976b392'
+$checksum32     = 'a2a1bc9817839ae030ad36db103bb9541878ada344e3bcc9fad5b1ff33485f70'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
