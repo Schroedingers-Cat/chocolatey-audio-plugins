@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CRTIV Tape Bus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_15_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_16_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crtivtapebus/'
-$checksum32     = '10e01ba8cdf6cbfe704fcea1c8f22f9e1dc086a97edb853f56f7d43031b5424f'
+$checksum32     = '2a36d8e37326028a793cb08f8b0431564a22ff2dca1468043ff16ecdfee78dc4'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

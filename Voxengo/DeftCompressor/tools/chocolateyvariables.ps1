@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Deft Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoDeftCompressor_110_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoDeftCompressor_111_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/deftcompressor/'
-$checksum32     = '9500eef857663f3d6192d062fa1d6a4d3437de43c5241c2e2d759aa80aa5795a'
+$checksum32     = '9968fc840fbcac4f35ea8561a06c1cd2492952bfc5aee28e48e67d0dab48b978'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Shinechilla'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoShinechilla_12_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoShinechilla_13_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/shinechilla/'
-$checksum32     = 'ab84c1cc059c031f1a83c6cf5a72a058a18e661a96c66f6bfa057390458ba8e1'
+$checksum32     = 'c44cc5a80ca045eec4798fed1ba94bdb45874706f7b9e141d89f4574b469fa7d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
