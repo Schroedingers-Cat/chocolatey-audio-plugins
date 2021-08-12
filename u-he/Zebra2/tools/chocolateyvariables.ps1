@@ -1,9 +1,9 @@
 ﻿$packageName = 'Zebra2'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Zebra2_292_10409_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Zebra2_293_12092_Win.zip'
 $releases = 'https://u-he.com/products/zebra2/'
-$checksum32 = 'e5449a6025b3b904f1281f975be6801851d882940c9d36504778e5ea4823bd0a'
+$checksum32 = '8bb230da402c516acb829346d57f9567d125d7be0610352546dfb7cdc0718fe0'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '292'
+$unzipInstVersion = '293'
 $unzInstPath = "${packageName}_Win\Zebra${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

@@ -1,9 +1,9 @@
 ﻿$packageName = 'ColourCopy'
 $softwareName = "Colour Copy"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/ColourCopy_10_7675_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/ColourCopy_101_12092_Win.zip'
 $releases = 'https://u-he.com/products/colour-copy/'
-$checksum32 = '05bb8c897a03421d82568808160fae69b3e8a4666762f96e01ab3d5eced80cff'
+$checksum32 = '05cc1ffd7bcbdd14c4eac223d4584b8eb9ed4ed55049f0714e788ee85a16e978'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '10'
+$unzipInstVersion = '101'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

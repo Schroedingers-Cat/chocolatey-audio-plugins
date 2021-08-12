@@ -1,9 +1,9 @@
 ﻿$packageName = 'Presswerk'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Presswerk_114_8347_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Presswerk_115_12092_Win.zip'
 $releases = 'https://u-he.com/products/presswerk/'
-$checksum32 = '015e05260e20b89cc2d325ce6946d4af4a4235863d7f7ed81edf51c56a047006'
+$checksum32 = 'ae5cdd1c0d5f88e2c36775e870f10dfa35a2f1073d5dc5ed0293e82e18fa0f7e'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -16,7 +16,7 @@ $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
 $zipSuffix = "Win.zip"
-$unzipInstVersion = '114'
+$unzipInstVersion = '115'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 
 # This needs to be wrapped into a function so this object also has the data from the package parameters

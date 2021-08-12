@@ -1,9 +1,9 @@
 ﻿$packageName = 'Diva'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Diva_144_9709_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Diva_145_12092_Win.zip'
 $releases = 'https://u-he.com/products/diva/'
-$checksum32 = 'c0fd26ac2b5c97f36847598d36601328900de4d9fbf659506a544c2a1406716d'
+$checksum32 = '9c8ee1177758262ab633df50f2a97e1e2e3c41dfb95e125c81ab64fa22aa22cb'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '144'
+$unzipInstVersion = '145'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

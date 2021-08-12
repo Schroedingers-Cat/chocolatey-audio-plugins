@@ -1,9 +1,9 @@
 ﻿$packageName = 'Hive'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Hive_21_11037_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Hive_211_12092_Win.zip'
 $releases = 'https://u-he.com/products/hive/'
-$checksum32 = 'b3ede965b0cc9e487bd7b4a915f25c082a0dc504f37494bdfc3ad5f13b57b0f1'
+$checksum32 = 'ff63d84e2ad59c00bf374ae223f09f6438dc78851d73f058bc6c14bfc9ae643c'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '21'
+$unzipInstVersion = '211'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

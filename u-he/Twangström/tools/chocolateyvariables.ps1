@@ -1,9 +1,9 @@
 ﻿$packageName = 'Twangstrom'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Twangstrom_10_8189_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Twangstrom_101_12092_Win.zip'
 $releases = 'https://u-he.com/products/twangstrom/'
-$checksum32 = '8614b2dc4d39df8c397c73f45f403832e8765bf48857c1389af6ee80df2c1900'
+$checksum32 = '2329d06a90c2b2a521a730d75a181a7099a04c43a711c7239683c3f71629e827'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '10'
+$unzipInstVersion = '101'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

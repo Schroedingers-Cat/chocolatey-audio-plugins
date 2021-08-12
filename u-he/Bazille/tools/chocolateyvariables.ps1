@@ -1,9 +1,9 @@
 ﻿$packageName = 'Bazille'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Bazille_111_10693_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Bazille_112_12092_Win.zip'
 $releases = 'https://u-he.com/products/bazille/'
-$checksum32 = 'bd9f4552c52e1acaa2044474696d166b3bc2d0483a01195adf965c9aa9b06127'
+$checksum32 = '07639d030f6128a48c07068f67438d93f52d34706dd5c92e0e57f31e954bc554'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '111'
+$unzipInstVersion = '112'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

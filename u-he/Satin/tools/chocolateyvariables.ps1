@@ -1,9 +1,9 @@
 ﻿$packageName = 'Satin'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Satin_131_7414_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Satin_132_12092_Win.zip'
 $releases = 'https://u-he.com/products/satin/'
-$checksum32 = '06846bf95dddffb0ee4b7aa3dfb2c775daab08ab055ca27f487fa23635288216'
+$checksum32 = 'e7d78e88f468b3804b95c2684d664f725e2e3cb0dfb6604b96c798039003a826'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '131'
+$unzipInstVersion = '132'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

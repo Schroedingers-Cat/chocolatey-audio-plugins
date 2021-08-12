@@ -1,9 +1,9 @@
 ﻿$packageName = 'Repro'
 $softwareName = "Repro-1"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/Repro_111_9669_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Repro_112_12092_Win.zip'
 $releases = 'https://u-he.com/products/repro/'
-$checksum32 = '99ddff0387d581d03347786620cb3749af334ac9e185abacca0fac417fbfada6'
+$checksum32 = '9720268c6c2ca769ccd9dd383f2114bb3c1ec0aa3b0a949ffa17a8ecf4e4a418'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '111'
+$unzipInstVersion = '112'
 $unzInstPath = "Repro-1_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 

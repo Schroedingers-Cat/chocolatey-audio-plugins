@@ -1,9 +1,9 @@
 ﻿$packageName = 'ACE'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/ACE_141_9709_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/ACE_142_12092_Win.zip'
 $releases = 'https://u-he.com/products/ace/'
-$checksum32 = '4f599659cec37df5a8f4ce84e28201d36583ece670ec00ba85152e6dba10360e'
+$checksum32 = '148db0dba7bd6a2bc4a7b4af032e212952f1aed78cbaf369f0dbe07ef4a814d9'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -15,7 +15,7 @@ $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '141'
+$unzipInstVersion = '142'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
