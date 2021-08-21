@@ -1,9 +1,9 @@
 ﻿$packageName    = 'PrimeEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPrimeEQ_15_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPrimeEQ_16_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/primeeq/'
-$checksum32     = '4242d914f7d434ccbdc2857cd8b594d9e2b45540a32dd463f3770ca7e0973094'
+$checksum32     = 'f47e112744d420a2309f296581f1cfb41c84653b0913e8e9feccca69dcba91cd'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
