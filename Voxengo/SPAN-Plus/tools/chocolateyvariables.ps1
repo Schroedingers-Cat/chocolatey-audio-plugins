@@ -1,9 +1,9 @@
 ﻿$packageName    = 'SPAN Plus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSPANPlus_114_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoSPANPlus_116_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/spanplus/'
-$checksum32     = '04c5cb92bfc1f5d85b38cf378c57aa716f800e5f455ad078fe3f174812ad76fe'
+$checksum32     = '3a6090cdb481a6ec36cfaa1965c5f99d05b0b2d4fd026f831a1caf69032cbc27'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
