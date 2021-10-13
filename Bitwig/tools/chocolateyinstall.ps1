@@ -2,8 +2,8 @@
 
 $packageName= 'Bitwig'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64  = 'https://www.bitwig.com/dl/?id=452&os=installer_windows'
-$checksum64 = '895e1e01f2a3e41d923eafab7aa3ed9b8a3931a255326b3ae67b283c254a304b'
+$url64  = 'https://www.bitwig.com/dl/?id=453&os=installer_windows'
+$checksum64 = '1fc2f086376789841a5de5d391da661d95b2ca9c73572c0d9ec51aa883931859'
 
 $packageArgs = @{
   packageName   = $packageName
