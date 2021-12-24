@@ -1,7 +1,7 @@
 import-module au
 
 function global:au_GetLatest {
-    $releases = "https://www.bitwig.com/en/previous_releases.html"
+    $releases = "https://www.bitwig.com/previous_releases/"
     $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases
     $regex   = '.installer_windows$'
     $url     = $download_page.links | Where-Object href -match $regex | Select-Object -First 1 -expand href
