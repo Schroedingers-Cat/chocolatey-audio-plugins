@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Boogex'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBoogex_33_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoBoogex_35_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/boogex/'
-$checksum32     = '541b516f5fc6644731376aadd8b06fe4195b49eecbf707cf0d573b5e215cc459'
+$checksum32     = '9db2b85978e21e16e88ca28198eed0358d837f71b50658a9fd9d47a57d337504'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
