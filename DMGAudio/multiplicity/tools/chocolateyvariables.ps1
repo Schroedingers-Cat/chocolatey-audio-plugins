@@ -1,9 +1,9 @@
 ﻿$packageName = 'Multiplicity'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/Multiplicity_v1.08/MultiplicityWin_v1.08.zip'
+$url32        = 'https://dmgaudio.com/dl/Multiplicity_v1.09/MultiplicityWin_v1.09.zip'
 $releases = 'https://dmgaudio.com/products_multiplicity.php'
-$checksum32 = 'f2618d0d39d7c5fc6b85a2ea978980191050baf2ef420dccc420522579fe9205'
+$checksum32 = '570df612ce11d0b0f6c5509f9f40752ad8000256cfe1a7647231d4ef473c182f'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.08'
+$unzipInstVersion = '1.09'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

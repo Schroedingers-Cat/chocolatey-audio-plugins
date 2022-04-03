@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>pitchfunk</id>
-    <version>1.19</version>
+    <version>1.20</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>PitchFunk (Install)</title>
@@ -12,7 +12,7 @@
     <docsUrl>https://dmgaudio.com/dl/DMGAudio_PitchFunk_Manual.pdf</docsUrl>
     <tags>pitchfunk vst aax audio mixing admin trial</tags>
     <summary>An effects plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
-    <copyright>2011-2021 DMGAudio</copyright>
+    <copyright>2011-2022 DMGAudio</copyright>
     <description>
 # PitchFunk
 ## Description
@@ -33,8 +33,10 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install pitchfunk --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\DMGAudio '"
+$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\DMG Audio"
+choco install pitchfunk --package-parameters "'/Vst2x86Path:$VST2x86 '"
 ```
+Using envornment variables to express directories is the preferred way.
     </description>
     <releaseNotes>https://dmgaudio.com/products_pitchfunk.php#history</releaseNotes>
     <dependencies>

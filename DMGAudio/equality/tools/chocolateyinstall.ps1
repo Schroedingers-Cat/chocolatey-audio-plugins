@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop';
 $toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzPath = "${env:TEMP}"
 $osBitness = Get-ProcessorBits
-if(Test-Path Env:\ChocolateyPackageFolder) {
+if((Test-Path Env:\ChocolateyPackageFolder) -And (Test-Path $env:ChocolateyPackageFolder\tools\chocolateyfunctions.ps1)) {
   . $env:ChocolateyPackageFolder\tools\chocolateyfunctions.ps1
   . $env:ChocolateyPackageFolder\tools\chocolateyvariables.ps1
 } else {

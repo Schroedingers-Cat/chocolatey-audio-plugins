@@ -1,9 +1,9 @@
 ﻿$packageName = 'EQuick'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/EQuick_v1.20/EQuickWin_v1.20.zip'
+$url32        = 'https://dmgaudio.com/dl/EQuick_v1.21/EQuickWin_v1.21.zip'
 $releases = 'https://dmgaudio.com/products_equick.php'
-$checksum32 = 'dbaa823af15271483f2503e32fa22abe01855f0522fde74f89ff2950e0517c8f'
+$checksum32 = 'e51692adae52b4d1cfd8bbbecfe60db7dc49fa89063c98ba427aea70a4020c44'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.20'
+$unzipInstVersion = '1.21'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

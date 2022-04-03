@@ -22,5 +22,5 @@ function global:au_SearchReplace {
     }
 }
 
-update -ChecksumFor none
+update -ChecksumFor all
 Move-Item (${packageName} + "*" + ".nupkg") ..\ -Force

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>trackcomp</id>
-    <version>2.04</version>
+    <version>2.05</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>TrackComp (Install)</title>
@@ -11,7 +11,7 @@
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/77265b607c7ae20e4f199be94862ad54a2c8da41/DMGAudio/trackcomp.png</iconUrl>
     <docsUrl>https://dmgaudio.com/dl/DMGAudio_TrackComp_Manual.pdf</docsUrl>
     <tags>trackcomp vst aax audio mixing admin trial</tags>
-    <copyright>2011-2021 DMGAudio</copyright>
+    <copyright>2011-2022 DMGAudio</copyright>
     <summary>A compressor plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
     <description>
 # trackcomp
@@ -34,8 +34,10 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install trackcomp --package-parameters "'/Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\DMGAudio '"
+$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\DMG Audio"
+choco install trackcomp --package-parameters "'/Vst2x86Path:$VST2x86 '"
 ```
+Using envornment variables to express directories is the preferred way.
     </description>
     <releaseNotes>https://dmgaudio.com/products_trackcomp.php#history</releaseNotes>
     <dependencies>

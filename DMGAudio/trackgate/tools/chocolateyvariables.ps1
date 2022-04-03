@@ -1,9 +1,9 @@
 ﻿$packageName = 'TrackGate'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/TrackGate_v1.08/TrackGateWin_v1.08.zip'
+$url32        = 'https://dmgaudio.com/dl/TrackGate_v1.09/TrackGateWin_v1.09.zip'
 $releases = 'https://dmgaudio.com/products_trackgate.php'
-$checksum32 = 'ad0f967d0745885e49b1cfdc5b821af41c6db0ced9c19e81ecca12a3bc1235f7'
+$checksum32 = 'e66111c3a9a9ab4d38392fc4a1c6dfa328a7a3c37a09544a89d58e14f16070ea'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.08'
+$unzipInstVersion = '1.09'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters
