@@ -22,7 +22,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>voxengo-crtiv-reverb-2</id>
+    <id>voxengo-sobor</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
@@ -34,29 +34,29 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>[Deprecated] Voxengo CRTIV Reverb 2 (Install)</title>
+    <title>Voxengo Sobor</title>
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://www.voxengo.com/product/crtivreverb/</projectUrl>
+    <projectUrl>https://www.voxengo.com/product/sobor/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/0d3b35cee8b9ccf97f0f419045f0ea519e6ed3c0/Icons/Voxengo/sobor.png</iconUrl>
     <copyright>2002-2022 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVReverb_en.pdf/getbyname/Voxengo%20CRTIV%20Reverb%20User%20Guide%20en.pdf</docsUrl>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoSobor_en.pdf/getbyname/Voxengo%20Sobor%20User%20Guide%20en.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>crtiv-reverb-2 reverb vst aax audio mixing mastering recording trial</tags>
+    <tags>sobor reverb vst aax audio mixing mastering recording trial</tags>
     <summary>A reverb plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
     <description>
-Deprecation note: Package has been deprecated to reflect Voxengo's rebranding from `CRTIV Reverb 2` to `Sobor`. 
+Sobor is a stereo reverberation effect AU, AAX, and VST plugin for professional music production applications.  This reverb plugin provides a wide palette of reverb spaces while requiring only a minimal effort to obtain useful results.  The tails created by this reverb are very dense and produce a well-defined spatialization.  Since the reverb uses a kind of “true-stereo” algorithm the panned sounds receive a good stereo field placement.  We believe Sobor provides one of the lushest and widest reverb tails available on the market.
 
-CRTIV Reverb is a stereo reverberation effect AAX, AudioUnit and VST plugin for professional music production applications.  This reverb plug-in provides a wide palette of reverb spaces while requiring only a minimal effort to obtain useful results.  The tails created by this reverb are very dense and produce a well-defined spatialization.  Since the reverb uses a kind of “true stereo” algorithm the panned sounds receive a good stereo field placement.  We believe CRTIV Reverb provides one of the lushest reverb tails available on the market.
+Beside producing a shining reverb sound at medium and larger space settings, Sobor is equally great-sounding at ultra-small space settings, going as far as being able to imitate guitar cabinet sound at 100% wet setting.  Sobor can even be used to “re-cabinet” a bass-guitar sound yielding very natural results.
 
-The early reflections placement, pre-delay and levels are chosen automatically based on a pre-defined model that depends on the “Room Size” and “Ambience” parameters.  CRTIV Reverb is technically based on Feedback Delay Network building blocks using the Hadamard matrix, and uses self-modulation techniques.
+The early reflections placement and reverb levels are chosen automatically based on a pre-defined model that depends on the “Size” and “Ambience” parameters.  Additionally, the user may specify the “Pre-Delay” and “Stereo width” parameters.  Sobor is technically based on Feedback Delay Networks (FDNs) with the Hadamard matrix, and uses self-modulation techniques.
 
-CRTIV Reverb is great on any sound sources: vocals, synths, drums, mixes.  The only drawback is that this reverb is a relatively CPU-demanding effect (it takes 7.5% of a single core of i7-7700K processor, at 44100 sample rate), for comfortable use it requires a higher-end processor.
-
+Sobor is great on any sound sources: vocals, synths, drums, mixes.  This reverb is a relatively CPU-demanding effect (it takes 7.5% of a single core of i7-7700K processor, at 44100 sample rate), for comfortable use it requires a higher-end processor.
 
 ## Package Specific
 
@@ -78,7 +78,7 @@ The following package parameters can be set:
 You must pass the package parameters like this:
 ```
 $VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\Voxengo"
-choco install voxengo-crtiv-reverb-2 --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
+choco install voxengo-sobor --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
 ```
     </description>
     <releaseNotes>http://www.voxengo.com/press/</releaseNotes>
@@ -87,7 +87,6 @@ choco install voxengo-crtiv-reverb-2 --package-parameters "'/NoVst2x64 /Vst2x86P
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
-      <dependency id="voxengo-sobor" version="3.1" />
     </dependencies>
     <!-- chocolatey-uninstall.extension - If supporting 0.9.9.x (or below) and including a chocolateyUninstall.ps1 file to uninstall an EXE/MSI, you probably want to include chocolatey-uninstall.extension as a dependency. Please verify whether you are using a helper function from that package. -->
 
@@ -95,5 +94,12 @@ choco install voxengo-crtiv-reverb-2 --package-parameters "'/NoVst2x64 /Vst2x86P
     <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
   </metadata>
-  <files />
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\chocolateyinstall.ps1" target="tools" />
+    <file src="tools\chocolateyuninstall.ps1" target="tools" />
+    <file src="tools\chocolateyfunctions.ps1" target="tools" />
+    <file src="tools\chocolateyvariables.ps1" target="tools" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
 </package>
