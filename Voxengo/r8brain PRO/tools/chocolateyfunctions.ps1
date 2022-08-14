@@ -79,7 +79,7 @@ function CreateRegKey ($regKeyObject) {
 
     # Write reg key
     if($regKeyObject.key -eq '') {
-      New-Item -PropertyType $registryValueType -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
+      New-Item -Path ${regKeyObject}.path -Value ${regKeyObject}.value -Force
     } else {
       if (Test-Path ${regKeyObject}.path) { } else { New-Item ${regKeyObject}.path -force }
       New-ItemProperty -PropertyType $registryValueType -Path ${regKeyObject}.path -Name ${regKeyObject}.key -Value ${regKeyObject}.value -force
@@ -374,6 +374,14 @@ function RunInstallerWithPackageParametersObject ($packageParameterObject) {
 }
 
 function RemoveInstallerObjects ($packageParameterObject) {
+  if($packageParameterObject.removePostInstall) {
+    foreach($entry in packageParameterObject.removePostInstall) {
+      if(Test-Path ($entry) -ErrorAction Ignore){
+        Remove-Item $entry -Force -ErrorAction SilentlyContinue
+      }
+    }
+
+  }
   if($packageParameterObject.file) {
     if(Test-Path ($packageParameterObject.file) -ErrorAction Ignore){
       Remove-Item $packageParameterObject.file -Force -ErrorAction SilentlyContinue
@@ -595,7 +603,7 @@ Comment added because reviewer asked to do so.
 #>
 #
 function ReducePackageSize () {
-  .$env:ChocolateyInstall\tools\7z.exe d ($env:ChocolateyPackageFolder + "\" + $env:ChocolateyPackageName + ".nupkg")  * -r  -xr!package -xr!tools -xr!_rels -x!"*.nuspec" -x!"[Content_Types].xml"
+  .$env:ChocolateyInstall\tools\7z.exe d ($env:ChocolateyPackageFolder + "\" + $env:ChocolateyPackageName + ".nupkg")  * -r  -xr!package -xr!tools -xr!_rels -x!"*.nuspec" -x!"[Content_Types].xml" | out-null
 }
 <#
 .SYNOPSIS
