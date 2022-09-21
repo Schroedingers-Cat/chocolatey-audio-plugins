@@ -1,22 +1,23 @@
 $packageName = 'MFM2'
 $softwareName = "$packageName"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/MFM2_221_3898_Win.zip'
+$url32        = 'https://u-he.com/downloads/releases/MFM2_250_13385_Win.zip'
 $releases = 'https://u-he.com/products/mfm2/'
-$checksum32 = '4e68ca9ecd6eade1bb6ede30a0b16ede49ac15018736760a199d82e3009321d5'
+$checksum32 = '20f69db8f978efa1efe46b6c4215c314837c18621a6e9e80a66c3a39ad55aa7c'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
 $global:vst2AddSubfolder = $true
 $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
+$clapPath = "${env:COMMONPROGRAMFILES}\CLAP\u-he"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
 $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '21'
-$unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
+$unzipInstVersion = '250'
+$unzInstPath = "${packageName}_Win\${packageName}-${unzipInstVersion}-Winstaller.exe"
 $zipSuffix = "Win.zip"
 
 # This needs to be wrapped into a function so this object also has the data from the package parameters
@@ -31,6 +32,7 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$vst2x86BitAware"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst2x86"},
   @{'linkPath'="$vst3Path";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64,32; 'validpp'="NoVst3x64","NoVst3x86"},
   @{'linkPath'="$vst3x86BitAware"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst3x86"},
+  @{'linkPath'="$clapPath";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoClapx64"},
   @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"},
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
   @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
@@ -45,6 +47,7 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst2_64";   'bit'=64;    'validpp'="NoVst2x64"},
   @{'value'="vst3_32";   'bit'=64,32; 'validpp'="NoVst3x86"},
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
+  @{'value'="clap_64";   'bit'=64;    'validpp'="NoClapx64"},
   @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
   @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"},
@@ -56,12 +59,14 @@ function CreateTxtFileObjects () {
 "$companyPath\$packageName.data\Data
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$softwareName user guide.pdf
-$vst2Path\$packageName(x64).dll
+$vst2Path\$packageName.dll
 $vst2Path\$packageName.data.lnk
 $vst2x86BitAware\$packageName.dll
 $vst2x86BitAware\$packageName.data.lnk
 $vst3Path\$packageName(x64).vst3
 $vst3Path\$packageName.data.lnk
+$clapPath\$packageName.clap
+$clapPath\$packageName.data.lnk
 $vst3x86BitAware\$packageName.vst3
 $vst3x86BitAware\$packageName.data.lnk
 $aaxPath\$packageName.aaxplugin

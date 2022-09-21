@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.2.1.20200131</version>
+    <version>2.5.0</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -39,7 +39,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://u-he.com/products/mfm2</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/cea53d40c0ed5cabb4a17af985954f315bce6bea/Icons/u-he/mfm2.png</iconUrl>
-    <copyright>2019 Heckmann Audio GmbH</copyright>
+    <copyright>2021 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -50,13 +50,14 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <tags>mfm2 more feedback machine audio u-he vst effect delay aax admin trial</tags>
     <summary>A virtual-analog delay effect by u-he.</summary>
     <description>MFM2: More Feedback Machine
-MFM2 is an ultra-flexible delay unit. Manipulate, shape, modulate and filter to create subtle textures or wild tonal and rhythmic deconstructions. MFM2 offers as much control and inspiration as possible in a delay effect and the advanced options push things even further. More feedback, more control, more inspiration.
+MFM2 is our over-the-top digital delay plug-in. You can create anything from subtle textured echos to huge spacey reverbs, from wild tonal steps on a pad to rhythmic deconstruction of a drum track. As a regular delay MFM2 already offers as much control and inspiration as possible, while the advanced features in version 2.5 open up wider horizons. More feedback, more control, more inspiration! 
 
 ## Package Specific
 
 ### Package Parameters
 The following package parameters can be set:
 
+ * `/NoClapx64`       - Do not install the x64 CLAP version
  * `/NoVst2x86`       - Do not install the x86 VST2 version
  * `/NoVst2x64`       - Do not install the x64 VST2 version
  * `/NoVst3x86`       - Do not install the x86 VST3 version
@@ -71,7 +72,8 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install uhe-mfm2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
+$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\u-he"
+choco install uhe-mfm2 --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
 ```
     </description>
     <releaseNotes>https://u-he.com/products/mfm2/releasenotes.html</releaseNotes>
