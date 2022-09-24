@@ -1,15 +1,20 @@
 # Comments to this script have been added upon request by the chocolatey community reviewer
 $ErrorActionPreference = 'Stop';
-$toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+
+$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzPath = "${env:TEMP}"
+$chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
 $osBitness = Get-ProcessorBits
-if(Test-Path Env:\ChocolateyPackageFolder) {
-  . $env:ChocolateyPackageFolder\tools\chocolateyfunctions.ps1
-  . $env:ChocolateyPackageFolder\tools\chocolateyvariables.ps1
+
+if((Test-Path $chocolateyPackageFolder) -And (Test-Path $chocolateyPackageFolder\tools\chocolateyfunctions.ps1)) {
+  . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
+  . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
 } else {
   . ((Get-Item -Path ".\" -Verbose).FullName + "\tools\chocolateyfunctions.ps1")
   . ((Get-Item -Path ".\" -Verbose).FullName + "\tools\chocolateyvariables.ps1")
 }
+
+Remove-Variable chocolateyPackageFolder
 
 # Get default values that may or may not be already on the machein
 GetDefaultValues
@@ -21,6 +26,7 @@ $pp = Get-PackageParameters
 # package parameter, the default behaviour of the package/installer can be changed.
 # Not all possible package parameters here actually do something as this depends on the specific package/software vendor. If a package parameter either does
 # not exist below or does not exist in a 'validpp'-key in the chocolateyvariables.ps1, it will be ignored and have no effect.
+if ($pp["NoClapx64"]      -eq $null -or $pp["NoClapx64"] -eq '')     { if($osBitness -eq 64) { $pp["NoClapx64"] = $false }}
 if ($pp["NoVst2x86"]      -eq $null -or $pp["NoVst2x86"] -eq '')     { $pp["NoVst2x86"] = $false }
 if ($pp["NoVst2x64"]      -eq $null -or $pp["NoVst2x64"] -eq '')     { if($osBitness -eq 64) { $pp["NoVst2x64"] = $false }}
 if ($pp["NoVst3x86"]      -eq $null -or $pp["NoVst3x86"] -eq '')     { $pp["NoVst3x86"] = $false }
@@ -32,6 +38,7 @@ if ($pp["NoPresets"]      -eq $null -or $pp["NoPresets"] -eq '')     { $pp["NoPr
 if ($pp["NoNks"]          -eq $null -or $pp["NoNks"] -eq '')         { $pp["NoNks"] = $false }
 if ($pp["NoUserFolder"]   -eq $null -or $pp["NoUserFolder"] -eq '')  { $pp["NoUserFolder"] = $false }
 if ($pp["NoShortcuts"]    -eq $null -or $pp["NoShortcuts"] -eq '')   { $pp["NoShortcuts"] = $false }
+if ($pp["NoStandalone"]   -eq $null -or $pp["NoStandalone"] -eq '')  { $pp["NoStandalone"] = $false }
 if ($pp["InstallerPath"]  -eq $null -or $pp["InstallerPath"] -eq '') { $fileLocation = "$unzPath\$unzInstPath"; $pp["InstallerPath"]=$false } else { $fileLocation = $pp["InstallerPath"] }
 if ($pp["CompanyPath"]    -eq $null -or $pp["CompanyPath"] -eq '')   { $pp["CompanyPath"] = $false }                                          else { $standardCompanyPath=$global:companyPath; $global:companyPath = $pp["CompanyPath"] }
 if ($pp["LibraryPath"]    -eq $null -or $pp["LibraryPath"] -eq '')   { $pp["LibraryPath"] = $false }                                          else { $libraryPath = $pp["LibraryPath"] }
