@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Warmifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoWarmifier_26_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoWarmifier_27_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/warmifier/'
-$checksum32     = '600d29a1f7e812b865345377b302d4860b74462301028101e136d6d38595d2a7'
+$checksum32     = '708c941c328d8f43502428b358e082ff34394ebebdfb43c5bc52afa28276e1da'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
