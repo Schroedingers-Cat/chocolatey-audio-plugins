@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Beeper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBeeper_210_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoBeeper_211_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/beeper/'
-$checksum32     = 'a2aa832152d019c264918c7b3ef86bf5a8015537d1f8351b0b360b3d4b82c125'
+$checksum32     = 'd2dd1d116ac1988931e399cf789d51cfe16f060a1d3da4bf2bf174c6595d3534'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

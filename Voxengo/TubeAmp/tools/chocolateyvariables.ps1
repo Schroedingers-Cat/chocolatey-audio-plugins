@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Tube Amp'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTubeAmp_211_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoTubeAmp_212_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/tubeamp/'
-$checksum32     = '288efe8536f8e40700a723eab16f7dab7e4fab14e73013b08d4805dc973b9bb2'
+$checksum32     = 'a5f20b2b3b42f65f7af707ab8d39194caa9d50a86d5811de3c7d9a58d43e5f74'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
