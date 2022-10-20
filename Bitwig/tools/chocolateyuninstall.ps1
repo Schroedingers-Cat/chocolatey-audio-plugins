@@ -1,7 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'; # stop on all errors
 
 $packageName = 'Bitwig'
-$softwareName = 'Bitwig*' #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
+$publicVersion = '4.4'
+$softwareName = "Bitwig Studio $($publicVersion)" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
 $installerType = 'MSI'
 $silentArgs = '/qn /norestart'
 # https://msdn.microsoft.com/en-us/library/aa376931(v=vs.85).aspx
@@ -45,3 +46,6 @@ if ($key.Count -eq 1) {
   Write-Warning "Please alert package maintainer the following keys were matched:"
   $key | ForEach-Object {Write-Warning "- $_.DisplayName"}
 }
+
+# Remove temp version variable
+Uninstall-ChocolateyEnvironmentVariable -VariableName 'CHOCO_PACKAGE_VERSION_BITWIG_STUDIO' -VariableType User
