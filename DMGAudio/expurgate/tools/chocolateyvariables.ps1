@@ -1,9 +1,9 @@
 ﻿$packageName = 'Expurgate'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/Expurgate_v1.11/ExpurgateWin_v1.11.zip'
+$url32        = 'https://dmgaudio.com/dl/Expurgate_v1.12/ExpurgateWin_v1.12.zip'
 $releases = 'https://dmgaudio.com/products_expurgate.php'
-$checksum32 = '849639935c39d2323e4da41e518bb44dc16e2cdce8b26d54d1136485f749e97b'
+$checksum32 = '9d23fabaf55136549ca3ad8ae0645f58198a97892a44e135127a6e7647e22a1e'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.11'
+$unzipInstVersion = '1.12'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

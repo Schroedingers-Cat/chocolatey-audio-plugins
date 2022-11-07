@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>essence</id>
-    <version>1.13</version>
+    <version>1.14</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Essence (Install)</title>
