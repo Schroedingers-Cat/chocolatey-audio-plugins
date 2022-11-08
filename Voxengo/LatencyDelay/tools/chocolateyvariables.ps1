@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Latency Delay'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoLatencyDelay_28_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoLatencyDelay_29_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/latencydelay/'
-$checksum32     = 'e1b555398d1027862fa46f092e3b918505bf3f3a0a48884b7da93c49c42b8a7f'
+$checksum32     = '055a476953e2a97e8a090b0c0e1765fc030878257c884b351617d18b0d6683f0'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

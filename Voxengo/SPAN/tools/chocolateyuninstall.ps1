@@ -1,7 +1,9 @@
 $ErrorActionPreference = 'Stop';
 $installerType = 'EXE'
-. $env:ChocolateyPackageFolder\tools\chocolateyfunctions.ps1
-. $env:ChocolateyPackageFolder\tools\chocolateyvariables.ps1
+
+$chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+. $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
+. $chocolateyPackageFolder\tools\chocolateyvariables.ps1
 
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0, 3010, 1605, 1614, 1641)
