@@ -6,6 +6,7 @@ $unzPath = "${env:TEMP}"
 $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
 $osBitness = Get-ProcessorBits
 
+# FIXME: use something like `$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"` to get the package root!
 if((Test-Path $chocolateyPackageFolder) -And (Test-Path $chocolateyPackageFolder\tools\chocolateyfunctions.ps1)) {
   . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
   . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
