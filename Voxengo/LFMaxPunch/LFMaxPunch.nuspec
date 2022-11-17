@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.13</version>
+    <version>1.14</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -65,7 +65,7 @@ The following package parameters can be set:
  * `/NoAaxx64`        - Do not install the x64 AAX version
  * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
  * `/Vst2Path:`       - Installation path of the VST2 version
- * `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+ * `/Vst2x86Path:`    - Installation path of the x86 VST2 version on x64 CPU architecture
  * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
  * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
 

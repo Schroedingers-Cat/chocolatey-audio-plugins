@@ -1,9 +1,9 @@
 ﻿$packageName    = 'LF Max Punch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_113_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_114_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/lfmaxpunch/'
-$checksum32     = 'd75b89066e83e4d271041420848151d9d3a8cd4f33313c6eadd2c6b9667eca76'
+$checksum32     = '5c4de42679f5f1e1874eb1bdda824f81b73bd191f966a81622638f889aa3840b'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
