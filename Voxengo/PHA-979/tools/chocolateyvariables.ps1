@@ -1,9 +1,9 @@
 ﻿$packageName    = 'PHA-979'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPHA979_210_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPHA979_211_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/pha979/'
-$checksum32     = '1c624cf5c2750419bb7c663e197fc38014faae4171aa1e9ecb5cadd89faed031'
+$checksum32     = '6b885e7a519ab7353ae877c8c48503233293404084c14353422e94aad5c5c3ac'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

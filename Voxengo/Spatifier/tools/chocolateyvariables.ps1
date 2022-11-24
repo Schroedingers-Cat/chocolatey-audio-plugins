@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Spatifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSpatifier_18_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoSpatifier_19_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/spatifier/'
-$checksum32     = 'cd111b10606a51bf20617cd3e34b7ef03db975f307c901bd90cc434abeacae67'
+$checksum32     = '0a633228998078874bba584259d2d8d720ac0750a645bacac8f8854336259583'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
