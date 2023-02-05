@@ -6,7 +6,6 @@ $unzPath = "${env:TEMP}"
 $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 $osBitness = Get-ProcessorBits
 
-Write-Host $chocolateyPackageFolder
 if((Test-Path $chocolateyPackageFolder) -And (Test-Path $chocolateyPackageFolder\tools\chocolateyfunctions.ps1)) {
   . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
   . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
