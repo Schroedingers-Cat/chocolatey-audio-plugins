@@ -11,6 +11,7 @@ function global:au_GetLatest {
     $version = $version -split '-|/stable/' | select -Last 1
     $version = $version.Replace(".html}", "")
     $version = $version.Replace(".html; target=_blank}", "")
+    $version = $version.Replace(".html; target=_blank; rel=noopener}", "")
     $fullVersion = $version
     # Check for Bitwig's "public" versioning style avoiding a .0 followed by another .0, e.g. 4.0 instead of 4.0.0
     if ($fullVersion.Length -eq 3) {
