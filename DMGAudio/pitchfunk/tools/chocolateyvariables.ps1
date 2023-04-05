@@ -1,9 +1,9 @@
 ﻿$packageName = 'PitchFunk'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/PitchFunk_v1.21/PitchFunkWin_v1.21.zip'
+$url32        = 'https://dmgaudio.com/dl/PitchFunk_v1.23/PitchFunkWin_v1.23.zip'
 $releases = 'https://dmgaudio.com/products_pitchfunk.php'
-$checksum32 = 'dc8f7ec4a790423c86700ba8caa048c601334dcd71b304a3c8ed204517c5d683'
+$checksum32 = '0bc0d03e5b5e29506b71066dc09aed3960451261f9c384f83cca3092be8583af'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.21'
+$unzipInstVersion = '1.23'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters

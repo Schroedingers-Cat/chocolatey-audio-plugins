@@ -1,9 +1,9 @@
 ﻿$packageName = 'EQuality'
 $softwareName = "${packageName}*"
 $company = 'DMGAudio'
-$url32        = 'https://dmgaudio.com/dl/EQuality_v1.40/EQualityWin_v1.40.zip'
+$url32        = 'https://dmgaudio.com/dl/EQuality_v1.42/EQualityWin_v1.42.zip'
 $releases = 'https://dmgaudio.com/products_equality.php'
-$checksum32 = 'b3c63d5280f4d74d3111e3cab57986fc0753ce9b6ec4ab257c55a8c28dad6be7'
+$checksum32 = '2c5410c2f60bae0a04f9027e76fa665b3b3f58e4e7e49b7e34ab3c9c5e6d14bf'
 $global:companyPath = "${env:PROGRAMFILES}\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -11,7 +11,7 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3\$company"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3\$company"
 $userFolderPath = "" ## implement empty user folder check
 $presetProducts = "" ## implement empty check
-$unzipInstVersion = '1.40'
+$unzipInstVersion = '1.42'
 $unzInstPath = "${packageName}Win_v${unzipInstVersion}.exe"
 $zipSuffix = "Win_v*.*.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters
