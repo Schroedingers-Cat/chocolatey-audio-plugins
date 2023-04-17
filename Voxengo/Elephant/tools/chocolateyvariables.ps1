@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Elephant'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoElephant_52_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoElephant_53_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/elephant/'
-$checksum32     = 'dbd32a3c71d755b460d255e26cca59bcfd8113c9c608a8ecb13219f9a189bac8'
+$checksum32     = '81695eb489370b0d338c4e08a08cf4ec813578af5fc326bbcdefca2ed3c9be15'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
