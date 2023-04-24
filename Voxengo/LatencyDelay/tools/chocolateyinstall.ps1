@@ -3,10 +3,9 @@ $ErrorActionPreference = 'Stop';
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzPath = "${env:TEMP}"
-$chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+$chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 $osBitness = Get-ProcessorBits
 
-# FIXME: use something like `$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"` to get the package root!
 if((Test-Path $chocolateyPackageFolder) -And (Test-Path $chocolateyPackageFolder\tools\chocolateyfunctions.ps1)) {
   . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
   . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
@@ -17,7 +16,7 @@ if((Test-Path $chocolateyPackageFolder) -And (Test-Path $chocolateyPackageFolder
 
 Remove-Variable chocolateyPackageFolder
 
-# Get default values that may or may not be already on the machein
+# Get default values that may or may not be already on the machine
 GetDefaultValues
 
 $pp = Get-PackageParameters
