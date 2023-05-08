@@ -1,9 +1,9 @@
 ﻿$packageName    = 'GlissEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoGlissEQ_317_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoGlissEQ_318_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/glisseq/'
-$checksum32     = 'bf5edf9c9b40ddb59143480d92ef3c5a742c400fc44379d498fbec098dd4ef6d'
+$checksum32     = '04ffde119f5e8637fc648aad81ec4d391908750cfac504d450dfac00edbda5ba'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -43,7 +43,6 @@ function CreatePackageParametersObjects () {
     unzipLocation = $unzPath
     fileType      = 'exe'
     url           = $url32
-    url64bit      = $url32
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512

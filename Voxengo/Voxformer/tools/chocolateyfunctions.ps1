@@ -90,7 +90,7 @@ function CreateRegKey ($regKeyObject) {
 
 function CreateRegKeyFromFile ($regKeyFileObject) {
   if($regKeyFileObject.execute -eq $true) {
-    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+    $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
     Write-Debug ("Creating registry entry from file " + $chocolateyPackageFolder + "\" + $regKeyFileObject.path)
     regedit.exe /S ($chocolateyPackageFolder + "\" + $regKeyFileObject.path)
   }
@@ -123,7 +123,7 @@ function CreateInstallerParameters ($instParamObject) {
 function CopyPackageRessources ($PackageResourcePathObject) {
   if($PackageResourcePathObject.execute -eq $true) {
     Write-Debug ("Preparing Package Ressource Path for: " + $PackageResourcePathObject.value + ".")
-    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+    $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
     $tempPath = ($chocolateyPackageFolder + "\" + ($PackageResourcePathObject.value).ToString())
     if((Test-Path $tempPath) -eq $false) {
       Write-Debug ("The resource object " + $PackageResourcePathObject.value + " does not exist.")
@@ -335,7 +335,7 @@ function GetDefaultVst2Directory ($bitToCheck) {
 
 function RunInstallerWithPackageParametersObject ($packageParameterObject) {
   $installerPathViaPP = (Test-Path $pp["InstallerPath"])
-  $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+  $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
   ## Does the following check work for 32 bit installers??
   $installerEmbedded = ((Test-Path ($chocolateyPackageFolder + "\" + $packageParameterObject.file)) -And ($packageParameterObject.file64 -ne $null) -And (Test-Path ($chocolateyPackageFolder + "\" + $packageParameterObject.file64)))
   $installerDownload = (($packageParameterObject.url -ne $null) -Or ($packageParameterObject.url64 -ne $null))
@@ -384,7 +384,7 @@ function RemoveInstallerObjects ($packageParameterObject) {
     ("Entries to remove: " + ($packageParameterObject.removePostInstall | Out-String -stream)) | Write-Debug
 
     foreach($entry in $packageParameterObject.removePostInstall) {
-      $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+      $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
       $pathToRemove = $chocolateyPackageFolder + "\" + $entry
       Write-Debug "Trying to delete $pathToRemove"
       Write-Debug (Test-Path ($pathToRemove) -ErrorAction Ignore)
@@ -420,7 +420,7 @@ function RemoveInstallerObjects ($packageParameterObject) {
 }
 
 function RemoveTemporaryFiles ($PackageResourcePathObject) {
-  $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+  $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
   Write-Debug ("Deleting temp package files: " + $chocolateyPackageFolder + "\" + $PackageResourcePathObject.value + " and" + $chocolateyPackageFolder + "\" + $PackageResourcePathObject.value + ".txt")
   Remove-Item ($chocolateyPackageFolder + "\" + $PackageResourcePathObject.value) -Force -ErrorAction SilentlyContinue
   Remove-Item ($chocolateyPackageFolder + "\" + $PackageResourcePathObject.value + ".txt") -Force -ErrorAction SilentlyContinue
@@ -441,7 +441,7 @@ function HandlePackageArgs ($packageParameterObject) {
 # Also checks whether extracted zip content should be uninstalled or not (.delete=$false).
 function WriteUninstallData ($PackageResourcePathObject) {
   if($PackageResourcePathObject.delete -ne $false) {
-    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+    $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 
     foreach($line in Get-Content ($chocolateyPackageFolder + "\" + $PackageResourcePathObject.value + ".txt")) {
       Add-Content -Path ($chocolateyPackageFolder + "\uninstall.txt") -Value ($PackageResourcePathObject.installPath + "\" + $line)
@@ -631,7 +631,7 @@ Comment added because reviewer asked to do so.
 #>
 #
 function ReducePackageSize () {
-  $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+  $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 
   .$env:ChocolateyInstall\tools\7z.exe d ($chocolateyPackageFolder + "\" + $env:ChocolateyPackageName + ".nupkg")  * -r  -xr!package -xr!tools -xr!_rels -x!"*.nuspec" -x!"[Content_Types].xml" | out-null
 }
@@ -698,7 +698,7 @@ Writes a list of files that have been extracted from zip files embedded in this 
 Comment added because reviewer asked to do so.
 #>
 function CreateUninstallFile () {
-  $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+  $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
   
   # Create empty uninstall file
   Out-File -FilePath ($chocolateyPackageFolder + "\uninstall.txt")

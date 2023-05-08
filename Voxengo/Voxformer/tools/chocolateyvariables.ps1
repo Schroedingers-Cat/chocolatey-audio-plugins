@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Voxformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoVoxformer_221_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoVoxformer_222_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/voxformer/'
-$checksum32     = '7b668f57f1f107b343cd93fc830199bc8551b51cc97af94c9cb51c62cb237064'
+$checksum32     = '3834abbe2f989e8d61c165b1b305e1b9dfd20deba79c96465a38961f44deba79'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
