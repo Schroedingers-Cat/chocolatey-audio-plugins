@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.5</version>
+    <version>1.5.20230514</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,12 +34,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Voxengo CRTIV Chorus (Install)</title>
+    <title>[Deprecated] Voxengo CRTIV Chorus (Install)</title>
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://www.voxengo.com/product/crtivchorus/</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/f62cb1ca719acbe54b61fdd50b6f6542a68e1179/Icons/Voxengo/CRTIVChorus.png</iconUrl>
-    <copyright>2002-2021 Aleksey Vaneev</copyright>
+    <copyright>2002-2022 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -50,6 +50,8 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <tags>crtiv-chorus chorus vst aax audio mixing mastering recording trial</tags>
     <summary>A chorus plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
     <description>
+Deprecation note: Package has been deprecated to reflect Voxengo's rebranding from `CRTIV Chorus` to `Water Chorus`.  
+
 CRTIV Chorus is a stereo chorus effect AAX, AU and VST plugin for professional music production applications.  Chorus is able to produce stereo-widening and weird modulation effects.  Chorus plugin uses 4 operators for each channel thus creating a quite dense stereo chorus sound.
 
 ## Package Specific
@@ -71,7 +73,8 @@ The following package parameters can be set:
 
 You must pass the package parameters like this:
 ```
-choco install voxengo-crtiv-chorus --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
+$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\Voxengo"
+choco install voxengo-crtiv-chorus --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
 ```
     </description>
     <releaseNotes>http://www.voxengo.com/press/</releaseNotes>
@@ -80,6 +83,7 @@ choco install voxengo-crtiv-chorus --package-parameters "'/NoVst2x64 /Vst2x86Pat
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
+      <dependency id="voxengo-water-chorus" version="1.1" />
     </dependencies>
     <!-- chocolatey-uninstall.extension - If supporting 0.9.9.x (or below) and including a chocolateyUninstall.ps1 file to uninstall an EXE/MSI, you probably want to include chocolatey-uninstall.extension as a dependency. Please verify whether you are using a helper function from that package. -->
 
@@ -87,12 +91,5 @@ choco install voxengo-crtiv-chorus --package-parameters "'/NoVst2x64 /Vst2x86Pat
     <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
   </metadata>
-  <files>
-    <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\chocolateyinstall.ps1" target="tools" />
-    <file src="tools\chocolateyuninstall.ps1" target="tools" />
-    <file src="tools\chocolateyfunctions.ps1" target="tools" />
-    <file src="tools\chocolateyvariables.ps1" target="tools" />
-    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
-  </files>
+  <files />
 </package>
