@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Tempo Delay'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTempoDelay_27_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoTempoDelay_28_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/tempodelay/'
-$checksum32     = '553c29a6cf74827ec218e152ac7fa788d26ea479004a4f1a98123b1bd8c318d4'
+$checksum32     = '5e4745b66b178f04b98e9a8d1d47432b41d578adb732a7fcc592172e7e260dd0'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

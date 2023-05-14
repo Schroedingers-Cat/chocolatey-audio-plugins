@@ -22,11 +22,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>voxengo-marvel-geq</id>
+    <id>voxengo-water-chorus</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.14</version>
+    <version>1.1</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,23 +34,23 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Voxengo Marvel GEQ (Install)</title>
+    <title>Voxengo Water Chorus (Install)</title>
     <authors>Voxengo</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://www.voxengo.com/product/marvelgeq/</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/0916ad87f260c861ace358a1703b6f685dbce3b6/Icons/Voxengo/MarvelGeq.png</iconUrl>
+    <projectUrl>https://www.voxengo.com/product/crtivchorus/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/f62cb1ca719acbe54b61fdd50b6f6542a68e1179/Icons/Voxengo/CRTIVChorus.png</iconUrl>
     <copyright>2002-2022 Aleksey Vaneev</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoMarvelGEQ_en.pdf/getbyname/Voxengo%20Marvel%20GEQ%20User%20Guide%20en.pdf</docsUrl>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVChorus_en.pdf/getbyname/Voxengo%20CRTIV%20Chorus%20User%20Guide%20en.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>marvel-geq linear-phase eq equalizer vst aax audio mixing mastering recording free</tags>
-    <summary>A linear-phase eq plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
+    <tags>water-chorus chorus vst aax audio mixing mastering recording trial</tags>
+    <summary>A chorus plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
     <description>
-Marvel GEQ is a free linear-phase 16-band graphic equalizer AAX, AU and VST plugin that offers you a mastering-grade sound quality.
+Water Chorus is a stereo chorus effect AAX, AudioUnit, and VST plugin for professional sound and music production applications.  Water Chorus is able to produce stereo-widening and weird “watery” modulation effects, possibly with a flanger vibe. Water Chorus plugin uses 4 operators for each channel thus creating a quite dense stereo chorus sound, which is also very smooth.
 
 ## Package Specific
 
@@ -65,14 +65,14 @@ The following package parameters can be set:
  * `/NoAaxx64`        - Do not install the x64 AAX version
  * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
  * `/Vst2Path:`       - Installation path of the VST2 version
- * `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+ * `/Vst2x86Path:`    - Installation path of the x86 VST2 version on x64 CPU architecture
  * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
  * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
 
 You must pass the package parameters like this:
 ```
 $VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\Voxengo"
-choco install voxengo-marvel-geq --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
+choco install voxengo-water-chorus --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
 ```
     </description>
     <releaseNotes>http://www.voxengo.com/press/</releaseNotes>
