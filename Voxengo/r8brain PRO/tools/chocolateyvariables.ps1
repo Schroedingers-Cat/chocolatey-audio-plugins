@@ -1,9 +1,9 @@
 ﻿$packageName    = 'r8brain PRO'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/Voxengor8brainPRO_210_Win64_setup.exe'
+$url32          = 'https://www.voxengo.com/files/Voxengor8brainPRO_211_Win64_setup.exe'
 $releases       = 'https://www.voxengo.com/product/r8brainpro/'
-$checksum32     = 'd72698e648905269650917746534e6e434bb21846d873fff853f7b96ccc9fbfe'
+$checksum32     = '1833d5ff8b6f1de18f2bdf42b3636c9465f4b5086a03b0f0f8b49b39efdb5e1a'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 
 function CreateRegistryObjects () {
@@ -36,7 +36,6 @@ function CreatePackageParametersObjects () {
     unzipLocation = $unzPath
     fileType      = 'exe'
     url           = $url32
-    url64bit      = $url32
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512

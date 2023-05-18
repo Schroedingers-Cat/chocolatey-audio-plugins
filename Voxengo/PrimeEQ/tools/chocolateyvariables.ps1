@@ -1,9 +1,9 @@
 ﻿$packageName    = 'PrimeEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPrimeEQ_17_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPrimeEQ_18_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/primeeq/'
-$checksum32     = 'f391208d238239f3f1d2c5fb5a0590fac1721a1ff8b2cdfb7dc2da3666dc92f0'
+$checksum32     = 'c5a415cb152e3e1de620c2cd4fc9d39a85dc0f4882b0cfd0528e06503877ac53'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -43,7 +43,6 @@ function CreatePackageParametersObjects () {
     unzipLocation = $unzPath
     fileType      = 'exe'
     url           = $url32
-    url64bit      = $url32
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512

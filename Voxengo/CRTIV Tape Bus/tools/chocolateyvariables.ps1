@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CRTIV Tape Bus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_16_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_17_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crtivtapebus/'
-$checksum32     = '2a36d8e37326028a793cb08f8b0431564a22ff2dca1468043ff16ecdfee78dc4'
+$checksum32     = 'b52ed7e0aaf0bf4abbb69163a3fc1e3b1e0e528b0244db304ab51bbee37d557e'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -43,7 +43,6 @@ function CreatePackageParametersObjects () {
     unzipLocation = $unzPath
     fileType      = 'exe'
     url           = $url32
-    url64bit      = $url32
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512

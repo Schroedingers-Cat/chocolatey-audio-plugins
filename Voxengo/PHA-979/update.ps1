@@ -31,5 +31,5 @@ function global:au_SearchReplace {
     }
 }
 
-update -ChecksumFor none -NoCheckChocoVersion
+update -ChecksumFor none
 Move-Item (${workaroundPackageName} + "*" + ".nupkg") ..\ -Force

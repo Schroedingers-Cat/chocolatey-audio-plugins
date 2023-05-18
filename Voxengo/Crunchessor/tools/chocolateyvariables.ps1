@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Crunchessor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCrunchessor_218_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCrunchessor_219_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/crunchessor/'
-$checksum32     = 'fbec989bb69f4e3e385ee831497d6380bbc080e7dd32766be37789ef9ee29264'
+$checksum32     = 'dd540d082da875864b9f88e6bc5c6adc2f683b30a361062d9765e77a446b590a'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

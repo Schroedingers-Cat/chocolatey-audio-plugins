@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop';
 $installerType = 'EXE'
 
-$chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+$chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
 . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
 

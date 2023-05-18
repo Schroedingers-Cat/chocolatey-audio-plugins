@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Powershaper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPowershaper_14_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPowershaper_15_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/powershaper/'
-$checksum32     = '50624ffd3b861c8ab418dbeec2828b75a8be3dc138396df2764533ab84106037'
+$checksum32     = 'f5f3d7c0c2707924322240963b8adefd40c6600be8dc83cd632690cc12d34e6f'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -43,7 +43,6 @@ function CreatePackageParametersObjects () {
     unzipLocation = $unzPath
     fileType      = 'exe'
     url           = $url32
-    url64bit      = $url32
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
