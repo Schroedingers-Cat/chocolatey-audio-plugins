@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Marvel GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_114_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_115_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/marvel-geq/'
-$checksum32     = 'f9a2763d86a667f4a7b7429f9e59c3b50ee1c0abf790b7a21962acd89eb9632c'
+$checksum32     = '26161336aff18003efd0d24bb27540a38bbda30ac8c2cdf0ed01f63f52561df5'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
