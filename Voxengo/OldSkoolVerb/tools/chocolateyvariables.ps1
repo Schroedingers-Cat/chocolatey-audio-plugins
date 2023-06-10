@@ -1,9 +1,9 @@
 ﻿$packageName    = 'OldSkoolVerb'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoOldSkoolVerb_211_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoOldSkoolVerb_212_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/oldskoolverb/'
-$checksum32     = '97c22cb30ccaf8c475bc37740d792f9c068f69044e89695ed58e7d7f89241215'
+$checksum32     = 'c0f3706348087c6e4ecbd44f1feae4c32c59baa6dc639df037ab2b98432ba7bb'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
