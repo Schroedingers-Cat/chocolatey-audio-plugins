@@ -1,9 +1,9 @@
 ﻿$packageName    = 'HarmoniEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_210_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_211_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/harmonieq/'
-$checksum32     = '9c8149a5bc28200650d0ea86272562fa0a1dd55e072231bad41b189e155b7556'
+$checksum32     = '64a4ff628485aca5afb8bf8337cc6d64c35566fe2026e10c86480beca082d31d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
