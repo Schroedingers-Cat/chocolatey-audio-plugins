@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.9.12092</version>
+    <version>2.9.12092.20230617</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -37,14 +37,14 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <title>Zebra 2 (Install)</title>
     <authors>u-he</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://u-he.com/products/zebra2/</projectUrl>
+    <projectUrl>https://u-he.com/products/zebra-legacy/</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/b695ca94b0b4c3825450d24e027a79bc80e211dc/Icons/u-he/zebra2.png</iconUrl>
     <copyright>2021 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/zebra2/Zebra2-user-guide.pdf</docsUrl>
+    <docsUrl>https://dl.u-he.com/manuals/plugins/zebra2/Zebra2-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>zebra audio u-he vst synthesizer aax admin trial</tags>
@@ -75,7 +75,7 @@ You must pass the package parameters like this:
 choco install uhe-zebra2 --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
 ```
     </description>
-    <releaseNotes>https://u-he.com/products/zebra2/releasenotes.html</releaseNotes>
+    <releaseNotes>https://u-he.com/products/zebra-legacy/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->

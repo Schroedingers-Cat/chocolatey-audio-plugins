@@ -1,9 +1,9 @@
 ﻿$packageName = 'Zebra2'
 $softwareName = "${packageName}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Zebra2_293_12092_Win.zip'
-$releases = 'https://u-he.com/products/zebra2/'
-$checksum32 = '8bb230da402c516acb829346d57f9567d125d7be0610352546dfb7cdc0718fe0'
+$url32        = 'https://dl.u-he.com/releases/Zebra_Legacy_293_12092_Win.zip'
+$releases = 'https://u-he.com/products/zebra-legacy/'
+$checksum32 = 'B5C62286D0AE38C384ACF8B1BD5495E1CEF169ED2C64ABBC2C5BFCD9CD475AD5'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -12,18 +12,20 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
 $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
-$global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
-$global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2DefaultPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2x86_64DefaultPathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
 $unzipInstVersion = '293'
-$unzInstPath = "${packageName}_Win\Zebra${unzipInstVersion}Winstaller.exe"
+$unzInstPath = "01 ${packageName}\Zebra${unzipInstVersion}Winstaller.exe"
 $zipSuffix = "Win.zip"
 
 # This needs to be wrapped into a function so this object also has the data from the package parameters
 function CreateRegistryObjects () { $global:regKeys =
   # The installer does not have an option for custom paths so we need to create the registry entry before
-  @{'path'=$vst2PathReg.key;                                        'key'=$vst2PathReg.name;      'value'="$vst2Path";                    'bit'=64;     'validpp'="NoVst2x64"; 'delete'=$false},
-  @{'path'=$vst2x86_64PathReg.key;                                  'key'=$vst2x86_64PathReg.name;'value'="$vst2x86BitAware";             'bit'=64,32;  'validpp'="NoVst2x86"; 'delete'=$false}
+  @{'path'=$vst2DefaultPathReg.key;       'key'=$vst2DefaultPathReg.name;       'value'="$vst2Path";        'bit'=64;     'validpp'="NoVst2x64";              'delete'=$false},
+  @{'path'=$vst2x86_64DefaultPathReg.key; 'key'=$vst2x86_64DefaultPathReg.name; 'value'="$vst2x86BitAware"; 'bit'=64,32;  'validpp'="NoVst2x86";              'delete'=$false},
+  @{'path'=$vst2ProductPathReg.key;       'key'=$vst2ProductPathReg.name;       'value'="$vst2Path";        'bit'=64,32;  'validpp'="NoVst2x64","NoVst2x86";  'delete'=$true}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts =
@@ -61,16 +63,18 @@ function CreateInstallerObjects () { $global:installerComponentsList =
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
-  $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
+    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+
+  $global:PackageNewFiles = @{ 'key'="$chocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
 $companyPath\$packageName.data\Modules\MSEG\Factory MSEGs
 $companyPath\$packageName.data\Modules\Oscillator\Factory OSCs
 $companyPath\$packageName.data\NKS
 $companyPath\$packageName.data\Presets
 $companyPath\$packageName.data\PresetDatabase
-$companyPath\$packageName.data\license.txt
-$companyPath\$packageName.data\$packageName user guide.pdf
-$companyPath\$packageName.data\Zebralette user guide.pdf
+$companyPath\$packageName.data\Documentation\license.txt
+$companyPath\$packageName.data\Documentation\$packageName user guide.pdf
+$companyPath\$packageName.data\Documentation\Zebralette user guide.pdf
 $vst2Path\$packageName(x64).dll
 $vst2Path\Zebralette(x64).dll
 $vst2Path\Zebrify(x64).dll
@@ -115,7 +119,7 @@ function CreatePackageParametersObjects () {
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
-    silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
+    silentArgs    = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /Dir=`"${companyPath}\${packageName}.data`" " # Inno Setup
   }
   $global:packageParametersObjectsList = $packageArgs
 }
