@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CurveEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCurveEQ_313_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCurveEQ_314_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/curveeq/'
-$checksum32     = 'ea7fa79db161ea6c11a2ba266d853175bc813b3935ec1b63a234dc73a8756ac2'
+$checksum32     = '8d021816e7bc0bb09453894c82c64413786d3147fcf27bc67748987c0e9404c3'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
