@@ -1,9 +1,9 @@
 ﻿$packageName    = 'TEOTE'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTEOTE_113_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoTEOTE_114_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/teote/'
-$checksum32     = '77fac7c4332ac2d4491df0fd9789b10577aeef8de51a16280f595d4269df099b'
+$checksum32     = '4fe224a36f908bdc33cc1d96de3dddf02b167e69a79e2d7bfaf9709739c8957f'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
