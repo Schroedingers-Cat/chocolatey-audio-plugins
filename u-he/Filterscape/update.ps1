@@ -140,6 +140,7 @@ function global:au_SearchReplace {
             "(^[$]url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"           #1
             "(^[$]checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"      #2
             "(^[$]unzipInstVersion\s*=\s*)('.*')" = "`$1'$($versionWithoutDot)'"
+            "(^[$]version\s*=\s*)('.*')"      = "`$1'$($Latest.VERSION)'"
         }
     }
 }
