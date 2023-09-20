@@ -132,7 +132,7 @@ function global:au_GetLatest {
   $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases #1
   $regex   = "$zipSuffix" + '$'
   $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href #2
-  $version = ((($url.Split('/') | select -Last 1).Replace("$Zebra_Legacy_","")).Replace("_${zipSuffix}","")).Split('_') | select -First 1
+  $version = ((($url.Split('/') | select -Last 1).Replace("Zebra_Legacy_","")).Replace("_${zipSuffix}","")).Split('_') | select -First 1
   #  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the build number included (1.4.6987 
 #  is a higher version number than 1.4.1.8978) so drop the build number alltogether
 #  $build = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
