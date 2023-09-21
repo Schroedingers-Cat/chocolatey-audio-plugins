@@ -44,7 +44,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/diva/Diva-user-guide.pdf</docsUrl>
+    <docsUrl>https://dl.u-he.com/manuals/plugins/diva/Diva-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>diva audio u-he vst synthesizer aax admin trial</tags>
