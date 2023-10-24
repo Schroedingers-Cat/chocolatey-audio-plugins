@@ -1,10 +1,10 @@
 ﻿$packageName = 'Diva'
-$version = "1.4.6"
+$version = '1.4.7'
 $softwareName = "${packageName} ${version}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Diva_146_15017_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Diva_147_15105_Win.zip'
 $releases = 'https://u-he.com/products/diva/'
-$checksum32 = 'fecfc77f7853137aa4957e85cfa674b9f0fc629301719634d84feba8d63b8e75'
+$checksum32 = '7a3e989cf9ee1ff236a07e5469205fc8c5cbf67c9e7bb5468cfc28d4db0eb83c'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -20,7 +20,7 @@ $global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'=
 $global:uheDataPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="DataPath"}
 $global:uheProductDataPathReg = @{'key'="HKCU:\SOFTWARE\U-HE\$packageName"; 'name'="DataPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '146'
+$unzipInstVersion = '147'
 $unzInstPath = "${packageName}_Win\${packageName}-${unzipInstVersion}-Winstaller.exe"
 $zipSuffix = "Win.zip"
 

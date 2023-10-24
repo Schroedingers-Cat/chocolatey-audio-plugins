@@ -1,8 +1,8 @@
 $packageName = 'Diva'
-$version = "1.4.6"
+$version = '1.4.6'
 $softwareName = "${packageName} ${version}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Diva_146_15017_Win.zip'
+$url32        = 'https://u-he.com/downloads/release-archive/diva/Diva_146_15017_Win.zip'
 $releases = 'https://u-he.com/products/diva/'
 $checksum32 = 'fecfc77f7853137aa4957e85cfa674b9f0fc629301719634d84feba8d63b8e75'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
