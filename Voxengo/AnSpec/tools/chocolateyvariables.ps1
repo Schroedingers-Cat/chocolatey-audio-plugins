@@ -1,9 +1,9 @@
 ﻿$packageName    = 'AnSpec'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoAnSpec_16_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoAnSpec_17_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/anspec/'
-$checksum32     = '65fd2dd91e70e2277b46416eeaa7929f9db23c93b640e4a8c18f76b26e13e041'
+$checksum32     = '67edfe9c24ca61c71fe7d62d1f19d42c8eff74299f0cdceff1898486a7e127f4'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
