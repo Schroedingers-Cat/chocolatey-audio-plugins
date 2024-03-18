@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'; # stop on all errors
 
 $packageName = 'Bitwig'
-$publicVersion = '5.1.3'
+$publicVersion = '5.1.6'
 $softwareName = "Bitwig Studio $($publicVersion)" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
 $installerType = 'MSI'
 $silentArgs = '/qn /norestart'
