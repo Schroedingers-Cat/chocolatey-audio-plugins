@@ -1,10 +1,10 @@
 ﻿$packageName = 'Filterscape'
-$version = "1.5.0"
+$version = '1.5.1'
 $softwareName = "$packageName $version"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Filterscape_150_15011_Win.zip'
+$url32        = 'https://dl.u-he.com/releases/Filterscape_151_15664_Win.zip'
 $releases = 'https://u-he.com/products/filterscape/'
-$checksum32 = 'BBD37490139C986D2CDA1833DF1F9A8ABED15685BBEE11D19E2C4B7E8DF29500'
+$checksum32 = '688fdf51196f64c4b476cf1928e85f1f68529d1933d41d5070cf52261945da5c'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -13,14 +13,13 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
 $clapPath = "${env:COMMONPROGRAMFILES}\CLAP\u-he"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
-$aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2DefaultPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64DefaultPathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'="VSTPluginsPath"}
 $global:uheDataPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="DataPath"}
 $global:uheProductDataPathReg = @{'key'="HKCU:\SOFTWARE\U-HE\$packageName"; 'name'="DataPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '150'
+$unzipInstVersion = '151'
 $unzInstPath = "${packageName}_Win\${packageName}-${unzipInstVersion}-Winstaller.exe"
 $zipSuffix = "Win.zip"
 
@@ -40,9 +39,7 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$vst3Path";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64,32; 'validpp'="NoVst3x64","NoVst3x86"},
   @{'linkPath'="$vst3x86BitAware"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst3x86"},
   @{'linkPath'="$clapPath";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoClapx64"},
-  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
+  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"}
 }
 function CreateSymlinkObjects () { $global:symlinks =
   @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName";  'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets\Filterscape";    'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},

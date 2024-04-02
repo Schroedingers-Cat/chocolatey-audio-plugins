@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.3.2</version>
+    <version>1.3.3</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -57,11 +57,11 @@ Nothing else quite sounds like tape. Satin puts the legacy of tape recording in 
 ### Package Parameters
 The following package parameters can be set:
 
+ * `/NoClapx64`       - Do not install the x64 CLAP version
  * `/NoVst2x86`       - Do not install the x86 VST2 version
  * `/NoVst2x64`       - Do not install the x64 VST2 version
  * `/NoVst3x86`       - Do not install the x86 VST3 version
  * `/NoVst3x64`       - Do not install the x64 VST3 version
- * `/NoAaxx86`        - Do not install the x86 AAX version
  * `/NoAaxx64`        - Do not install the x64 AAX version
  * `/NoPresets`       - Do not install factory presets
  * `/NoNks`           - Do not install the nks integration

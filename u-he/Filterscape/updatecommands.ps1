@@ -27,10 +27,10 @@ function global:au_SearchReplace {
   $versionWithoutDot = $versionWithoutDot -join ""
     @{
         "tools\chocolateyvariables.ps1" = @{
-            "(^[$]url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"           #1
-            "(^[$]checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"      #2
+            "(^[$]url32\s*=\s*)('.*')"            = "`$1'$($Latest.URL32)'"
+            "(^[$]checksum32\s*=\s*)('.*')"       = "`$1'$($Latest.Checksum32)'"
             "(^[$]unzipInstVersion\s*=\s*)('.*')" = "`$1'$($versionWithoutDot)'"
-            "(^[$]version\s*=\s*)('.*')"      = "`$1'$($Latest.VERSION)'"
+            "(^[$]version\s*=\s*)(['""].*['""])"  = "`$1'$($Latest.VERSION)'"
         }
     }
 }
