@@ -39,12 +39,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- projectUrl is required for the community feed -->
     <projectUrl>http://www.u-he.com/products/satin</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/a38c089d2a528cb75df73ef9ea46269589782c91/Icons/u-he/satin.png</iconUrl>
-    <copyright>2021 Heckmann Audio GmbH</copyright>
+    <copyright>2024 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/repro/Repro-1-user-guide.pdf</docsUrl>
+    <docsUrl>https://dl.u-he.com/manuals/plugins/satin/Satin-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>satin audio u-he vst effects aax admin trial</tags>
