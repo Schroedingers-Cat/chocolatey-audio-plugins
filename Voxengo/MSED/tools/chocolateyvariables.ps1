@@ -1,9 +1,9 @@
 ﻿$packageName    = 'MSED'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMSED_310_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoMSED_311_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/msed/'
-$checksum32     = 'c8750ba3456f3d6ec89e181bb57427c27beb5c4301cc22ea4ca20c9c18200c69'
+$checksum32     = '7a9b6e31db9062c6d3c076799559c9348d595919593b617ad39f08fa77e4f3c4'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
