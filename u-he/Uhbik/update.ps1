@@ -12,8 +12,9 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
 $aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
-$global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
-$global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2DefaultPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2x86_64DefaultPathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'="VSTPluginsPath"}
 $global:userFolderPath = $null
 $unzipInstVersion = '131'
 $unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
@@ -22,8 +23,9 @@ $zipSuffix = "Win.zip"
 # This needs to be wrapped into a function so this object also has the data from the package parameters
 function CreateRegistryObjects () { $global:regKeys =
   # The installer does not have an option for custom paths so we need to create the registry entry before
-  @{'path'=$vst2PathReg.key;                                        'key'=$vst2PathReg.name;      'value'="$vst2Path";                    'bit'=64;     'validpp'="NoVst2x64"; 'delete'=$false},
-  @{'path'=$vst2x86_64PathReg.key;                                  'key'=$vst2x86_64PathReg.name;'value'="$vst2x86BitAware";             'bit'=64,32;  'validpp'="NoVst2x86"; 'delete'=$false}
+  @{'path'=$vst2DefaultPathReg.key;       'key'=$vst2DefaultPathReg.name;       'value'="$vst2Path";        'bit'=64;     'validpp'="NoVst2x64";              'delete'=$false},
+  @{'path'=$vst2x86_64DefaultPathReg.key; 'key'=$vst2x86_64DefaultPathReg.name; 'value'="$vst2x86BitAware"; 'bit'=64,32;  'validpp'="NoVst2x86";              'delete'=$false},
+  @{'path'=$vst2ProductPathReg.key;       'key'=$vst2ProductPathReg.name;       'value'="$vst2Path";        'bit'=64,32;  'validpp'="NoVst2x64","NoVst2x86";  'delete'=$true}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts =
@@ -59,7 +61,9 @@ function CreateInstallerObjects () { $global:installerComponentsList =
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
-  $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
+    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+
+  $global:PackageNewFiles = @{ 'key'="$chocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
 $companyPath\$packageName.data\license.txt
 $companyPath\$packageName.data\$packageName user guide.pdf
@@ -104,7 +108,7 @@ function CreatePackageParametersObjects () {
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
-    silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
+    silentArgs    = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /Dir=`"${companyPath}\${packageName}.data`" " # Inno Setup
   }
   $global:packageParametersObjectsList = $packageArgs
 }
