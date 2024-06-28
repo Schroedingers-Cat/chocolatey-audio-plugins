@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Sobor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSobor_32_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoSobor_33_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/sobor/'
-$checksum32     = '5e069a66b7bc2e743ee6eb46eda41f9fcc66aa58a700a116775932e3102ee856'
+$checksum32     = '7bd5eae4b77950e335a0bdedeb8e45671327fda6e5d7cf94eabe5438fc61f1d4'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
