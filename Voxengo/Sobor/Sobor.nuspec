@@ -81,7 +81,7 @@ $VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)
 choco install voxengo-sobor --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
 ```
     </description>
-    <releaseNotes>http://www.voxengo.com/press/</releaseNotes>
+    <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
