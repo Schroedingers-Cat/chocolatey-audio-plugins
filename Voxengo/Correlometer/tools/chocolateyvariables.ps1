@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Correlometer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCorrelometer_17_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCorrelometer_18_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/correlometer/'
-$checksum32     = '492158104b3f3dda47f837ebbd5e87bac0b29cc63d160324eaae2c61c3b760b2'
+$checksum32     = '1ddb64bf5e14e05b08ca76ad047b29adeafa65abce75eeea060e13bc5844d363'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

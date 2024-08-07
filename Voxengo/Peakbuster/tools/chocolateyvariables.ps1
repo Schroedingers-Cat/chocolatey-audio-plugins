@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Peakbuster'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPeakbuster_16_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoPeakbuster_17_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/peakbuster/'
-$checksum32     = 'f97651a73ea9ab435f486e417ba69e9676f1d07c1441870439dc6449202aee87'
+$checksum32     = '8024afce186c221f8dd78052187fb286e54f10c6e182a50e80527f196318611d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
