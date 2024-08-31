@@ -43,7 +43,7 @@ function global:au_SearchReplace {
             "(^[$]publicVersion\s*=\s*)('.*')" = "`$1'$($Latest.PublicVersion)'"
         };
         "bitwig.nuspec" = @{
-            "<releaseNotes>https:\/\/downloads-secure\.bitwig\.com\/\d+\.\d+\.*(\d+)*\/Release-Notes-\d+\.\d+\.*?(\d+)*\.html<\/releaseNotes>"  = "<releaseNotes>https://downloads.bitwig.com/$($Latest.PublicVersion)/Release-Notes-$($Latest.PublicVersion).html</releaseNotes>"
+            "<releaseNotes>https:\/\/www\.bitwig\.com\/dl\/Bitwig\%20Studio\/\d+\.\d+\.*(\d+)*\/release_notes\/<\/releaseNotes>"  = "<releaseNotes>https://www.bitwig.com/dl/Bitwig%20Studio/$($Latest.PublicVersion)/release_notes/</releaseNotes>"
         }
     }
 }
