@@ -1,10 +1,10 @@
 ﻿$packageName = 'Diva'
-$version = '1.4.7'
+$version = '1.4.8'
 $softwareName = "${packageName} ${version}"
 $company = 'u-he'
-$url32        = 'https://dl.u-he.com/releases/Diva_147_15105_Win.zip'
+$url32        = 'https://u-he.com/downloads/releases/Diva_148_16519_Win.zip'
 $releases = 'https://u-he.com/products/diva/'
-$checksum32 = '7a3e989cf9ee1ff236a07e5469205fc8c5cbf67c9e7bb5468cfc28d4db0eb83c'
+$checksum32 = 'c136230c927c06a1624dc70b414a7eb82059f0d56d0c7732b0852ad9d5b8915d'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
@@ -13,14 +13,13 @@ $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
 $clapPath = "${env:COMMONPROGRAMFILES}\CLAP\u-he"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
-$aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
 $global:vst2DefaultPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2x86_64DefaultPathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
 $global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'="VSTPluginsPath"}
 $global:uheDataPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="DataPath"}
 $global:uheProductDataPathReg = @{'key'="HKCU:\SOFTWARE\U-HE\$packageName"; 'name'="DataPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '147'
+$unzipInstVersion = '148'
 $unzInstPath = "${packageName}_Win\${packageName}-${unzipInstVersion}-Winstaller.exe"
 $zipSuffix = "Win.zip"
 

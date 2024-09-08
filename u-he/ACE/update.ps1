@@ -1,29 +1,36 @@
 $packageName = 'ACE'
-$softwareName = "${packageName}"
+$version = '1.4.3'
+$softwareName = "${packageName} ${version}"
 $company = 'u-he'
-$url32        = 'https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/releases/ACE_141_9709_Win.zip'
+$url32        = 'https://u-he.com/downloads/releases/ACE_143_16518_Win.zip'
 $releases = 'https://u-he.com/products/ace/'
-$checksum32 = '4f599659cec37df5a8f4ce84e28201d36583ece670ec00ba85152e6dba10360e'
+$checksum32 = 'c552eafd5d7fa8804a635dc0f7c674558dd2f82f683dcf83c5da5a498a3ca0da'
 $global:companyPath = "${env:SYSTEMDRIVE}\VstPlugins\$company"
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
 $global:vst2AddSubfolder = $true
 $vst3Path = "${env:COMMONPROGRAMFILES}\VST3"
 $vst3x86_64Path = "${env:COMMONPROGRAMFILES(x86)}\VST3"
+$clapPath = "${env:COMMONPROGRAMFILES}\CLAP\u-he"
 $aaxPath = "${env:COMMONPROGRAMFILES}\Avid\Audio\Plug-Ins"
-$aaxx86_64Path = "${env:COMMONPROGRAMFILES(x86)}\Avid\Audio\Plug-Ins"
-$global:vst2PathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
-$global:vst2x86_64PathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2DefaultPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2x86_64DefaultPathReg = @{'key'="HKLM:\SOFTWARE\WOW6432Node\U-HE\VST"; 'name'="VSTPluginsPath"}
+$global:vst2ProductPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\$packageName"; 'name'="VSTPluginsPath"}
+$global:uheDataPathReg = @{'key'="HKLM:\SOFTWARE\U-HE\VST"; 'name'="DataPath"}
+$global:uheProductDataPathReg = @{'key'="HKCU:\SOFTWARE\U-HE\$packageName"; 'name'="DataPath"}
 $global:userFolderPath = $null
-$unzipInstVersion = '141'
-$unzInstPath = "${packageName}_Win\${packageName}${unzipInstVersion}Winstaller.exe"
+$unzipInstVersion = '143'
+$unzInstPath = "${packageName}_Win\${packageName}-${unzipInstVersion}-Winstaller.exe"
 $zipSuffix = "Win.zip"
 
 # This needs to be wrapped into a function so this object also has the data from the package parameters
 function CreateRegistryObjects () { $global:regKeys =
   # The installer does not have an option for custom paths so we need to create the registry entry before
-  @{'path'=$vst2PathReg.key;                                        'key'=$vst2PathReg.name;      'value'="$vst2Path";                    'bit'=64;     'validpp'="NoVst2x64"; 'delete'=$false},
-  @{'path'=$vst2x86_64PathReg.key;                                  'key'=$vst2x86_64PathReg.name;'value'="$vst2x86BitAware";             'bit'=64,32;  'validpp'="NoVst2x86"; 'delete'=$false}
+  @{'path'=$vst2DefaultPathReg.key;       'key'=$vst2DefaultPathReg.name;       'value'="$vst2Path";                      'bit'=64;     'validpp'="NoVst2x64";              'delete'=$false},
+  @{'path'=$vst2x86_64DefaultPathReg.key; 'key'=$vst2x86_64DefaultPathReg.name; 'value'="$vst2x86BitAware";               'bit'=64,32;  'validpp'="NoVst2x86";              'delete'=$false},
+  @{'path'=$vst2ProductPathReg.key;       'key'=$vst2ProductPathReg.name;       'value'="$vst2Path";                      'bit'=64,32;  'validpp'="NoVst2x64","NoVst2x86";  'delete'=$true},
+  @{'path'=$uheDataPathReg.key;           'key'=$uheDataPathReg.name;           'value'="$companyPath\$packageName.data"; 'bit'=64,32;  'validpp'="NoVst2x64","NoVst2x86";  'delete'=$false},
+  @{'path'=$uheProductDataPathReg.key;    'key'=$uheProductDataPathReg.name;    'value'="$companyPath\$packageName.data"; 'bit'=64,32;  'validpp'="NoVst2x64","NoVst2x86";  'delete'=$true}
 }
 function CreateRegistryFileObjects () { $global:regKeyFileObjects }
 function CreateShortcutObjects () { $global:shortcuts =
@@ -31,16 +38,14 @@ function CreateShortcutObjects () { $global:shortcuts =
   @{'linkPath'="$vst2x86BitAware"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst2x86"},
   @{'linkPath'="$vst3Path";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64,32; 'validpp'="NoVst3x64","NoVst3x86"},
   @{'linkPath'="$vst3x86BitAware"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoVst3x86"},
-  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\x64";   'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx86"},
-  @{'linkPath'="$aaxx86BitAware\$packageName.aaxplugin\Contents\Win32"; 'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=32; 'validpp'="NoAaxx86"}
+  @{'linkPath'="$clapPath";        'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64;    'validpp'="NoClapx64"},
+  @{'linkPath'="$aaxPath\$packageName.aaxplugin\Contents\x64";          'linkName'="$packageName.data.lnk"; 'destPath'="$companyPath\$packageName.data"; 'bit'=64; 'validpp'="NoAaxx64"}
 }
-function CreateSymlinkObjects () {
-  $global:symlinks =
-  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";            'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data";                      'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";     'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
-  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName"; 'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";     'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
+function CreateSymlinkObjects () { $global:symlinks =
+  @{'linkPath'="$companyPath\$packageName.data\UserPresets\$packageName"; 'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Presets";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Tunefiles";                'linkName'="${env:username}"; 'destPath'="$userFolderPath\$company\$packageName\Tunefiles"; 'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data";                          'linkName'="Support";         'destPath'="$userFolderPath\$company\$packageName\Support";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")},
+  @{'linkPath'="$companyPath\$packageName.data\Presets\$packageName";     'linkName'="Third Party Libs";'destPath'="$companyPath\Third Party Presets\$packageName";   'validpp'='Always'; 'bit'=64,32; 'dropIfNull'=@("$userFolderPath")}
 }
 function CreateInstallerObjects () { $global:installerComponentsList =
   #Warning: The order of the list *is* important
@@ -48,13 +53,16 @@ function CreateInstallerObjects () { $global:installerComponentsList =
   @{'value'="vst2_64";   'bit'=64;    'validpp'="NoVst2x64"},
   @{'value'="vst3_32";   'bit'=64,32; 'validpp'="NoVst3x86"},
   @{'value'="vst3_64";   'bit'=64;    'validpp'="NoVst3x64"},
-  @{'value'="aax_32";    'bit'=64,32; 'validpp'="NoAaxx86"},
+  @{'value'="clap_64";   'bit'=64;    'validpp'="NoClapx64"},
   @{'value'="aax_64";    'bit'=64;    'validpp'="NoAaxx64"},
   @{'value'="presets";   'bit'=64,32; 'validpp'="NoPresets"}
 }
 function CreatePackageRessourcePathObjects () { $global:PackageRessourcePathList }
 function CreateTxtFileObjects () {
-  $global:PackageNewFiles = @{ 'key'="$env:ChocolateyPackageFolder\uninstall.txt";'value'=
+    $chocolateyPackageFolder = (Get-EnvironmentVariable -Name 'ChocolateyPackageFolder' -Scope Process)
+
+# Finally, an official uninstaller!
+  $global:PackageNewFiles <#= @{ 'key'="$chocolateyPackageFolder\uninstall.txt";'value'=
 "$companyPath\$packageName.data\Data
 $companyPath\$packageName.data\Extras
 $companyPath\$packageName.data\NKS
@@ -81,7 +89,7 @@ $companyPath\$packageName.data\UserPresets\$packageName\${env:username}
 $companyPath\$packageName.data\Tunefiles\${env:username}
 $companyPath\$packageName.data\Presets\$packageName\Third Party Libs
 "
-  }
+  }#>
 }
 function CreatePackageParametersObjects () {
   $global:packageArgs = @{
@@ -93,12 +101,12 @@ function CreatePackageParametersObjects () {
     softwareName  = "$company $packageName*" #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
     checksum      = $checksum32
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
-    silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
+    silentArgs    = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /Dir=`"${companyPath}\${packageName}.data`" " # Inno Setup
   }
   $global:packageParametersObjectsList = $packageArgs
 }
 function InstallerCompanyPathAutomaticDetection () {
-  $global:autoInstDetectionCompanyPath = (ResolvePaths @("$vst2Path\$softwareName.data.lnk", "$vst2x86_64Path\$softwareName.data.lnk", "$vst3Path\$softwareName.data.lnk", "$vst3x86_64Path\$softwareName.data.lnk", "$aaxPath\$softwareName.data.lnk", "$aaxx86_64Path\$softwareName.data.lnk")).Parent.FullName
+  $global:autoInstDetectionCompanyPath = (ResolvePaths @("$vst2Path\$packageName.data.lnk", "$vst2x86_64Path\$packageName.data.lnk", "$vst3Path\$packageName.data.lnk", "$vst3x86_64Path\$packageName.data.lnk", "$clapPath\$packageName.data.lnk", "$aaxPath\$packageName.data.lnk")).Parent.FullName
 }
 import-module au
 
@@ -107,9 +115,9 @@ function global:au_GetLatest {
   $regex   = "$zipSuffix" + '$'
   $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href #2
   $version = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -First 1
-  #  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the build number included (1.4.6987 
-  #  is a higher version number than 1.4.1.8978) so drop the build number alltogether
-  #  $build = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
+#  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the build number included (1.4.6987 
+#  is a higher version number than 1.4.1.8978) so drop the build number alltogether
+#  $build = ((($url.Split('/') | select -Last 1).Replace("${packageName}_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
   $stringLength = $version | measure-object -character | select -expandproperty characters
   $i = $stringLength
   while($i -gt 1) {
@@ -132,6 +140,7 @@ function global:au_SearchReplace {
             "(^[$]url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"           #1
             "(^[$]checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"      #2
             "(^[$]unzipInstVersion\s*=\s*)('.*')" = "`$1'$($versionWithoutDot)'"
+            "(^[$]version\s*=\s*)('.*')"      = "`$1'$($Latest.VERSION)'"
         }
     }
 }
