@@ -1,9 +1,9 @@
 ﻿$packageName    = 'EBusLim'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoEBusLim_19_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoEBusLim_110_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/ebuslim/'
-$checksum32     = '48042b9c30446b93d2a4d267b4389c6e4d5c9547bdad5310677fe62101d62181'
+$checksum32     = 'dca57f794068ce92dc38d3006b10ae30823f285e8070cbbbe14c443aa30b970d'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
