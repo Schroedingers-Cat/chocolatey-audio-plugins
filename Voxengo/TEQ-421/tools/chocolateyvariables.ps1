@@ -1,9 +1,9 @@
 ﻿$packageName    = 'TEQ-421'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTEQ421_12_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoTEQ421_13_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/teq421/'
-$checksum32     = 'ee4991ee73dc8a5f67feb862dbfa9d13ebf6841807e834ce7ccc904d26cdec97'
+$checksum32     = '295140bff3f9653a0bce6359867ea9f24498e565a85ebce6c7e61fdfd90412f8'
 $global:companyPath    = "${env:PROGRAMFILES}\$company"
 $global:vst2Path       = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"
