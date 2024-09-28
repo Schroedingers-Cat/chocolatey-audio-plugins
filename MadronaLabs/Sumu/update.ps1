@@ -1,4 +1,4 @@
-import-module au
+import-module Chocolatey-AU
 
 $releases = 'https://madronalabs.com/products/sumu'
 
@@ -42,11 +42,11 @@ function global:au_GetLatest {
 
     $version = $installerName -replace "$($productName)Installer", '' -replace '\.exe$', ''
 
-    # Check if version contains a beta indicator (like 'b20')
+    # Map beta versions to pre-release suffixes
     if ($version -match '(\d+\.\d+\.\d+)(b\d+)') {
         $baseVersion = $matches[1]
-        $currentDate = Get-Date -Format "yyyyMMdd"
-        $version = "${baseVersion}.${currentDate}"
+        $betaSuffix = $matches[2] -replace '^b', 'beta' # Converts 'b20' to 'beta20'
+        $version = "${baseVersion}-${betaSuffix}"
     }
 
     return @{
