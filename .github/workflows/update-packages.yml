@@ -17,6 +17,7 @@ jobs:
       matrix:
         package:
           - bitwig
+          - MadronaLabs\Sumu
 
     steps:
       - uses: actions/checkout@v4
