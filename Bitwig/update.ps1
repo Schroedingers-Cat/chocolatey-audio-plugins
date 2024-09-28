@@ -1,4 +1,4 @@
-import-module au
+import-module Chocolatey-AU
 
 function global:au_GetLatest {
     $releases = "https://www.bitwig.com/previous_releases/"
