@@ -46,8 +46,7 @@ jobs:
           $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
           $ApiKey = '${{ secrets.CHOCO_KEY }}'
           $ChocoServer = 'https://push.chocolatey.org/'
-          #choco push $Nupkg --source $ChocoServer --key $ApiKey
-          Write-Output "Pushing package to community server " $Nupkg
+          choco push $Nupkg --source $ChocoServer --key $ApiKey
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
       - name: Commit Updated nuspec
