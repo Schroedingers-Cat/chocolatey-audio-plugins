@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>madronalabs-virta</id>
+    <version>1.9.3</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Virta</title>
+    <authors>Madrona Labs</authors>
+    <projectUrl>https://madronalabs.com/products/virta</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/396d8d00dc9123958caf3f5d877d36c53a29ed3d/Icons/MadronaLabs/Virta.png</iconUrl>
+    <copyright>2024 Madrona Labs</copyright>
+    <docsUrl>https://madronalabs.com/media/virta/VirtaManual.pdf</docsUrl>
+    <tags>virta synthesizer vst2 plugin vocal processor effect instrument audio</tags>
+    <description>Virta is a patchable toolbox for turning your voice or other instrument into wild new synth sounds.
+    </description>
+    <releaseNotes>https://madronalabs.com/news</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

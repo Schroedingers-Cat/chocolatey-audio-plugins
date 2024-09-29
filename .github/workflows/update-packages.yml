@@ -17,7 +17,11 @@ jobs:
       matrix:
         package:
           - bitwig
+          - MadronaLabs\Aalto
+          - MadronaLabs\Aaltoverb
+          - MadronaLabs\Kaivo
           - MadronaLabs\Sumu
+          - MadronaLabs\Virta
 
     steps:
       - uses: actions/checkout@v4

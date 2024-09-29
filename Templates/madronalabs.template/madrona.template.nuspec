@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>madronalabs-[[PackageNameLower]]</id>
+    <version>[[Version]]</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>[[MaintainerName]]</owners>
+    <title>[[PackageName]]</title>
+    <authors>[[Author]]</authors>
+    <projectUrl>https://madronalabs.com/products/[[PackageNameLower]]</projectUrl>
+    <iconUrl>[[UrlIcon]]</iconUrl>
+    <copyright>2024 [[Author]]</copyright>
+    <docsUrl>https://madronalabs.com/media/[[PackageNameLower]]/[[PackageName]]Manual.pdf</docsUrl>
+    <tags>[[PackageNameLower]] [[Tags]]</tags>
+    <description>[[Description]]
+    </description>
+    <releaseNotes>https://madronalabs.com/news</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

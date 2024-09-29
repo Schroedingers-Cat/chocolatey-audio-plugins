@@ -1,6 +1,6 @@
 ﻿import-module Chocolatey-AU
 
-$releases = 'https://madronalabs.com/products/sumu'
+$releases = 'https://madronalabs.com/products/aalto'
 
 function global:au_SearchReplace {
     @{
@@ -9,7 +9,7 @@ function global:au_SearchReplace {
             "(?i)(^\s*checksumType64\s*=\s*)('.*')" = "`$1'$($Latest.ChecksumType64)'"
             "(?i)(^\s*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
-        ".\sumu.nuspec" = @{
+        ".\aalto.nuspec" = @{
             "(?i)(^\s*<version>).*(<\/version>)" = "`${1}$($Latest.Version)`$2"
         }
     }
