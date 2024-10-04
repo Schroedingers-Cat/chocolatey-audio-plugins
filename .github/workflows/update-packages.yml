@@ -16,7 +16,23 @@ jobs:
     strategy:
       matrix:
         package:
-          - bitwig
+          - Bitwig
+          - DMGAudio\Compassion
+          - DMGAudio\Dualism
+          - DMGAudio\EQuality
+          - DMGAudio\EQuick
+          - DMGAudio\EQuilibrium
+          - DMGAudio\Essence
+          - DMGAudio\Expurgate
+          - DMGAudio\Limitless
+          - DMGAudio\Multiplicity
+          - DMGAudio\PitchFunk
+          - DMGAudio\TrackComp
+          - DMGAudio\TrackControl
+          - DMGAudio\TrackDS
+          - DMGAudio\TrackGate
+          - DMGAudio\TrackLimit
+          - DMGAudio\TrackMeter
           - MadronaLabs\Aalto
           - MadronaLabs\Aaltoverb
           - MadronaLabs\Kaivo

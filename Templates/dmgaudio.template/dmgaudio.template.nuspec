@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Would like to change the name to this at some point -->
+    <!-- <id>[[AuthorLowerNowhite]]-[[PackageNameLower]]</id> -->
+    <id>[[PackageNameLower]]</id>
+    <version>[[Version]]</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>[[MaintainerName]]</owners>
+    <title>[[PackageName]]</title>
+    <authors>[[Author]]</authors>
+    <projectUrl>https://[[AuthorLowerNowhite]].com/[[PackageNameLower]]</projectUrl>
+    <iconUrl>[[UrlIcon]]</iconUrl>
+    <copyright>Copyright (c) [[Author]] 2011-2024</copyright>
+    <docsUrl>https://[[AuthorLowerNowhite]].com/dl/[[Author]]_[[PackageName]]_Manual.pdf</docsUrl>
+    <tags>[[AuthorLowerNowhite]] [[PackageNameLower]] [[Tags]]</tags>
+    <summary>[[Summary]]</summary>
+    <description>[[Description]]
+    </description>
+    <releaseNotes>https://[[AuthorLowerNowhite]].com/[[PackageNameLower]]#history</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+    <file src="$sharedscripts$\helpers-installer.ps1" target="tools" />
+    <file src="$sharedscripts$\helpers-regkey.ps1" target="tools" />
+    <file src="$sharedscripts$\chocolateyinstall.ps1" target="tools" />
+    <file src="$sharedscripts$\chocolateyfunctions.ps1" target="tools" />
+  </files>
+</package>

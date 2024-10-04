@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Would like to change the name to this at some point -->
+    <!-- <id>dmgaudio-limitless</id> -->
+    <id>limitless</id>
+    <version>1.19</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Limitless</title>
+    <authors>DMGAudio</authors>
+    <projectUrl>https://dmgaudio.com/limitless</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/b8d3132e04017c26ba9d108c81a1b90a725743c1/Icons/DMGAudio/limitless.png</iconUrl>
+    <copyright>Copyright (c) DMGAudio 2011-2024</copyright>
+    <docsUrl>https://dmgaudio.com/dl/DMGAudio_Limitless_Manual.pdf</docsUrl>
+    <tags>dmgaudio limitless vst aax multiband limiter audio mixing admin trial</tags>
+    <summary>A limiter plugin for VST2/3 and AAX hosts by DMGAudio.</summary>
+    <description>
+# Limitless
+## Description
+Featuring full loudness metering and DMGAudio's state of the art algorithms this is not your traditional dynamics processor.
+Limitless implements multi-band dual-stage processing that intelligently separates dynamics and transients, and generates the smoothest possible gain reduction curves.
+
+## Package Specific
+
+### Package Parameters
+The following package parameters can be set:
+
+* `/Vst2Path:` - Installation path of the VST2 version
+* `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+* `/Vst3Path:` - Installation path of the VST3 version
+* `/Vst3x86Path:` - Installation path of the x86 VST3 version on x64 CPU architecture
+* `/CompanyPath:` - Path of the company to put all program files in. Override if you want to have all the program files at a custom location.
+* `/InstallerPath:` - Do not download the installer from the official website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your computer.
+
+You must pass the package parameters like this:
+```
+$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\DMG Audio"
+choco install limitless --package-parameters "'/Vst2x86Path:$VST2x86 '"
+```
+Using envornment variables to express directories is the preferred way.
+    </description>
+    <releaseNotes>https://dmgaudio.com/limitless#history</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+    <file src="..\..\SharedScripts\helpers-installer.ps1" target="tools" />
+    <file src="..\..\SharedScripts\helpers-regkey.ps1" target="tools" />
+    <file src="..\..\SharedScripts\chocolateyinstall.ps1" target="tools" />
+    <file src="..\..\SharedScripts\chocolateyfunctions.ps1" target="tools" />
+  </files>
+</package>
