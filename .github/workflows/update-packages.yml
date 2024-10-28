@@ -38,7 +38,7 @@ jobs:
           - MadronaLabs\Kaivo
           - MadronaLabs\Sumu
           - MadronaLabs\Virta
-          - Voxengo\CurveEQ
+          # - Voxengo\CurveEQ
           - Voxengo\CRTIV Tape Bus
 
     steps:
