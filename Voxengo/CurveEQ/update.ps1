@@ -31,4 +31,3 @@ function global:au_SearchReplace {
 }
 
 update -ChecksumFor none -NoCheckChocoVersion
-Move-Item ("voxengo-curveeq" + "*" + ".nupkg") ..\ -Force
