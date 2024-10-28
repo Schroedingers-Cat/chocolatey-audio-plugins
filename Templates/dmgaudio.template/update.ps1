@@ -42,5 +42,3 @@ function global:au_SearchReplace {
 # Run the update process
 # no automatic checksumming, we manually checksummed to workaround chocolateyInstall.ps1 required to be present in the tools directory at update time
 update -ChecksumFor none
-
-Move-Item (${packageName} + "*" + ".nupkg") ..\ -Force
