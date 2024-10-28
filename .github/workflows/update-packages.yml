@@ -39,6 +39,7 @@ jobs:
           - MadronaLabs\Sumu
           - MadronaLabs\Virta
           - Voxengo\CurveEQ
+          - Voxengo\CRTIV Tape Bus
 
     steps:
       - uses: actions/checkout@v4
