@@ -1,4 +1,4 @@
-﻿import-module Chocolatey-AU
+import-module Chocolatey-AU
 . tools\chocolateyvariables.ps1
 
 function global:au_GetLatest {
@@ -13,7 +13,7 @@ function global:au_GetLatest {
         Version     = $version; 
         URL32       = $url; 
         # Workaround because AU changes package ID in the nuspec to the folder name without asking
-        PackageName = "voxengo-curveeq" 
+        PackageName = "[[AuthorLowerNowhite]]-[[PackageId]]" 
     }
 }
 
@@ -31,4 +31,4 @@ function global:au_SearchReplace {
 }
 
 update -ChecksumFor none -NoCheckChocoVersion
-Move-Item ("voxengo-curveeq" + "*" + ".nupkg") ..\ -Force
+Move-Item ("[[AuthorLowerNowhite]]-[[PackageId]]" + "*" + ".nupkg") ..\ -Force

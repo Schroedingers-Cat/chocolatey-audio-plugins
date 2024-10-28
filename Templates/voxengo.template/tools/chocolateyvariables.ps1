@@ -1,20 +1,20 @@
-﻿$packageName    = 'CurveEQ'
-$company        = 'Voxengo'
+﻿$packageName    = '[[PackageName]]'
+$company        = '[[Author]]'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCurveEQ_314_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/curveeq/'
-$checksum32     = '8d021816e7bc0bb09453894c82c64413786d3147fcf27bc67748987c0e9404c3'
+$url32          = '[[Url32]]'
+$releases       = 'https://www.voxengo.com/product/[[PackageNameNoWhite]]/'
+$checksum32     = '[[Checksum32]]'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
   $global:regKeys
 
   if (![string]::IsNullOrWhiteSpace($global:vst2Path)) {
-    $global:regKeys += @{'path' = "HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key' = "DirVST2_64"; 'value' = "$global:vst2Path"; 'bit' = 64; 'validpp' = "NoVst2x64" }
+    $global:regKeys += @{'path' = "HKLM:\Software\[[Author]]\AudioPluginsInstall"; 'key' = "DirVST2_64"; 'value' = "$global:vst2Path"; 'bit' = 64; 'validpp' = "NoVst2x64" }
   }
 
   if (![string]::IsNullOrWhiteSpace($global:vst2x86BitAware)) {
-    $global:regKeys += @{'path' = "HKLM:\Software\Voxengo\AudioPluginsInstall"; 'key' = "DirVST2_32"; 'value' = "$global:vst2x86BitAware"; 'bit' = 64, 32; 'validpp' = "NoVst2x86" }
+    $global:regKeys += @{'path' = "HKLM:\Software\[[Author]]\AudioPluginsInstall"; 'key' = "DirVST2_32"; 'value' = "$global:vst2x86BitAware"; 'bit' = 64, 32; 'validpp' = "NoVst2x86" }
   }
 }
 
