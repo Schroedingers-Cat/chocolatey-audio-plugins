@@ -16,35 +16,35 @@ jobs:
     strategy:
       matrix:
         package:
-          - Bitwig
-          - DMGAudio\Compassion
-          - DMGAudio\Dualism
-          - DMGAudio\EQuality
-          - DMGAudio\EQuick
-          - DMGAudio\EQuilibrium
-          - DMGAudio\Essence
-          - DMGAudio\Expurgate
-          - DMGAudio\Limitless
-          - DMGAudio\Multiplicity
-          - DMGAudio\PitchFunk
-          - DMGAudio\TrackComp
-          - DMGAudio\TrackControl
-          - DMGAudio\TrackDS
-          - DMGAudio\TrackGate
-          - DMGAudio\TrackLimit
-          - DMGAudio\TrackMeter
-          - MadronaLabs\Aalto
-          - MadronaLabs\Aaltoverb
-          - MadronaLabs\Kaivo
-          - MadronaLabs\Sumu
-          - MadronaLabs\Virta
-          - Voxengo\AnSpec
+          # - Bitwig
+          # - DMGAudio\Compassion
+          # - DMGAudio\Dualism
+          # - DMGAudio\EQuality
+          # - DMGAudio\EQuick
+          # - DMGAudio\EQuilibrium
+          # - DMGAudio\Essence
+          # - DMGAudio\Expurgate
+          # - DMGAudio\Limitless
+          # - DMGAudio\Multiplicity
+          # - DMGAudio\PitchFunk
+          # - DMGAudio\TrackComp
+          # - DMGAudio\TrackControl
+          # - DMGAudio\TrackDS
+          # - DMGAudio\TrackGate
+          # - DMGAudio\TrackLimit
+          # - DMGAudio\TrackMeter
+          # - MadronaLabs\Aalto
+          # - MadronaLabs\Aaltoverb
+          # - MadronaLabs\Kaivo
+          # - MadronaLabs\Sumu
+          # - MadronaLabs\Virta
+          # - Voxengo\AnSpec
           - Voxengo\Beeper
-          - Voxengo\BMS
-          - Voxengo\Boogex
-          - Voxengo\Correlometer
-          - Voxengo\CRTIV Tape Bus
-          - Voxengo\Crunchessor
+          # - Voxengo\BMS
+          # - Voxengo\Boogex
+          # - Voxengo\Correlometer
+          # - Voxengo\CRTIV Tape Bus
+          # - Voxengo\Crunchessor
           - Voxengo\CurveEQ
           - Voxengo\Deft Compressor
           - Voxengo\Drumformer
