@@ -1,9 +1,9 @@
 ﻿$packageName    = 'Beeper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBeeper_213_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoBeeper_212_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/beeper/'
-$checksum32     = 'd8d1bc9cbdaeffa0e41df038e39bd371a7dbe3c0dcc6d7e7722629f87c817879'
+$checksum32     = '2f255b2092a791e1b0daef0f64c25e95ecd8b4446a92bf2c30973a76b174c033'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
