@@ -1,9 +1,9 @@
 ﻿$packageName    = 'CurveEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCurveEQ_315_Win32_64_VST_VST3_AAX_setup.exe'
+$url32          = 'https://www.voxengo.com/files/VoxengoCurveEQ_314_Win32_64_VST_VST3_AAX_setup.exe'
 $releases       = 'https://www.voxengo.com/product/curveeq/'
-$checksum32     = 'd74e6488876b0dba4df1ec19259a8cfd7cf6f57cb71784631a12affd9a57b730'
+$checksum32     = '8d021816e7bc0bb09453894c82c64413786d3147fcf27bc67748987c0e9404c3'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
