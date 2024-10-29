@@ -116,6 +116,9 @@ jobs:
           choco push $Nupkg --source $ChocoServer --key $ApiKey
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
+      - name: Pull Remote Changes
+        run: git pull
+        
       - name: Commit Updated nuspec
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
