@@ -38,8 +38,53 @@ jobs:
           - MadronaLabs\Kaivo
           - MadronaLabs\Sumu
           - MadronaLabs\Virta
-          # - Voxengo\CurveEQ
+          - Voxengo\AnSpec
+          - Voxengo\Beeper
+          - Voxengo\BMS
+          - Voxengo\Boogex
+          - Voxengo\Correlometer
           - Voxengo\CRTIV Tape Bus
+          - Voxengo\Crunchessor
+          - Voxengo\CurveEQ
+          - Voxengo\Deft Compressor
+          - Voxengo\Drumformer
+          - Voxengo\EBusLim
+          - Voxengo\Elephant
+          - Voxengo\GlissEQ
+          - Voxengo\HarmoniEQ
+          - Voxengo\Latency Delay
+          - Voxengo\LF Max Punch
+          - Voxengo\Marquis Compressor
+          - Voxengo\Marvel GEQ
+          - Voxengo\MSED
+          - Voxengo\OldSkoolVerb
+          - Voxengo\OldSkoolVerb Plus
+          - Voxengo\OVC-128
+          - Voxengo\Overtone GEQ
+          - Voxengo\Peakbuster
+          - Voxengo\PHA-979
+          - Voxengo\Polysquasher 3
+          - Voxengo\Powershaper
+          - Voxengo\PrimeEQ
+          - Voxengo\r8brain PRO
+          - Voxengo\Shinechilla
+          - Voxengo\Shumovick
+          - Voxengo\Sobor
+          - Voxengo\Soniformer
+          - Voxengo\Sound Delay
+          - Voxengo\SPAN
+          - Voxengo\SPAN Plus
+          - Voxengo\Spatifier
+          - Voxengo\Stereo Touch
+          - Voxengo\Tempo Delay
+          - Voxengo\TEOTE
+          - Voxengo\TEQ-421
+          - Voxengo\TransGainer
+          - Voxengo\Tube Amp
+          - Voxengo\VariSaturator
+          - Voxengo\Voxformer
+          - Voxengo\Warmifier
+          - Voxengo\Water Chorus
 
     steps:
       - uses: actions/checkout@v4

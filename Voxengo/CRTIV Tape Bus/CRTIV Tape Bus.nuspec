@@ -13,9 +13,32 @@
     <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVTapeBus_en.pdf/getbyname/Voxengo%20CRTIV%20Tape%20Bus%20User%20Guide%20en.pdf</docsUrl>
-    <tags>voxengo crtiv-tape-bus tape saturation vst aax audio mixing mastering recording trial</tags>
+    <tags>voxengo crtiv tape bus tape saturation vst aax audio mixing mastering recording trial</tags>
     <summary>A tape saturation plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
-    <description>[[Description]]
+    <description>
+CRTIV Tape Bus plug-in for professional music production applications recreates characteristic elements of the reel-to-reel tape sound.  This includes saturation, modulation noise and smearing effects which are known for the “analog” feel they bring to audio recordings.  This plug-in also applies a selected impulse response taken by us from the existing tape machines.
+
+## Package Specific
+
+### Package Parameters
+The following package parameters can be set:
+
+ * `/NoVst2x86`       - Do not install the x86 VST2 version
+ * `/NoVst2x64`       - Do not install the x64 VST2 version
+ * `/NoVst3x86`       - Do not install the x86 VST3 version
+ * `/NoVst3x64`       - Do not install the x64 VST3 version
+ * `/NoAaxx86`        - Do not install the x86 AAX version
+ * `/NoAaxx64`        - Do not install the x64 AAX version
+ * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
+ * `/Vst2Path:`       - Installation path of the VST2 version
+ * `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+ * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
+ * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
+
+You must pass the package parameters like this:
+```
+choco install voxengo-crtiv-tape-bus --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
+```
     </description>
     <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
     <dependencies>

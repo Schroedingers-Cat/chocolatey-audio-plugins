@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>voxengo-span-plus</id>
+    <version>1.24</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Voxengo SPAN Plus</title>
+    <authors>Voxengo</authors>
+    <projectUrl>https://www.voxengo.com/product/spanplus/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/2f060c98209291720a34f842bf275718d554f033/Icons/SPANPlus.png</iconUrl>
+    <copyright>Copyright (c) Voxengo 2024</copyright>
+    <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoSPANPlus_en.pdf/getbyname/Voxengo%20SPAN%20Plus%20User%20Guide%20en.pdf</docsUrl>
+    <tags>voxengo span plus fft spectrum analyser vst aax audio mixing mastering recording trial</tags>
+    <summary>An fft spectrum analyser plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
+    <description>
+SPAN Plus is a real-time “fast Fourier transform” audio spectrum analyzer AAX, AU and VST plugin for professional music and audio production applications.  For the most part it was derived from Voxengo GlissEQ dynamic parametric equalizer and reproduces its spectrum analysis functionality.  SPAN Plus is an extended version of the freeware SPAN plugin: SPAN Plus provides several additional features such as PNG file export, real-time spectrum import/export and static spectrums display.
+
+## Package Specific
+
+### Package Parameters
+The following package parameters can be set:
+
+ * `/NoVst2x86`       - Do not install the x86 VST2 version
+ * `/NoVst2x64`       - Do not install the x64 VST2 version
+ * `/NoVst3x86`       - Do not install the x86 VST3 version
+ * `/NoVst3x64`       - Do not install the x64 VST3 version
+ * `/NoAaxx86`        - Do not install the x86 AAX version
+ * `/NoAaxx64`        - Do not install the x64 AAX version
+ * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
+ * `/Vst2Path:`       - Installation path of the VST2 version
+ * `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
+ * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
+ * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
+
+You must pass the package parameters like this:
+```
+choco install voxengo-span-plus --package-parameters "'/NoVst2x64'"
+```
+    </description>
+    <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+    <file src="..\..\SharedScripts\helpers-installer.ps1" target="tools" />
+    <file src="..\..\SharedScripts\helpers-regkey.ps1" target="tools" />
+    <file src="..\..\SharedScripts\chocolateyinstall.ps1" target="tools" />
+    <file src="..\..\SharedScripts\chocolateyfunctions.ps1" target="tools" />
+  </files>
+</package>
+
