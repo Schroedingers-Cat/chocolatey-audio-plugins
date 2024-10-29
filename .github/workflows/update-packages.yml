@@ -118,6 +118,7 @@ jobs:
 
       - name: Pull Remote Changes
         run: git pull
+        if: steps.update.outputs.UpdateStatus == 'Update Available'
 
       - name: Commit Updated nuspec
         uses: stefanzweifel/git-auto-commit-action@v4
