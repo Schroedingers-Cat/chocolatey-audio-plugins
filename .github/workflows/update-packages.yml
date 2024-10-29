@@ -105,7 +105,7 @@ jobs:
           Write-Output "UpdateStatus=$($UpdateStatus)" >> $Env:GITHUB_OUTPUT
 
       - name: Test ${{ matrix.package }} install
-        run: Test-Package -Install -Nu ${{ steps.update.outputs.NupkgPath }}
+        run: Test-Package -Install -Nu "${{ steps.update.outputs.NupkgPath }}"
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
       - name: Publish to Chocolatey community feed
