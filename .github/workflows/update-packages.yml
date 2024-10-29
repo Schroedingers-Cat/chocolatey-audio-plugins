@@ -16,35 +16,35 @@ jobs:
     strategy:
       matrix:
         package:
-          # - Bitwig
-          # - DMGAudio\Compassion
-          # - DMGAudio\Dualism
-          # - DMGAudio\EQuality
-          # - DMGAudio\EQuick
-          # - DMGAudio\EQuilibrium
-          # - DMGAudio\Essence
-          # - DMGAudio\Expurgate
-          # - DMGAudio\Limitless
-          # - DMGAudio\Multiplicity
-          # - DMGAudio\PitchFunk
-          # - DMGAudio\TrackComp
-          # - DMGAudio\TrackControl
-          # - DMGAudio\TrackDS
-          # - DMGAudio\TrackGate
-          # - DMGAudio\TrackLimit
-          # - DMGAudio\TrackMeter
-          # - MadronaLabs\Aalto
-          # - MadronaLabs\Aaltoverb
-          # - MadronaLabs\Kaivo
-          # - MadronaLabs\Sumu
-          # - MadronaLabs\Virta
-          # - Voxengo\AnSpec
+          - Bitwig
+          - DMGAudio\Compassion
+          - DMGAudio\Dualism
+          - DMGAudio\EQuality
+          - DMGAudio\EQuick
+          - DMGAudio\EQuilibrium
+          - DMGAudio\Essence
+          - DMGAudio\Expurgate
+          - DMGAudio\Limitless
+          - DMGAudio\Multiplicity
+          - DMGAudio\PitchFunk
+          - DMGAudio\TrackComp
+          - DMGAudio\TrackControl
+          - DMGAudio\TrackDS
+          - DMGAudio\TrackGate
+          - DMGAudio\TrackLimit
+          - DMGAudio\TrackMeter
+          - MadronaLabs\Aalto
+          - MadronaLabs\Aaltoverb
+          - MadronaLabs\Kaivo
+          - MadronaLabs\Sumu
+          - MadronaLabs\Virta
+          - Voxengo\AnSpec
           - Voxengo\Beeper
-          # - Voxengo\BMS
-          # - Voxengo\Boogex
-          # - Voxengo\Correlometer
-          # - Voxengo\CRTIV Tape Bus
-          # - Voxengo\Crunchessor
+          - Voxengo\BMS
+          - Voxengo\Boogex
+          - Voxengo\Correlometer
+          - Voxengo\CRTIV Tape Bus
+          - Voxengo\Crunchessor
           - Voxengo\CurveEQ
           - Voxengo\Deft Compressor
           - Voxengo\Drumformer
@@ -108,17 +108,17 @@ jobs:
         run: Test-Package -Install -Uninstall -Nu "${{ steps.update.outputs.NupkgPath }}"
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
-      # - name: Publish to Chocolatey community feed
-      #   run: |
-      #     $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
-      #     $ApiKey = '${{ secrets.CHOCO_KEY }}'
-      #     $ChocoServer = 'https://push.chocolatey.org/'
-      #     choco push $Nupkg --source $ChocoServer --key $ApiKey
-      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
+      - name: Publish to Chocolatey community feed
+        run: |
+          $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
+          $ApiKey = '${{ secrets.CHOCO_KEY }}'
+          $ChocoServer = 'https://push.chocolatey.org/'
+          choco push $Nupkg --source $ChocoServer --key $ApiKey
+        if: steps.update.outputs.UpdateStatus == 'Update Available'
 
-      # - name: Commit Updated nuspec
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
-      #     file_pattern: '*.nuspec *.ps1'
-      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
+      - name: Commit Updated nuspec
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
+          file_pattern: '*.nuspec *.ps1'
+        if: steps.update.outputs.UpdateStatus == 'Update Available'
