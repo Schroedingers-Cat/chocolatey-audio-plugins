@@ -1,9 +1,8 @@
 ﻿$packageName    = 'GlissEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoGlissEQ_318_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/glisseq/'
-$checksum32     = '04ffde119f5e8637fc648aad81ec4d391908750cfac504d450dfac00edbda5ba'
+$checksum       = '04ffde119f5e8637fc648aad81ec4d391908750cfac504d450dfac00edbda5ba'
+$url            = 'https://www.voxengo.com/files/VoxengoGlissEQ_318_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

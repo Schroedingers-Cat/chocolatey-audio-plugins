@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Sound Delay'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSoundDelay_114_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/sounddelay/'
-$checksum32     = '9ef273089973bb84d1f1c80122108c64288c549a9452fce2f6d969303a60e5ed'
+$checksum       = '9ef273089973bb84d1f1c80122108c64288c549a9452fce2f6d969303a60e5ed'
+$url            = 'https://www.voxengo.com/files/VoxengoSoundDelay_114_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

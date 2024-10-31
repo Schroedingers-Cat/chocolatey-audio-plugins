@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Shinechilla'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoShinechilla_15_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/shinechilla/'
-$checksum32     = 'affeac4a8a50ea509ac5fc222270d2a8d3cf69a78fd9f6bbad181e048b20feec'
+$checksum       = 'affeac4a8a50ea509ac5fc222270d2a8d3cf69a78fd9f6bbad181e048b20feec'
+$url            = 'https://www.voxengo.com/files/VoxengoShinechilla_15_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

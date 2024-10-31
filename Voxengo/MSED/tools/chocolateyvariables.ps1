@@ -1,9 +1,8 @@
 ﻿$packageName    = 'MSED'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMSED_311_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/msed/'
-$checksum32     = '7a9b6e31db9062c6d3c076799559c9348d595919593b617ad39f08fa77e4f3c4'
+$checksum       = '7a9b6e31db9062c6d3c076799559c9348d595919593b617ad39f08fa77e4f3c4'
+$url            = 'https://www.voxengo.com/files/VoxengoMSED_311_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

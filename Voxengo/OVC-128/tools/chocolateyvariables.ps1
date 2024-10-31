@@ -1,9 +1,8 @@
 ﻿$packageName    = 'OVC-128'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoOVC128_113_Win32_64_VST_VST3_AAX_setup.exe'
-$checksum32     = 'ae5d38376605637bede6fffab0d7e905c8d02b490a32cbb7f5495b83792a7807'
-$releases       = 'https://www.voxengo.com/product/ovc128/'
+$checksum       = 'ae5d38376605637bede6fffab0d7e905c8d02b490a32cbb7f5495b83792a7807'
+$url            = 'https://www.voxengo.com/files/VoxengoOVC128_113_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

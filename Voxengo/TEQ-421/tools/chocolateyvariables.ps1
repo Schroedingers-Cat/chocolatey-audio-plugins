@@ -1,9 +1,8 @@
 ﻿$packageName    = 'TEQ-421'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTEQ421_13_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/teq421/'
-$checksum32     = '295140bff3f9653a0bce6359867ea9f24498e565a85ebce6c7e61fdfd90412f8'
+$checksum       = '295140bff3f9653a0bce6359867ea9f24498e565a85ebce6c7e61fdfd90412f8'
+$url            = 'https://www.voxengo.com/files/VoxengoTEQ421_13_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

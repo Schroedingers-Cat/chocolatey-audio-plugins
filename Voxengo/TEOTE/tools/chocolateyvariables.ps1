@@ -1,9 +1,8 @@
 ﻿$packageName    = 'TEOTE'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTEOTE_115_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/teote/'
-$checksum32     = 'd32ac61fc20bf2fe909507e4baefa734a4fd3c179c12a7542689b5bf7872398b'
+$checksum       = 'd32ac61fc20bf2fe909507e4baefa734a4fd3c179c12a7542689b5bf7872398b'
+$url            = 'https://www.voxengo.com/files/VoxengoTEOTE_115_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

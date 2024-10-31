@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Marquis Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_28_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/marquiscomp/'
-$checksum32     = '2804819aa0050414a0858a5ae605e168e8f9b709dde4df1e68437d855d0254e5'
+$checksum       = '2804819aa0050414a0858a5ae605e168e8f9b709dde4df1e68437d855d0254e5'
+$url            = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_28_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

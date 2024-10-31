@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Tube Amp'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoTubeAmp_213_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/tubeamp/'
-$checksum32     = '10c3ee971ffee884f90f3b7fdea0f42c158bfb7fcd0876408fc165024b8a25e1'
+$checksum       = '10c3ee971ffee884f90f3b7fdea0f42c158bfb7fcd0876408fc165024b8a25e1'
+$url            = 'https://www.voxengo.com/files/VoxengoTubeAmp_213_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

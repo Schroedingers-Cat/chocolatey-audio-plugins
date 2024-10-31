@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Stereo Touch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoStereoTouch_218_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/stereotouch/'
-$checksum32     = '9c1b9978cfcaa7bd11ade5123183975bf6bd6fb3071191fd86f55feb17874f42'
+$checksum       = '9c1b9978cfcaa7bd11ade5123183975bf6bd6fb3071191fd86f55feb17874f42'
+$url            = 'https://www.voxengo.com/files/VoxengoStereoTouch_218_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

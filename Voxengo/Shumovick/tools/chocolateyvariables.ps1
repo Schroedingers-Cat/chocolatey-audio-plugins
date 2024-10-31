@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Shumovick'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoShumovick_22_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/shumovick/'
-$checksum32     = '408a1d29a4489c2f84646b4c3f77fcb28c5f73ed988641b1ef9b6cdabeeb9e64'
+$checksum       = '408a1d29a4489c2f84646b4c3f77fcb28c5f73ed988641b1ef9b6cdabeeb9e64'
+$url            = 'https://www.voxengo.com/files/VoxengoShumovick_22_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

@@ -1,9 +1,8 @@
 ﻿$packageName    = 'AnSpec'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoAnSpec_17_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/anspec/'
-$checksum32     = '67edfe9c24ca61c71fe7d62d1f19d42c8eff74299f0cdceff1898486a7e127f4'
+$checksum       = '67edfe9c24ca61c71fe7d62d1f19d42c8eff74299f0cdceff1898486a7e127f4'
+$url            = 'https://www.voxengo.com/files/VoxengoAnSpec_17_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

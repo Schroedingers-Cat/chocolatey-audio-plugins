@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Powershaper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoPowershaper_15_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/powershaper/'
-$checksum32     = 'f5f3d7c0c2707924322240963b8adefd40c6600be8dc83cd632690cc12d34e6f'
+$checksum       = 'f5f3d7c0c2707924322240963b8adefd40c6600be8dc83cd632690cc12d34e6f'
+$url            = 'https://www.voxengo.com/files/VoxengoPowershaper_15_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

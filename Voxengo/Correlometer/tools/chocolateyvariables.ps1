@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Correlometer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoCorrelometer_18_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/correlometer/'
-$checksum32     = '1ddb64bf5e14e05b08ca76ad047b29adeafa65abce75eeea060e13bc5844d363'
+$checksum       = '1ddb64bf5e14e05b08ca76ad047b29adeafa65abce75eeea060e13bc5844d363'
+$url            = 'https://www.voxengo.com/files/VoxengoCorrelometer_18_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

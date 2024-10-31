@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Deft Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoDeftCompressor_113_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/deftcompressor/'
-$checksum32     = '7f0fa750e43ff4a1058fc7065d963b5eca526d483f4abaf11b512920f6832dca'
+$checksum       = '7f0fa750e43ff4a1058fc7065d963b5eca526d483f4abaf11b512920f6832dca'
+$url            = 'https://www.voxengo.com/files/VoxengoDeftCompressor_113_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

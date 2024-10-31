@@ -1,9 +1,8 @@
 ﻿$packageName    = 'BMS'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoBMS_26_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/bms/'
-$checksum32     = '334b8f1446d74022818fcbe55b5924d06d9619d5ecc1f5d366b813275d1ed981'
+$checksum       = '334b8f1446d74022818fcbe55b5924d06d9619d5ecc1f5d366b813275d1ed981'
+$url            = 'https://www.voxengo.com/files/VoxengoBMS_26_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

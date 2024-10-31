@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Soniformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSoniformer_315_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/soniformer/'
-$checksum32     = '60c447f8768178156f269bf916516a018ce80c9a2d571a6950a32af92eadf5d8'
+$checksum       = '60c447f8768178156f269bf916516a018ce80c9a2d571a6950a32af92eadf5d8'
+$url            = 'https://www.voxengo.com/files/VoxengoSoniformer_315_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

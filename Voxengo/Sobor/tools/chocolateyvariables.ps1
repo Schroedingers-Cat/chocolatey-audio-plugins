@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Sobor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoSobor_33_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/sobor/'
-$checksum32     = '7bd5eae4b77950e335a0bdedeb8e45671327fda6e5d7cf94eabe5438fc61f1d4'
+$checksum       = '7bd5eae4b77950e335a0bdedeb8e45671327fda6e5d7cf94eabe5438fc61f1d4'
+$url            = 'https://www.voxengo.com/files/VoxengoSobor_33_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

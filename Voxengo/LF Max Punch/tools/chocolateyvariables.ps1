@@ -1,9 +1,8 @@
 ﻿$packageName    = 'LF Max Punch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_115_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/lfmaxpunch/'
-$checksum32     = '2d0e9eadea7529b8477be3ca21035823cdeb3414d7c6e6f598a81af880fbd9b9'
+$checksum       = '2d0e9eadea7529b8477be3ca21035823cdeb3414d7c6e6f598a81af880fbd9b9'
+$url            = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_115_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

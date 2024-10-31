@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Overtone GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_118_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/overtonegeq/'
-$checksum32     = 'e6181c8e0abda07eae3e4357c21a1692ddb7f7cc2191282261fb91fdb5d75412'
+$checksum       = '2df43ed20f0f2fd5bc8177be51f7c50e5d8c5b5543f7ad8ee4ba58e3de1b8739'
+$url            = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_117_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

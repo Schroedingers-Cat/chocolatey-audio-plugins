@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Warmifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoWarmifier_28_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/warmifier/'
-$checksum32     = '6e757a466c121bff555070059ac5fa542b8bfdf950af1de089e8a770fa0b8998'
+$checksum       = '6e757a466c121bff555070059ac5fa542b8bfdf950af1de089e8a770fa0b8998'
+$url            = 'https://www.voxengo.com/files/VoxengoWarmifier_28_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

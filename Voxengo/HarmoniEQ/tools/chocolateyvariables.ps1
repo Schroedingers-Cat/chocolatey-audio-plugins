@@ -1,9 +1,8 @@
 ﻿$packageName    = 'HarmoniEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_211_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/harmonieq/'
-$checksum32     = '64a4ff628485aca5afb8bf8337cc6d64c35566fe2026e10c86480beca082d31d'
+$checksum       = '64a4ff628485aca5afb8bf8337cc6d64c35566fe2026e10c86480beca082d31d'
+$url            = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_211_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

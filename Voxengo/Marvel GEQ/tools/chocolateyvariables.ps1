@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Marvel GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_115_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/marvelgeq/'
-$checksum32     = '26161336aff18003efd0d24bb27540a38bbda30ac8c2cdf0ed01f63f52561df5'
+$checksum       = '26161336aff18003efd0d24bb27540a38bbda30ac8c2cdf0ed01f63f52561df5'
+$url            = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_115_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }

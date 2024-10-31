@@ -1,9 +1,8 @@
 ﻿$packageName    = 'Voxformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$url32          = 'https://www.voxengo.com/files/VoxengoVoxformer_222_Win32_64_VST_VST3_AAX_setup.exe'
-$releases       = 'https://www.voxengo.com/product/voxformer/'
-$checksum32     = '3834abbe2f989e8d61c165b1b305e1b9dfd20deba79c96465a38961f44deba79'
+$checksum       = '3834abbe2f989e8d61c165b1b305e1b9dfd20deba79c96465a38961f44deba79'
+$url            = 'https://www.voxengo.com/files/VoxengoVoxformer_222_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
@@ -35,9 +34,9 @@ function CreatePackageParametersObjects () {
     packageName   = $packageName
     unzipLocation = $unzPath
     fileType      = 'exe'
-    url           = $url32
+    url           = $url
     softwareName  = $softwareName
-    checksum      = $checksum32
+    checksum      = $checksum
     checksumType  = 'sha256' #default is md5, can also be sha1, sha256 or sha512
     silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   }
