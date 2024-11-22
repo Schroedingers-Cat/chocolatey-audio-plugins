@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'; # stop on all errors
 
 $packageName = 'Bitwig'
-$publicVersion = '5.2.5'
+$publicVersion = '5.2.7'
 $softwareName = "Bitwig Studio $($publicVersion)"
 
 # Create temp version variable
