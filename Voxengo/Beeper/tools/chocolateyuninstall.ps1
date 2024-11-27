@@ -3,6 +3,7 @@
 $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 . $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
 . $chocolateyPackageFolder\tools\chocolateyvariables.ps1
+. $chocolateyPackageFolder\tools\helpers-regkey.ps1
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
