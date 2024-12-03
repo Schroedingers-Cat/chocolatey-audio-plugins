@@ -1,14 +1,14 @@
-﻿$packageNameFull = 'Colour Copy'
-$version = '1.0.2'
-$company = 'u-he'
+﻿$packageNameFull = '[[PackageName]]'
+$version = '[[Version]]'
+$company = '[[Author]]'
 $packageName = $packageNameFull.Replace(" ", "")
 $softwareName = "$packageName ${version}"
 $versionWithoutDots = $version -replace "\.", ""
-$revision = '16742'
-$url        = "https://u-he.com/downloads/releases/ColourCopy_${versionWithoutDots}_${revision}_Win.zip"
-$urlAlternative = "https://u-he.com/downloads/release-archive//colourcopy//ColourCopy_${versionWithoutDots}_${revision}_Win.zip"
-$releases = 'https://u-he.com/products/colourcopy/'
-$checksum = 'bfb4079c4cc49d811b5cb11f548d186ddd83f9ab212be230159308f37ca211a9'
+$revision = '[[Revision]]'
+$url        = "https://u-he.com/downloads/releases/[[PackageNameUrl]]_${versionWithoutDots}_${revision}_Win.zip"
+$urlAlternative = "https://u-he.com/downloads/release-archive//[[PackageAlternativeUrlDirectory]]//[[PackageNameUrl]]_${versionWithoutDots}_${revision}_Win.zip"
+$releases = 'https://u-he.com/products/[[ProductPageName]]/'
+$checksum = '[[Checksum]]'
 # The installer doesn't have a default value, causing installation to exit without success if we don't provide a default value
 $global:vst2Path = "${env:PROGRAMFILES}\Steinberg\VSTPlugins\$company"
 $global:vst2x86_64Path = "${env:ProgramFiles(x86)}\Steinberg\VSTPlugins\$company"

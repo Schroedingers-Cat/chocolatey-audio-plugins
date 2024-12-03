@@ -38,7 +38,6 @@ function HandlePackageArgs ($packageParameterObject) {
 function RunInstallerWithPackageParametersObject ($packageParameterObject) {
     $installerPathViaPP = (Test-Path $pp["InstallerPath"])
     $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
-    ## Does the following check work for 32 bit installers??
     $installerEmbedded = ((Test-Path ($chocolateyPackageFolder + "\" + $packageParameterObject.file)) -And ($packageParameterObject.file64 -ne $null) -And (Test-Path ($chocolateyPackageFolder + "\" + $packageParameterObject.file64)))
     $installerDownload = (($packageParameterObject.url -ne $null) -Or ($packageParameterObject.url64 -ne $null))
     $installerDownloadExe = (($packageParameterObject.url -ne $null) -And ($packageParameterObject.url).EndsWith(".exe"))
@@ -47,7 +46,7 @@ function RunInstallerWithPackageParametersObject ($packageParameterObject) {
     if ($installerPathViaPP -eq $true) {
         Write-Debug "Installer overridden via package parameter"
         $packageParameterObject["file"] = $fileLocation
-        Install-ChocolateyInstallPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-install-package
+        Install-ChocolateyInstallPackage @packageParameterObject
         return
     }
   
@@ -65,13 +64,38 @@ function RunInstallerWithPackageParametersObject ($packageParameterObject) {
         Write-Debug ("Installer needs to be downloaded from " + $packageParameterObject.url)
         if ($installerDownloadExe -eq $true) { 
             Write-Debug "Installer is exe, running now..."
-            Install-ChocolateyPackage @packageParameterObject # https://chocolatey.org/docs/helpers-install-chocolatey-package
+            try {
+                Install-ChocolateyPackage @packageParameterObject
+            }
+            catch {
+                Write-Host "Error running installer: " $_.Exception.Message
+                if($packageParameterObject.ContainsKey('urlAlternative')) {
+                    $packageParameterObject.url = $packageParameterObject.urlAlternative
+                    Write-Host "Package contains alternative URL. Trying that."
+                    Install-ChocolateyPackage @packageParameterObject
+                } else {
+                    throw $_
+                }
+            }
         }
         else { 
             Write-Debug "Installer inside zip"
             Write-Debug ("UnzipLocation is: " + $packageParameterObject.unzipLocation)
             $packageParameterObject["file"] = $fileLocation
-            Install-ChocolateyZipPackage @packageParameterObject
+            try {
+                Install-ChocolateyZipPackage @packageParameterObject
+            }
+            catch {
+                Write-Host "Error while downloading and unziping: " $_.Exception.Message
+                if($_.Exception.Message -like "*404*" -and $packageParameterObject.ContainsKey('urlAlternative')) {
+                    $packageParameterObject.url = $packageParameterObject.urlAlternative
+                    Write-Host "Package contains alternative URL. Trying that."
+                    Install-ChocolateyZipPackage @packageParameterObject
+                } else {
+                    throw $_
+                }
+            }
+
             Install-ChocolateyInstallPackage @packageParameterObject
         }
         return

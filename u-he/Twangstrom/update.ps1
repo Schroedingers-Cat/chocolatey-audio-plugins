@@ -5,7 +5,7 @@ function global:au_GetLatest {
   $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases #1
   $regex = "$zipSuffix" + '$'
   $url = $download_page.links | ? href -match $regex | select -First 1 -expand href #2
-  $version = ((($url.Split('/') | select -Last 1).Replace("Zebra_Legacy_", "")).Replace("_${zipSuffix}", "")).Split('_') | select -First 1
+  $version = ((($url.Split('/') | select -Last 1).Replace("Twangstrom_", "")).Replace("_${zipSuffix}", "")).Split('_') | select -First 1
   #  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the revision number included (1.4.6987 
   #  is a higher version number than 1.4.1.8978) so drop the revision number alltogether
   $stringLength = $version | measure-object -character | select -expandproperty characters
@@ -16,14 +16,14 @@ function global:au_GetLatest {
   }
 
   $versionWithoutDots = $version -replace "\.", ""
-  $revision = ((($url.Split('/') | select -Last 1).Replace("Zebra_Legacy_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
+  $revision = ((($url.Split('/') | select -Last 1).Replace("Twangstrom_","")).Replace("_${zipSuffix}","")).Split('_') | select -Last 1
 
   return @{
     Version     = $version
     Revision    = $revision
-    URL         = "https://u-he.com/downloads/releases/Zebra_Legacy_${versionWithoutDots}_${revision}_Win.zip"
+    URL         = "https://u-he.com/downloads/releases/Twangstrom_${versionWithoutDots}_${revision}_Win.zip"
     Checksum    = $checksum
-    PackageName = "uhe-zebra2"
+    PackageName = "uhe-twangstrom"
   }
 }
 

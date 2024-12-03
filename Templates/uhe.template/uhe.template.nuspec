@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- Read this before creating packages: https://chocolatey.org/docs/create-packages -->
 <!-- It is especially important to read the above link to understand additional requirements when publishing packages to the community feed aka dot org (https://chocolatey.org/packages). -->
 
@@ -22,60 +23,36 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>uhe-twangstrom</id>
+    <id>uhe-[[PackageNameNoWhite]]</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.0.12092</version>
+    <version>[[Version]]</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
-    <owners>Schroedingers-Cat</owners>
+    <owners>[[MaintainerName]]</owners>
     <!-- ============================== -->
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Twangström (Install)</title>
-    <authors>u-he</authors>
+    <title>[[PackageName]]</title>
+    <authors>[[Author]]</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>http://www.u-he.com/products/twangstrom</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/a38c089d2a528cb75df73ef9ea46269589782c91/Icons/u-he/twangstrom.png</iconUrl>
-    <copyright>2021 Heckmann Audio GmbH</copyright>
+    <projectUrl>https://u-he.com/products/[[ProductPageName]]/</projectUrl>
+    <iconUrl>[[UrlIcon]]</iconUrl>
+    <copyright>2024 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://uhedownloads-heckmannaudiogmb.netdna-ssl.com/manuals/plugins/twangstrom/Twangstrom-user-guide.pdf</docsUrl>
+    <docsUrl>https://u-he.com/downloads/manuals/plugins/[[ProductPageName]]/[[PackageNameUrl]]-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>twangstrom audio u-he vst effect delay aax admin trial</tags>
-    <summary>A spring reverb by u-he.</summary>
-<description>This is Twangström, a flexible spring-reverb box-of-tricks. If you're familiar with Bazille you might already have come across its built-in spring unit. We took that one, and modelled two more reverb tanks, paired it with drive section, filter stage, envelope, and mod matrix.
-In Twangström, tanks are based on 'physical modelling'. As opposed to plug-ins using impulse responses (IRs) of actual devices but being limited in expression and manipulation, our approach mimics the actual physics of mechanical reverberation. Thus we're not reproducing sonic results, we're actually simulating their origin. And it's all controllable in realtime, on a per-sample-basis. Which boils down to quite some power at your fingertips.
-
-## Package Specific
-
-### Package Parameters
-The following package parameters can be set:
-
- * `/NoVst2x86`       - Do not install the x86 VST2 version
- * `/NoVst2x64`       - Do not install the x64 VST2 version
- * `/NoVst3x86`       - Do not install the x86 VST3 version
- * `/NoVst3x64`       - Do not install the x64 VST3 version
- * `/NoAaxx86`        - Do not install the x86 AAX version
- * `/NoAaxx64`        - Do not install the x64 AAX version
- * `/NoPresets`       - Do not install factory presets
- * `/NoNks`           - Do not install the nks integration
- * `/Vst2Path:`       - Installation path of the VST2 version
- * `/Vst2x86Path:`    - Installation path of the x86 VST2 version on x64 CPU architecture
- * `/UserFolderPath:` - Path of the user data (presets, settings, themes) to link outside factory data (optional)
- * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location. Attention: u-he program files are expected to be directly writeable (no UAC involved) by the user running the software.
-
-You must pass the package parameters like this:
-```
-choco install uhe-twangstrom --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
-```
+    <tags>[[Author]] [[PackageNameLower]] [[Tags]]</tags>
+    <summary>[[Summary]]</summary>
+    <description>Description here
     </description>
-    <releaseNotes>https://u-he.com/products/twangstrom/releasenotes.html</releaseNotes>
+    <releaseNotes>https://u-he.com/products/[[PackageNameLower]]/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
@@ -89,8 +66,10 @@ choco install uhe-twangstrom --package-parameters "'/NoVst2x64 /Vst2x86Path:${en
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
   </metadata>
   <files>
-    <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\**.ps1" target="tools" />
-    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+    <file src="tools\*" target="tools" />
+    <file src="$sharedscripts$\helpers-installer.ps1" target="tools" />
+    <file src="$sharedscripts$\helpers-regkey.ps1" target="tools" />
+    <file src="$sharedscripts$\chocolateyinstall.ps1" target="tools" />
+    <file src="$sharedscripts$\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>
