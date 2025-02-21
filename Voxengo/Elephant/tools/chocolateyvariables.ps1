@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Elephant'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '78ad209e9c1a0efd1cb7a4b5c677fdf93db124c22ce535cdd009aa3cb8c9b079'
-$url            = 'https://www.voxengo.com/files/VoxengoElephant_55_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'f8abc3336ac4033937d6bf52f65b60a844f23048a1cb3fd7382ca30de4639ae0'
+$url            = 'https://www.voxengo.com/files/VoxengoElephant_56_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
