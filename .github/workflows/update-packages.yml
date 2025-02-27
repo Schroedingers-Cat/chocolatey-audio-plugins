@@ -137,6 +137,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: master
+          persist-credentials: true
 
       - name: Install Chocolatey Automatic Package Updater Module
         run: Install-Module -Name Chocolatey-AU -Force
