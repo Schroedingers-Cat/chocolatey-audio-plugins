@@ -33,6 +33,8 @@ jobs:
           - DMGAudio\TrackGate
           - DMGAudio\TrackLimit
           - DMGAudio\TrackMeter
+          - FabFilter\Micro (x64)
+          - FabFilter\Micro (x86)
           - MadronaLabs\Aalto
           - MadronaLabs\Aaltoverb
           - MadronaLabs\Kaivo
