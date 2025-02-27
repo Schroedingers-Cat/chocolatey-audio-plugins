@@ -192,19 +192,19 @@ jobs:
           $maxAttempts = 5
           $attempt = 1
           do {
-            Write-Host "Attempt $attempt: Pulling latest changes..."
+            Write-Host "Attempt ${attempt}: Pulling latest changes..."
             git pull --rebase
-            Write-Host "Attempt $attempt: Pushing commit..."
+            Write-Host "Attempt ${attempt}: Pushing commit..."
             git push
             if ($LASTEXITCODE -eq 0) {
-                Write-Host "Push succeeded on attempt $attempt."
+                Write-Host "Push succeeded on attempt ${attempt}."
                 break
             }
-            Write-Host "Push failed on attempt $attempt. Retrying in 10 seconds..."
+            Write-Host "Push failed on attempt ${attempt}. Retrying in 10 seconds..."
             Start-Sleep -Seconds 10
             $attempt++
           } while ($attempt -le $maxAttempts)
           if ($LASTEXITCODE -ne 0) {
-              Write-Error "Push failed after $maxAttempts attempts."
+              Write-Error "Push failed after ${maxAttempts} attempts."
               exit 1
           }
