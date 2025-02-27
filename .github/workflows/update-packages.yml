@@ -178,10 +178,10 @@ jobs:
       #     file_pattern: '*.nuspec *.ps1'
       #   if: steps.update.outputs.UpdateStatus == 'Update Available'
       - name: Commit Updated nuspec
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
-          pull_strategy: 'NO-PULL'
+          pull: false
           push: false
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
