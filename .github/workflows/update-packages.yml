@@ -108,7 +108,11 @@ jobs:
 
       - name: Test ${{ matrix.package }} install and uninstall
         run: Test-Package -Install -Uninstall -Nu "${{ steps.update.outputs.NupkgPath }}"
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
+        if: steps.update.outputs.UpdateStatus == 'Update Available' && !startsWith(matrix.package, 'FabFilter')
+
+      - name: Test ${{ matrix.package }} install only (FabFilter uninstall requires manual interaction)
+        run: Test-Package -Install -Nu "${{ steps.update.outputs.NupkgPath }}"
+        if: steps.update.outputs.UpdateStatus == 'Update Available' && startsWith(matrix.package, 'FabFilter')
 
       - name: Publish to Chocolatey community feed
         run: |
