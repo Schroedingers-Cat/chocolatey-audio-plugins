@@ -14,6 +14,7 @@ jobs:
     runs-on: windows-latest
 
     strategy:
+      fail-fast: false
       matrix:
         package:
           - Bitwig
@@ -69,8 +70,9 @@ jobs:
           - FabFilter\Timeless 2 (x86)
           - FabFilter\Timeless 3 (x64)
           - FabFilter\Timeless 3 (x86)
-          - FabFilter\Total Bundle (x64)
-          - FabFilter\Total Bundle (x86)
+          # 28.02.2025: GitHub Actions have connectivity issues and never succeed in downloading these 80MB files
+          # - FabFilter\Total Bundle (x64)
+          # - FabFilter\Total Bundle (x86)
           - FabFilter\Twin 2 (x64)
           - FabFilter\Twin 2 (x86)
           - FabFilter\Twin 3 (x64)
@@ -131,6 +133,8 @@ jobs:
           - Voxengo\Voxformer
           - Voxengo\Warmifier
           - Voxengo\Water Chorus
+      # When commiting per matrix job, enable this to prevent multiple pushes which fails
+      # max-parallel: 1
 
     steps:
       - uses: actions/checkout@v4
@@ -158,21 +162,99 @@ jobs:
         run: Test-Package -Install -Nu "${{ steps.update.outputs.NupkgPath }}"
         if: steps.update.outputs.UpdateStatus == 'Update Available' && startsWith(matrix.package, 'FabFilter')
 
-      - name: Publish to Chocolatey community feed
+        #### Alternatively commit per matrix job START SECTION ####
+      # - name: Publish to Chocolatey community feed
+      #   run: |
+      #     $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
+      #     $ApiKey = '${{ secrets.CHOCO_KEY }}'
+      #     $ChocoServer = 'https://push.chocolatey.org/'
+      #     choco push $Nupkg --source $ChocoServer --key $ApiKey
+      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
+
+      # - name: Pull Remote Changes
+      #   run: git pull
+      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
+
+      # - name: Commit Updated nuspec
+      #   uses: stefanzweifel/git-auto-commit-action@v5
+      #   with:
+      #     commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
+      #     file_pattern: '*.nuspec *.ps1'
+      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
+        #### Alternatively commit per matrix job END SECTION ####
+
+        #### Update per matrix job but commit and push in consolidated step after all jobs START SECTION ####
+      - name: Create original-location file
+        if: steps.update.outputs.UpdateStatus == 'Update Available'
+        run: echo "${{ matrix.package }}" > original-location.txt
+        working-directory: ${{ matrix.package }}
+
+      - name: Set sanitized artifact name
+        id: sanitize
         run: |
-          $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
-          $ApiKey = '${{ secrets.CHOCO_KEY }}'
-          $ChocoServer = 'https://push.chocolatey.org/'
-          choco push $Nupkg --source $ChocoServer --key $ApiKey
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
+          # Replace backslashes with hyphens in the matrix package value.
+          $artifactName = "${{ matrix.package }}" -replace '\\','-'
+          Write-Output "artifact_name=$artifactName" >> $Env:GITHUB_OUTPUT
 
-      - name: Pull Remote Changes
-        run: git pull
+      - name: Upload artifact for ${{ matrix.package }}
         if: steps.update.outputs.UpdateStatus == 'Update Available'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.sanitize.outputs.artifact_name }}
+          path: |
+            ${{ matrix.package }}/*.nuspec
+            ${{ matrix.package }}/**/*.ps1
+            ${{ matrix.package }}/*.nupkg
+            ${{ matrix.package }}/original-location.txt
 
-      - name: Commit Updated nuspec
+  commit_and_publish:
+    needs: update_packages
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Download all update artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: .
+
+      - name: Apply artifact changes to original locations
+        run: |
+          # For each downloaded artifact folder, read its original-location.txt and move all files recursively to that folder.
+          Get-ChildItem -Directory | ForEach-Object {
+            $artifactDir = $_.FullName
+            $origFile = Join-Path $artifactDir "original-location.txt"
+            if (!(Test-Path $origFile)) {
+              Write-Host "original-location.txt not found in ${artifactDir}; skipping."
+              return
+            }
+
+            $target = (Get-Content $origFile).Trim()
+            Write-Host "Moving files from ${artifactDir} to original location '.\$target'"
+            if (-not (Test-Path $target)) {
+              New-Item -ItemType Directory -Path $target -Force | Out-Null
+            }
+            
+            Copy-Item -Path "${artifactDir}\*" -Destination ".\${target}" -Recurse -Force
+            Remove-Item -Path "${artifactDir}\" -Recurse -Force
+          }
+
+      - name: Commit consolidated changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
+          commit_message: Consolidated commit from package updates
           file_pattern: '*.nuspec *.ps1'
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
+
+      - name: Publish to Chocolatey community feed
+        env:
+          CHOCO_KEY: ${{ secrets.CHOCO_KEY }}
+        run: |
+          # Loop over each .nupkg file now in its original location.
+          Get-ChildItem -Path . -Recurse -Filter *.nupkg | ForEach-Object {
+            Write-Host "Publishing package: $($_.FullName)"
+            $ChocoServer = 'https://push.chocolatey.org/'
+            choco push $_.FullName --source $ChocoServer --key $env:CHOCO_KEY
+          }
+        #### Update per matrix job but commit and push in consolidated step after all jobs END SECTION ####
