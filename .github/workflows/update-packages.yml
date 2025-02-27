@@ -131,6 +131,7 @@ jobs:
           - Voxengo\Voxformer
           - Voxengo\Warmifier
           - Voxengo\Water Chorus
+      max-parallel: 1
 
     steps:
       - uses: actions/checkout@v4
