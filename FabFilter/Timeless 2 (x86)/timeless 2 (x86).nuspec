@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>fabfilter-timeless2-x86</id>
+    <version>2.0.0</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>FabFilter Timeless 2 (x86)</title>
+    <authors>FabFilter</authors>
+    <projectUrl>https://www.fabfilter.com/products/timeless-3-delay-plug-in/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Timeless%202.png</iconUrl>
+    <copyright>Copyright (c) FabFilter 2025</copyright>
+    <licenseUrl>https://www.fabfilter.com/license-agreement</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://www.fabfilter.com/downloads/pdf/help/fftimeless2-manual.pdf</docsUrl>
+    <tags>fabfilter timeless2 x86 delay vst clap aax audio creative trial</tags>
+    <summary>Vintage tape delay plug-in</summary>
+    <description><![CDATA[Ultra-flexible tape delay plug-in with time stretching, top quality filters and drag-and-drop modulation.  
+
+## Package Parameters
+FabFilter installers provide no parameters for customization. This package will install all plugin versions into their default locations.  
+
+Note that the VST2 version has no default install path and as such will only be available in `C:\Program Files\FabFilter\<Product Name>\FabFilter <Product Name>.dll`. You can symlink or copy it from there to your VST2 directory post installation.  
+
+## Silent Install And Uninstall
+FabFilter installers only have an unattended mode for the installer. This means that the installation will be automated but the installer window will still pop up on your machine (without manual interaction necessary).  
+FabFilter uninstallers have no support for unattended mode and require user interaction to proceed.
+    ]]></description>
+    <releaseNotes>https://www.fabfilter.com/press</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+  </files>
+</package>
+
