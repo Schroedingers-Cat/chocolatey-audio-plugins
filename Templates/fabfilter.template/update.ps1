@@ -1,9 +1,9 @@
-﻿import-module Chocolatey-AU
+import-module Chocolatey-AU
 
 function global:au_GetLatest {
     $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.fabfilter.com/download'
     $download_page_alternative = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.fabfilter.com/support/downloads'
-    $packageNameBase = "micro"
+    $packageNameBase = "[[PackageNameNoWhite]]"
     $packageNameBaseWithoutVersion = $packageNameBase
     if ($packageNameBaseWithoutVersion -match '\d+$') {
         $packageNameBaseWithoutVersion = $packageNameBaseWithoutVersion -replace '\d+$', ''
@@ -26,7 +26,7 @@ function global:au_GetLatest {
             }
         }
     }
-    $regex += ".exe$"
+    $regex += "[[InstallerPlatformSuffix]]$"
     
     # Write-Host $regex
     $url = $download_page.links | ? href -match $regex | select -First 1 -expand href
@@ -76,7 +76,7 @@ function global:au_GetLatest {
         VersionFabFilter = $versionFabFilter
         URL              = $url;
         # Workaround because AU changes package ID in the nuspec to the folder name without asking
-        PackageName      = "fabfilter-micro-x86"
+        PackageName      = "[[AuthorLowerNowhite]]-[[PackageNameNoWhite]]-[[PlatformLowerNowhite]]"
     }
 }
 
@@ -98,7 +98,7 @@ function global:au_SearchReplace {
     # Create an empty hashtable for the uninstall file
     $uninstallReplacements = @{}
 
-    $packageNameBase = "micro"
+    $packageNameBase = "[[PackageNameNoWhite]]"
     if ($packageNameBase -match '\d+$') {
         $packageNameBase = $packageNameBase -replace '\d+$', ''
     }

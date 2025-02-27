@@ -46,18 +46,17 @@ function global:au_GetLatest {
         $regex = '<p>\s*All FabFilter plug-ins in one download\s*<br>\s*([A-Za-z]{3}\s+\d{1,2},\s+\d{4})\s*</p>'
         if ($content -match $regex) {
             $date = $Matches[1]
-            Write-Output "Gefundener Text mit Datum: $($Matches[0])"
-            Write-Output "Extrahiertes Datum: $date"
+            # Write-Host "Gefundener Text mit Datum: $($Matches[0])"
+            # Write-Host "Extrahiertes Datum: $date"
 
-            $date = "Dec 16, 2024"
             $parsedDate = [datetime]::Parse($date)
             $formattedDate = $parsedDate.ToString("yyyy.MM.dd")
-            Write-Output $formattedDate
+            # Write-Host $formattedDate
             $version = $formattedDate
             $versionFabFilter = $formattedDate
         }
         else {
-            Write-Output "Kein passender Eintrag gefunden."
+            Write-Host "Failed getting the date for the FabFilter Total Bundle!"
         }
     }
     else {
@@ -82,7 +81,17 @@ function global:au_GetLatest {
 }
 
 function global:au_BeforeUpdate() {
-    $Latest.Checksum = Get-RemoteChecksum $Latest.Url
+    $tempPath = [System.IO.Path]::GetTempPath()
+    $randomFileName = [System.IO.Path]::GetRandomFileName()
+    $fullPath = Join-Path -Path $tempPath -ChildPath $randomFileName
+
+    Start-BitsTransfer -Source $Latest.Url -Destination $fullPath
+
+    $Latest.Checksum = (Get-FileHash $fullPath -Algorithm 'sha256' | ForEach-Object Hash).ToLower()
+
+    Remove-Item $fullPath
+    # Original command
+    # $Latest.Checksum = Get-RemoteChecksum $Latest.Url
 }
 
 function global:au_SearchReplace {

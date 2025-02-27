@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>[[AuthorLowerNowhite]]-[[PackageNameNoWhite]]-[[PlatformLowerNowhite]]</id>
+    <version>[[VersionChoco]]</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>[[MaintainerName]]</owners>
+    <title>[[Author]] [[PackageName]]</title>
+    <authors>[[Author]]</authors>
+    <projectUrl>[[UrlProduct]]/</projectUrl>
+    <iconUrl>[[UrlIcon]]</iconUrl>
+    <copyright>Copyright (c) [[Author]] 2025</copyright>
+    <licenseUrl>https://www.fabfilter.com/license-agreement</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>[[UrlManual]]</docsUrl>
+    <tags>[[AuthorLowerNowhite]] [[PackageNameNoWhite]] [[PlatformLowerNowhite]] [[Tags]]</tags>
+    <summary>[[Summary]]</summary>
+    <description><![CDATA[[[Description]]  
+
+[[DescriptionShared]]
+    ]]></description>
+    <releaseNotes>https://www.fabfilter.com/press</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+  </files>
+</package>
