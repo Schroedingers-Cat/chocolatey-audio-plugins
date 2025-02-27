@@ -10,7 +10,7 @@ $MaintainerName = "Schroedingers-Cat"
 $DescriptionShared = "## Package Parameters
 FabFilter installers provide no parameters for customization. This package will install all plugin versions into their default locations.  
 
-Note that the VST2 version has no default install path and as such will only be available in ``C:\Program Files\FabFilter\<Product Name>\FabFilter <Product Name>.dll``. You can symlink or copy it from there to your VST2 directory post installation.  
+Note that the VST2 version has no default install path and as such will only be available in ``C:\Program Files\FabFilter\[Product Name]\FabFilter [Product Name].dll``. You can symlink or copy it from there to your VST2 directory post installation.  
 
 ## Silent Install And Uninstall
 FabFilter installers only have an unattended mode for the installer. This means that the installation will be automated but the installer window will still pop up on your machine (without manual interaction necessary).  
@@ -58,19 +58,19 @@ $products = @(
         Description  = "Top-quality EQ plug-in with perfect analog modeling, linear phase processing, and a gorgeous interface with unrivalled ease of use."
         Platforms    = @('x64','x86')
     },
-    @{
-        SoftwareName = "Pro-Q"
-        Version      = "1.00"
-        Tags         = "eq equalizer filter vst aax audio mixing mastering recording trial"
-        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-Q.png"
-        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproq-manual.pdf"
-        Url          = "https://www.fabfilter.com/downloads/ffproq100x64.exe"
-        UrlProduct   = "https://www.fabfilter.com/products/pro-q-4-equalizer-plug-in"
-        Summary      = "A high-quality equalizer plug-in"
-        Description  = "Top-quality EQ plug-in with perfect analog modeling, linear phase processing, and a gorgeous interface with unrivalled ease of use."
-        Platforms    = @('x64','x86')
-    },
+    # @{
+    #     SoftwareName = "Pro-Q"
+    #     Version      = "1.00"
+    #     Tags         = "eq equalizer filter vst aax audio mixing mastering recording trial"
+    #     Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+    #     UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-Q.png"
+    #     UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproq-manual.pdf"
+    #     Url          = "https://www.fabfilter.com/downloads/ffproq100x64.exe"
+    #     UrlProduct   = "https://www.fabfilter.com/products/pro-q-4-equalizer-plug-in"
+    #     Summary      = "A high-quality equalizer plug-in"
+    #     Description  = "Top-quality EQ plug-in with perfect analog modeling, linear phase processing, and a gorgeous interface with unrivalled ease of use."
+    #     Platforms    = @('x64','x86')
+    # },
     @{
         SoftwareName = "Pro-R 2"
         Version      = "2.00"
@@ -136,19 +136,19 @@ $products = @(
         Description  = "Professional compressor plug-in with versatile side chain and routing options, high-quality sound and an innovative interface."
         Platforms    = @('x64','x86')
     },
-    @{
-        SoftwareName = "Pro-C"
-        Version      = "1.00"
-        Tags         = "compressor vst aax audio mixing mastering recording trial"
-        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-C.png"
-        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproc-manual.pdf"
-        Url          = "https://cdn-b.fabfilter.com/downloads/ffproc100x64.exe"
-        UrlProduct   = "https://www.fabfilter.com/products/pro-c-2-compressor-plug-in"
-        Summary      = "A high-quality compressor plug-in"
-        Description  = "Professional compressor plug-in with versatile side chain and routing options, high-quality sound and an innovative interface."
-        Platforms    = @('x64','x86')
-    },
+    # @{
+    #     SoftwareName = "Pro-C"
+    #     Version      = "1.00"
+    #     Tags         = "compressor vst aax audio mixing mastering recording trial"
+    #     Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+    #     UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-C.png"
+    #     UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproc-manual.pdf"
+    #     Url          = "https://cdn-b.fabfilter.com/downloads/ffproc100x64.exe"
+    #     UrlProduct   = "https://www.fabfilter.com/products/pro-c-2-compressor-plug-in"
+    #     Summary      = "A high-quality compressor plug-in"
+    #     Description  = "Professional compressor plug-in with versatile side chain and routing options, high-quality sound and an innovative interface."
+    #     Platforms    = @('x64','x86')
+    # },
     @{
         SoftwareName = "Pro-MB"
         Version      = "1.00"
@@ -240,19 +240,19 @@ $products = @(
         Description  = "Ultra-flexible tape delay plug-in with time stretching, top quality filters and drag-and-drop modulation."
         Platforms    = @('x64','x86')
     },
-    @{
-        SoftwareName = "Timeless"
-        Version      = "1.00"
-        Tags         = "delay vst audio creative trial"
-        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Timeless.png"
-        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/fftimeless-manual.pdf"
-        Url          = "https://cdn-b.fabfilter.com/downloads/fftimeless100x64.exe"
-        UrlProduct   = "https://www.fabfilter.com/products/timeless-3-delay-plug-in"
-        Summary      = "Vintage tape delay plug-in"
-        Description  = "Ultra-flexible tape delay plug-in with time stretching, top quality filters and drag-and-drop modulation."
-        Platforms    = @('x86')
-    },
+    # @{
+    #     SoftwareName = "Timeless"
+    #     Version      = "1.00"
+    #     Tags         = "delay vst audio creative trial"
+    #     Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+    #     UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Timeless.png"
+    #     UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/fftimeless-manual.pdf"
+    #     Url          = "https://cdn-b.fabfilter.com/downloads/fftimeless100x64.exe"
+    #     UrlProduct   = "https://www.fabfilter.com/products/timeless-3-delay-plug-in"
+    #     Summary      = "Vintage tape delay plug-in"
+    #     Description  = "Ultra-flexible tape delay plug-in with time stretching, top quality filters and drag-and-drop modulation."
+    #     Platforms    = @('x86')
+    # },
     @{
         SoftwareName = "Volcano 3"
         Version      = "3.00"
@@ -279,19 +279,19 @@ $products = @(
         Description  = "Filter effect plug-in with smooth, vintage-sounding filters and endless modulation possibilities."
         Platforms    = @('x64','x86')
     },
-    @{
-        SoftwareName = "Volcano"
-        Version      = "1.00"
-        Tags         = "filter vst audio creative trial"
-        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/9255925c5da6b9b8ccd09c23ceb6e2d750332dc8/Icons/FabFilter/Volcano.png"
-        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffvolcano-manual.pdf"
-        Url          = "https://cdn-b.fabfilter.com/downloads/ffvolcano100x64.exe"
-        UrlProduct   = "https://www.fabfilter.com/products/volcano-3-filter-plug-in"
-        Summary      = "Vintage filter plug-in"
-        Description  = "Filter effect plug-in with smooth, vintage-sounding filters and endless modulation possibilities."
-        Platforms    = @('x86')
-    },
+    # @{
+    #     SoftwareName = "Volcano"
+    #     Version      = "1.00"
+    #     Tags         = "filter vst audio creative trial"
+    #     Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+    #     UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/9255925c5da6b9b8ccd09c23ceb6e2d750332dc8/Icons/FabFilter/Volcano.png"
+    #     UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffvolcano-manual.pdf"
+    #     Url          = "https://cdn-b.fabfilter.com/downloads/ffvolcano100x64.exe"
+    #     UrlProduct   = "https://www.fabfilter.com/products/volcano-3-filter-plug-in"
+    #     Summary      = "Vintage filter plug-in"
+    #     Description  = "Filter effect plug-in with smooth, vintage-sounding filters and endless modulation possibilities."
+    #     Platforms    = @('x86')
+    # },
     @{
         SoftwareName = "Twin 3"
         Version      = "3.00"
@@ -318,19 +318,19 @@ $products = @(
         Description  = "Powerful synthesizer plug-in with the best possible sound quality, a high quality effect section and an ultra-flexible modulation system."
         Platforms    = @('x64','x86')
     },
-    @{
-        SoftwareName = "Twin"
-        Version      = "1.00"
-        Tags         = "synthesizer vst audio creative trial"
-        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/9255925c5da6b9b8ccd09c23ceb6e2d750332dc8/Icons/FabFilter/Twin.png"
-        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/fftwin-manual.pdf"
-        Url          = "https://cdn-b.fabfilter.com/downloads/fftwin100x64.exe"
-        UrlProduct   = "https://www.fabfilter.com/products/twin-3-synthesizer-plug-in"
-        Summary      = "Powerful synthesizer plug-in"
-        Description  = "Powerful synthesizer plug-in with the best possible sound quality, a high quality effect section and an ultra-flexible modulation system."
-        Platforms    = @('x86')
-    },
+    # @{
+    #     SoftwareName = "Twin"
+    #     Version      = "1.00"
+    #     Tags         = "synthesizer vst audio creative trial"
+    #     Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+    #     UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/9255925c5da6b9b8ccd09c23ceb6e2d750332dc8/Icons/FabFilter/Twin.png"
+    #     UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/fftwin-manual.pdf"
+    #     Url          = "https://cdn-b.fabfilter.com/downloads/fftwin100x64.exe"
+    #     UrlProduct   = "https://www.fabfilter.com/products/twin-3-synthesizer-plug-in"
+    #     Summary      = "Powerful synthesizer plug-in"
+    #     Description  = "Powerful synthesizer plug-in with the best possible sound quality, a high quality effect section and an ultra-flexible modulation system."
+    #     Platforms    = @('x86')
+    # },
     @{
         SoftwareName = "One"
         Version      = "1.00"

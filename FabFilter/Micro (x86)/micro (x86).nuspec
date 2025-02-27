@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>fabfilter-micro-x86</id>
-    <version>1.2.9</version>
+    <version>1.0.0</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>FabFilter Micro (x86)</title>
@@ -20,7 +20,7 @@
 ## Package Parameters
 FabFilter installers provide no parameters for customization. This package will install all plugin versions into their default locations.  
 
-Note that the VST2 version has no default install path and as such will only be available in `C:\Program Files\FabFilter\<Product Name>\FabFilter <Product Name>.dll`. You can symlink or copy it from there to your VST2 directory post installation.  
+Note that the VST2 version has no default install path and as such will only be available in `C:\Program Files\FabFilter\[Product Name]\FabFilter [Product Name].dll`. You can symlink or copy it from there to your VST2 directory post installation.  
 
 ## Silent Install And Uninstall
 FabFilter installers only have an unattended mode for the installer. This means that the installation will be automated but the installer window will still pop up on your machine (without manual interaction necessary).  
