@@ -46,12 +46,12 @@ function global:au_GetLatest {
         $regex = '<p>\s*All FabFilter plug-ins in one download\s*<br>\s*([A-Za-z]{3}\s+\d{1,2},\s+\d{4})\s*</p>'
         if ($content -match $regex) {
             $date = $Matches[1]
-            # Write-Host "Gefundener Text mit Datum: $($Matches[0])"
-            # Write-Host "Extrahiertes Datum: $date"
+            Write-Host "Gefundener Text mit Datum: $($Matches[0])"
+            Write-Host "Extrahiertes Datum: $date"
 
             $parsedDate = [datetime]::Parse($date)
             $formattedDate = $parsedDate.ToString("yyyy.MM.dd")
-            # Write-Host $formattedDate
+            Write-Host $formattedDate
             $version = $formattedDate
             $versionFabFilter = $formattedDate
         }
