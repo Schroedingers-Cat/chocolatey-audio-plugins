@@ -160,52 +160,47 @@ jobs:
         run: Test-Package -Install -Nu "${{ steps.update.outputs.NupkgPath }}"
         if: steps.update.outputs.UpdateStatus == 'Update Available' && startsWith(matrix.package, 'FabFilter')
 
-      - name: Publish to Chocolatey community feed
-        run: |
-          $Nupkg = '${{ steps.update.outputs.NupkgPath }}'
-          $ApiKey = '${{ secrets.CHOCO_KEY }}'
-          $ChocoServer = 'https://push.chocolatey.org/'
-          choco push $Nupkg --source $ChocoServer --key $ApiKey
+      # Upload the changed files from the package directory.
+      - name: Upload artifact for ${{ matrix.package }}
         if: steps.update.outputs.UpdateStatus == 'Update Available'
-
-      - name: Pull Remote Changes
-        run: git pull
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
-
-      # - name: Commit Updated nuspec
-      #   uses: stefanzweifel/git-auto-commit-action@v5
-      #   with:
-      #     commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
-      #     file_pattern: '*.nuspec *.ps1'
-      #   if: steps.update.outputs.UpdateStatus == 'Update Available'
-      - name: Commit Updated nuspec
-        uses: EndBug/add-and-commit@v9
+        working-directory: ${{ matrix.package }}
+        uses: actions/upload-artifact@v4
         with:
-          message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
-          pull: false
-          push: false
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
+          # Use the package directory name as the artifact name.
+          name: ${{ matrix.package }}
+          # Upload all changed nuspec files, all ps1 files (recursively), and the generated nupkg files.
+          path: |
+            *.nuspec
+            **/*.ps1
+            *.nupkg
 
-      - name: Push changes with retry
+  commit_and_publish:
+    needs: update_packages
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Download all update artifacts
+        uses: actions/download-artifact@v4
+        with:
+          # Download artifacts directly into the repository workspace.
+          path: .
+
+      - name: Commit consolidated changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Consolidated commit from package updates
+          file_pattern: '**/*.nuspec **/*.ps1'
+
+      - name: Publish to Chocolatey community feed
         shell: pwsh
-        if: steps.update.outputs.UpdateStatus == 'Update Available'
+        env:
+          CHOCO_KEY: ${{ secrets.CHOCO_KEY }}
         run: |
-          $maxAttempts = 5
-          $attempt = 1
-          do {
-            Write-Host "Attempt ${attempt}: Pulling latest changes..."
-            git pull --rebase
-            Write-Host "Attempt ${attempt}: Pushing commit..."
-            git push
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host "Push succeeded on attempt ${attempt}."
-                break
-            }
-            Write-Host "Push failed on attempt ${attempt}. Retrying in 10 seconds..."
-            Start-Sleep -Seconds 10
-            $attempt++
-          } while ($attempt -le $maxAttempts)
-          if ($LASTEXITCODE -ne 0) {
-              Write-Error "Push failed after ${maxAttempts} attempts."
-              exit 1
-          }
+          # Loop over each downloaded .nupkg file (now merged into their original directories)
+          Get-ChildItem -Path . -Recurse -Filter *.nupkg | ForEach-Object {
+            Write-Host "Publishing package: $($_.FullName)"
+            $ChocoServer = 'https://push.chocolatey.org/'
+            choco push $_.FullName --source $ChocoServer --key $env:CHOCO_KEY
