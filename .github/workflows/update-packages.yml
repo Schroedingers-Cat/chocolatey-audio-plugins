@@ -137,7 +137,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: master
-          persist-credentials: true
 
       - name: Install Chocolatey Automatic Package Updater Module
         run: Install-Module -Name Chocolatey-AU -Force
@@ -163,16 +162,15 @@ jobs:
       # Upload the changed files from the package directory.
       - name: Upload artifact for ${{ matrix.package }}
         if: steps.update.outputs.UpdateStatus == 'Update Available'
-        working-directory: ${{ matrix.package }}
         uses: actions/upload-artifact@v4
         with:
           # Use the package directory name as the artifact name.
           name: ${{ matrix.package }}
-          # Upload all changed nuspec files, all ps1 files (recursively), and the generated nupkg files.
+          # Include files from the package directory using patterns that preserve the relative paths.
           path: |
-            *.nuspec
-            **/*.ps1
-            *.nupkg
+            ${{ matrix.package }}/*.nuspec
+            ${{ matrix.package }}/**/*.ps1
+            ${{ matrix.package }}/*.nupkg
 
   commit_and_publish:
     needs: update_packages
@@ -185,7 +183,6 @@ jobs:
       - name: Download all update artifacts
         uses: actions/download-artifact@v4
         with:
-          # Download artifacts directly into the repository workspace.
           path: .
 
       - name: Commit consolidated changes
@@ -195,12 +192,12 @@ jobs:
           file_pattern: '**/*.nuspec **/*.ps1'
 
       - name: Publish to Chocolatey community feed
-        shell: pwsh
         env:
           CHOCO_KEY: ${{ secrets.CHOCO_KEY }}
         run: |
-          # Loop over each downloaded .nupkg file (now merged into their original directories)
+          # Loop over each .nupkg file now in its original location.
           Get-ChildItem -Path . -Recurse -Filter *.nupkg | ForEach-Object {
             Write-Host "Publishing package: $($_.FullName)"
             $ChocoServer = 'https://push.chocolatey.org/'
             choco push $_.FullName --source $ChocoServer --key $env:CHOCO_KEY
+          }
