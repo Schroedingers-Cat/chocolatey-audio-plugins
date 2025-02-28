@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://cdn-b.fabfilter.com/downloads/ffsaturn200x64.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffsaturn211x64.exe'
     softwareName   = 'FabFilter Saturn 2 (x64)*'
     checksumType   = 'sha256'
-    checksum       = '24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD'
+    checksum       = '7bbe9e635ecef9c3569dc04b134ddbd4642378be0bf4d9ad3c977e30469706a1'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }

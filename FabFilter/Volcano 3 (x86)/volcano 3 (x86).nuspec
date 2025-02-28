@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>fabfilter-volcano3-x86</id>
-    <version>3.0.0</version>
+    <version>3.0.7</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>FabFilter Volcano 3 (x86)</title>

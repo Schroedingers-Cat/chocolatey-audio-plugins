@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>fabfilter-twin2-x86</id>
-    <version>2.0.0</version>
+    <version>2.3.9</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>FabFilter Twin 2 (x86)</title>
