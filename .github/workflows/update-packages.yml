@@ -86,6 +86,7 @@ jobs:
           - MadronaLabs\Kaivo
           - MadronaLabs\Sumu
           - MadronaLabs\Virta
+          - MeldaProduction\MPluginManager
           - Voxengo\AnSpec
           - Voxengo\Beeper
           - Voxengo\BMS
