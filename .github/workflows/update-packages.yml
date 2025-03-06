@@ -233,6 +233,12 @@ jobs:
             }
 
             $target = (Get-Content $origFile).Trim()
+            $targetDir = (Resolve-Path -Path $target).Path
+            if ($artifactDir -eq $targetDir) {
+              Write-Host "${artifactDir} and ${targetDir} are the same directory; so nothing to do."
+              return
+            }
+
             Write-Host "Moving files from ${artifactDir} to original location '.\$target'"
             if (-not (Test-Path $target)) {
               New-Item -ItemType Directory -Path $target -Force | Out-Null
