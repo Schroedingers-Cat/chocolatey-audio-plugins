@@ -1,8 +1,8 @@
 ﻿$packageName    = 'SPAN'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '25e3389d5cbe95b5b43ab2bab7f350a9c2f95002ee9811c7c68c9f206a96f556'
-$url            = 'https://www.voxengo.com/files/VoxengoSPAN_322_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '356664f18a8ef480ae2cc74b848ca78d1339579c865e2a438b999678d16e57e2'
+$url            = 'https://www.voxengo.com/files/VoxengoSPAN_323_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
