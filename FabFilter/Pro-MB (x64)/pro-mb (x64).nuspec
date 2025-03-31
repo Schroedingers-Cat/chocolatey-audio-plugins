@@ -18,9 +18,11 @@
     <description><![CDATA[Powerful multiband compressor/expander plug-in with all the expert features you need, combining exceptional sound quality with great interface workflow.  
 
 ## Package Parameters
-FabFilter installers provide no parameters for customization. This package will install all plugin versions into their default locations.  
+The following package parameters can be set:
 
-Note that the VST2 version has no default install path and as such will only be available in `C:\Program Files\FabFilter\[Product Name]\FabFilter [Product Name].dll`. You can symlink or copy it from there to your VST2 directory post installation.  
+* /Vst2Path - Set the path of the VST2 plugin directory to install the plugin(s) to. Leave empty or do not set if you want no VST2 plugins.
+
+Note that the all of the installer's plugin formats will always be available at `C:\Program Files\FabFilter\[Product Name]\`.  
 
 ## Silent Install And Uninstall
 FabFilter installers only have an unattended mode for the installer. This means that the installation will be automated but the installer window will still pop up on your machine (without manual interaction necessary).  

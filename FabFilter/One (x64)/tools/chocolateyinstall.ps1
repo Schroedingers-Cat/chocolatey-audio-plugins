@@ -8,9 +8,30 @@ $packageArgs = @{
     url            = 'https://www.fabfilter.com/downloads/ffone340x64.exe'
     softwareName   = 'FabFilter One (x64)*'
     checksumType   = 'sha256'
-    checksum       = '41aed2a62e6b1535d53aa6de7c5a3d73a4a9e74333ea07d7e6fece264e406b73'
+    checksum       = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
+}
+
+# FabFilter installers support customizing VST2 path via registry key
+$registryPath  = 'HKCU:\Software\FabFilter'
+$paths = @{
+    "x64" = "VstPluginsPath64"
+    "x86" = "VstPluginsPath32"
+}
+$registryValue = $paths["x64"]
+
+$pp = Get-PackageParameters
+$vst2Path = $pp['Vst2Path']
+
+if (($vst2Path) -And (Test-Path -Path $pp['Vst2Path'] -IsValid)) {
+    if (!(Test-Path $registryPath)) {
+        New-Item -Path $registryPath | Out-Null
+    }
+    Set-ItemProperty -Path $registryPath -Name $registryValue -Value $pp['Vst2Path'] -Type String -Force
+}
+elseif ((Test-Path $registryPath) -And ((Get-ItemProperty -Path $registryPath).PSObject.Properties.Name -contains $registryValue)) {
+    Remove-ItemProperty -Path $registryPath -Name $registryValue -Force
 }
 
 Install-ChocolateyPackage @packageArgs

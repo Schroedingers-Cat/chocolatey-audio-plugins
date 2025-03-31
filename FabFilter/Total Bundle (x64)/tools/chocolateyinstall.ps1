@@ -5,12 +5,33 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://cdn-b.fabfilter.com/downloads/fftotalbundlex64.exe'
+    url            = 'https://www.fabfilter.com/downloads/fftotalbundlex64.exe'
     softwareName   = 'FabFilter Total Bundle (x64)*'
     checksumType   = 'sha256'
-    checksum       = '24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD'
+    checksum       = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
+}
+
+# FabFilter installers support customizing VST2 path via registry key
+$registryPath  = 'HKCU:\Software\FabFilter'
+$paths = @{
+    "x64" = "VstPluginsPath64"
+    "x86" = "VstPluginsPath32"
+}
+$registryValue = $paths["x64"]
+
+$pp = Get-PackageParameters
+$vst2Path = $pp['Vst2Path']
+
+if (($vst2Path) -And (Test-Path -Path $pp['Vst2Path'] -IsValid)) {
+    if (!(Test-Path $registryPath)) {
+        New-Item -Path $registryPath | Out-Null
+    }
+    Set-ItemProperty -Path $registryPath -Name $registryValue -Value $pp['Vst2Path'] -Type String -Force
+}
+elseif ((Test-Path $registryPath) -And ((Get-ItemProperty -Path $registryPath).PSObject.Properties.Name -contains $registryValue)) {
+    Remove-ItemProperty -Path $registryPath -Name $registryValue -Force
 }
 
 Install-ChocolateyPackage @packageArgs

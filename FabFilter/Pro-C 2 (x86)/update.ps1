@@ -81,15 +81,12 @@ function global:au_GetLatest {
 }
 
 function global:au_BeforeUpdate() {
-    $tempPath = [System.IO.Path]::GetTempPath()
-    $randomFileName = [System.IO.Path]::GetRandomFileName()
-    $fullPath = Join-Path -Path $tempPath -ChildPath $randomFileName
+    $fn = [System.IO.Path]::GetTempFileName()
+    Start-BitsTransfer -Source $Latest.Url -Destination $fn
 
-    Start-BitsTransfer -Source $Latest.Url -Destination $fullPath
+    $Latest.Checksum = (Get-FileHash $fn -Algorithm 'sha256' | ForEach-Object Hash).ToLower()
 
-    $Latest.Checksum = (Get-FileHash $fullPath -Algorithm 'sha256' | ForEach-Object Hash).ToLower()
-
-    Remove-Item $fullPath
+    Remove-Item $fn
     # Original command
     # $Latest.Checksum = Get-RemoteChecksum $Latest.Url
 }
