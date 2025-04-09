@@ -3,10 +3,10 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzipPath  = Join-Path -Path $toolsDir -ChildPath "ReasonInstaller"
 New-Item -Path $unzipPath -ItemType Directory -Force
 
-$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1310_d330-Stable-929-Win.zip'
-$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1310_d330-Stable-929-without_soundbanks-Win.zip'
-$checksum64 = '3d5ba2a342c14f47ff36a5c45afdf066be426e42e3126b8c27ef64a77118746c'
-$checksum64NoSB = 'fc21d7e2e22c0027f9b38c54fbc5fd91f5be58c931ad14497988a30a42f6ba2b'
+$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1321_d1-Stable-957-Win.zip'
+$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1321_d1-Stable-957-without_soundbanks-Win.zip'
+$checksum64 = '0f29bbce87d81056c2d39bdc077ff4c9a8f9d8b10a57bf7941b6f65551621b38'
+$checksum64NoSB = 'c13e13ee933fca975fd38e3c268441dd0306d21c459d2ac1f4c7c12c1bc5345e'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
@@ -44,4 +44,4 @@ Install-ChocolateyZipPackage @packageArgs
 Install-ChocolateyInstallPackage @packageArgs
 
 # Cleanup
-Remove-Item $unzipPath -Recurse -Force
+Remove-Item $unzipPath -Recurse -Force -ErrorAction SilentlyContinue

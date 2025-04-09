@@ -44,4 +44,4 @@ Install-ChocolateyZipPackage @packageArgs
 Install-ChocolateyInstallPackage @packageArgs
 
 # Cleanup
-Remove-Item $unzipPath -Recurse -Force
+Remove-Item $unzipPath -Recurse -Force -ErrorAction SilentlyContinue
