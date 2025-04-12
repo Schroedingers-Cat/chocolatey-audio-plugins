@@ -36,9 +36,9 @@ function global:au_GetLatest {
     $versionRegex = "MPluginManager_(\d\d)_(\d\d)_setup\.exe"
     if ($url64 -match $versionRegex) {
         $versionMajor = $matches[1]
-        $versionMajor = $versionMajor -replace '^0+', ''
+        $versionMajor = $versionMajor -replace '^0?', ''
         $versionMinor = $matches[2]
-        $versionMinor = $versionMinor -replace '^0+', ''
+        $versionMinor = $versionMinor -replace '^0?', ''
         $version = "${versionMajor}.${versionMinor}"
     }
 
