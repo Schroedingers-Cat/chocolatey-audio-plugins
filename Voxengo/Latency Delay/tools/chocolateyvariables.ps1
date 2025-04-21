@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Latency Delay'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '287ffdb03b75506ad8c8ccf3d0c3059963c0d9ac4bd4ae0e261f78d1c6ea135e'
-$url            = 'https://www.voxengo.com/files/VoxengoLatencyDelay_210_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'da2eb9dccd656b234a293e8c6e57aee61433d3141b2e1ee33ccb6f310600527b'
+$url            = 'https://www.voxengo.com/files/VoxengoLatencyDelay_211_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before

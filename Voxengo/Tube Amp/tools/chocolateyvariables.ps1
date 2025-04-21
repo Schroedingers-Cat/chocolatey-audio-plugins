@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Tube Amp'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '10c3ee971ffee884f90f3b7fdea0f42c158bfb7fcd0876408fc165024b8a25e1'
-$url            = 'https://www.voxengo.com/files/VoxengoTubeAmp_213_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'dee6cd3c1a1e61d46f545ee931c04f77be7ddb78ff1daead9f59ef6355e45671'
+$url            = 'https://www.voxengo.com/files/VoxengoTubeAmp_214_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
