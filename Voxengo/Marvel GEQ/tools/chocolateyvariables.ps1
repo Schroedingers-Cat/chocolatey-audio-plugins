@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Marvel GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '26161336aff18003efd0d24bb27540a38bbda30ac8c2cdf0ed01f63f52561df5'
-$url            = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_115_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'fdf882343f998be820eb80b7eca67cf19e50ec35ab277e300f6e13e4d47a1586'
+$url            = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_116_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before

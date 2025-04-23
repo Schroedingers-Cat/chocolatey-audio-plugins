@@ -1,8 +1,8 @@
 ﻿$packageName    = 'AnSpec'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '67edfe9c24ca61c71fe7d62d1f19d42c8eff74299f0cdceff1898486a7e127f4'
-$url            = 'https://www.voxengo.com/files/VoxengoAnSpec_17_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '7ed1c05014a2c3b4930a3e7a801053d59e29d583b3c62a876436e43ae2ec7eea'
+$url            = 'https://www.voxengo.com/files/VoxengoAnSpec_18_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
