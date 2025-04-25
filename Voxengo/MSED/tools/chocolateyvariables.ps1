@@ -1,8 +1,8 @@
 ﻿$packageName    = 'MSED'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '7a9b6e31db9062c6d3c076799559c9348d595919593b617ad39f08fa77e4f3c4'
-$url            = 'https://www.voxengo.com/files/VoxengoMSED_311_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '277eab25ff79df6fa0c8783a3f71ea0a00331796d8a3cf402468d5429000c6ac'
+$url            = 'https://www.voxengo.com/files/VoxengoMSED_312_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
