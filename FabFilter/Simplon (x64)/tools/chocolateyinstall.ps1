@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/ffsimplon139x64.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffsimplon140x64.exe'
     softwareName   = 'FabFilter Simplon (x64)*'
     checksumType   = 'sha256'
-    checksum       = '16aec16370a824f44f412d06ce94bcf5642971cfdea4baed0012a7e6588196ff'
+    checksum       = 'a4139808de47dc2381d2f4428cefd8f627b44213b207182bd0fb1cd66479e9a6'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }

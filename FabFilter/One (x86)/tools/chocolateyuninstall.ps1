@@ -2,7 +2,7 @@
 
 $chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
 
-$UninstallerSuffix = '3.40 (32-bit)'
+$UninstallerSuffix = '3.50 (32-bit)'
 $TemplateVariable = '[[' + 'UninstallerSuffix' + ']]'
 if ($UninstallerSuffix -eq $TemplateVariable) {
   $UninstallerSuffix = ""

@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/ffmicro129x64.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffmicro130x64.exe'
     softwareName   = 'FabFilter Micro (x64)*'
     checksumType   = 'sha256'
-    checksum       = '114dd3968d974585066ce66b841117e370ea4c39bf5713b7c0c87205a3415316'
+    checksum       = '50d92e64c473d4dd5514b0ede404167755601bd1bc513bccabb908025da345ef'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }
