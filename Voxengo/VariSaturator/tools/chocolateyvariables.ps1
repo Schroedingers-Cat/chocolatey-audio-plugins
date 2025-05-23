@@ -1,8 +1,8 @@
 ﻿$packageName    = 'VariSaturator'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '7848416ea3b44d3ae8bcc028efa5e4d298e62993c16c9b049145fb0a2813a6c3'
-$url            = 'https://www.voxengo.com/files/VoxengoVariSaturator_26_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '0a6a4e6f5ee2fea18e18ddc27624ca1f28e3ef729377ea0a55046d9152483aad'
+$url            = 'https://www.voxengo.com/files/VoxengoVariSaturator_27_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
