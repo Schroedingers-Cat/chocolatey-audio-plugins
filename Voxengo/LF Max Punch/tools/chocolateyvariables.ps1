@@ -1,8 +1,8 @@
 ﻿$packageName    = 'LF Max Punch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '2d0e9eadea7529b8477be3ca21035823cdeb3414d7c6e6f598a81af880fbd9b9'
-$url            = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_115_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '6217844aa7561c243ddb5acb90ea1a25af9ff507dd1b4004c45e687f51c18010'
+$url            = 'https://www.voxengo.com/files/VoxengoLFMaxPunch_116_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
