@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Warmifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '6e757a466c121bff555070059ac5fa542b8bfdf950af1de089e8a770fa0b8998'
-$url            = 'https://www.voxengo.com/files/VoxengoWarmifier_28_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '554f8cdb1862486f0ee0ef6ebf13dcff020e4bb56dc046c8bd5e35096cca9f1c'
+$url            = 'https://www.voxengo.com/files/VoxengoWarmifier_29_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
