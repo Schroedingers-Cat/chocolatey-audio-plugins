@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Drumformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '4e642f4a6023952e139b95f5be44e5fc9434f781c9716d10f32aa1d77c5c0ab2'
-$url            = 'https://www.voxengo.com/files/VoxengoDrumformer_111_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '0c1db44bd405200a756246bd69f98056844d91050796a7d778567cdb908fddda'
+$url            = 'https://www.voxengo.com/files/VoxengoDrumformer_112_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
