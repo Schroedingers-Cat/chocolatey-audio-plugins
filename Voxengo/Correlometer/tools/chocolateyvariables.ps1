@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Correlometer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '1ddb64bf5e14e05b08ca76ad047b29adeafa65abce75eeea060e13bc5844d363'
-$url            = 'https://www.voxengo.com/files/VoxengoCorrelometer_18_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'd9c2ec09d4ff86aa0a4717eac79ad19d4ba5a723715b6e0a0fe32246b7cb2783'
+$url            = 'https://www.voxengo.com/files/VoxengoCorrelometer_19_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
