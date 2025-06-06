@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Spatifier'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '1861739c63239d34892fc2b91c01e7d4dacd542bf67b2081626e59e353b54b15'
-$url            = 'https://www.voxengo.com/files/VoxengoSpatifier_110_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '478f7047b83440a732f911a04e413bc2b53b6f36d66e0d938a1044dfc36deafd'
+$url            = 'https://www.voxengo.com/files/VoxengoSpatifier_111_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
