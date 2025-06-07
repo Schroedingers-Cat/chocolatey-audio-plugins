@@ -1,8 +1,8 @@
 ﻿$packageName    = 'TransGainer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '46cbe6044c7039ed6c5d9e2db01be66239386098884bbffaac78df584fea377b'
-$url            = 'https://www.voxengo.com/files/VoxengoTransGainer_114_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '6ef35f7982ee1aa1fb5c3cc1f1c708156adb0bd6df0a67ba9c17722f31521818'
+$url            = 'https://www.voxengo.com/files/VoxengoTransGainer_115_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
