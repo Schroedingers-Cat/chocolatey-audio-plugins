@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Sobor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '7bd5eae4b77950e335a0bdedeb8e45671327fda6e5d7cf94eabe5438fc61f1d4'
-$url            = 'https://www.voxengo.com/files/VoxengoSobor_33_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '7d8aabb7294de8c63c0dc1fce55f3978d72dbf93681ad02695ac2051c5b573d2'
+$url            = 'https://www.voxengo.com/files/VoxengoSobor_34_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
