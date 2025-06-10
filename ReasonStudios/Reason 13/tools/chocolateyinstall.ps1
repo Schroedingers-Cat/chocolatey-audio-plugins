@@ -3,10 +3,10 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzipPath  = Join-Path -Path $toolsDir -ChildPath "ReasonInstaller"
 New-Item -Path $unzipPath -ItemType Directory -Force
 
-$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1322_d20-Stable-417-Win.zip'
-$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1322_d20-Stable-417-without_soundbanks-Win.zip'
-$checksum64 = 'a5ab8936d34fd01720b5de7cf423d0f25a8681b684d467541ca732712f789cd6'
-$checksum64NoSB = '9a7030aa6c2d0a22a7a59062867c5eaa343fef1d34ca1801c6889f756b306c40'
+$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1330_d59-Stable-428-Win.zip'
+$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1330_d59-Stable-428-without_soundbanks-Win.zip'
+$checksum64 = 'c14aa10520c18ec3d24c3217ab9e3ccafaaf075f4840493adeec86a4dacfc599'
+$checksum64NoSB = '5826551af1a14ed338a380c8a440011860980c8aa0c678c5399b66523bb5a16c'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
