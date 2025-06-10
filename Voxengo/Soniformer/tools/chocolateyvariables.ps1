@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Soniformer'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '60c447f8768178156f269bf916516a018ce80c9a2d571a6950a32af92eadf5d8'
-$url            = 'https://www.voxengo.com/files/VoxengoSoniformer_315_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '49801207416e1eb7964df39c60b10b9574d390f6ee722fcc1fe69e43a2d79ac4'
+$url            = 'https://www.voxengo.com/files/VoxengoSoniformer_316_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
