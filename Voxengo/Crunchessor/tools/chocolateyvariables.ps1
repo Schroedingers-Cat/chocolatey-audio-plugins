@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Crunchessor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'dd540d082da875864b9f88e6bc5c6adc2f683b30a361062d9765e77a446b590a'
-$url            = 'https://www.voxengo.com/files/VoxengoCrunchessor_219_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '184aa05d9703ee84876bfbac3cb95a66978be892228d9b498872a27bf2f2d92b'
+$url            = 'https://www.voxengo.com/files/VoxengoCrunchessor_220_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
