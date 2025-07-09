@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Water Chorus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'ed045726f1464f7eb9d6805f0bbb14a2451330f001395372ef952713f308d3f4'
-$url            = 'https://www.voxengo.com/files/VoxengoWaterChorus_11_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'ca723ee7c7fea7b25b2add07fd103ac5a6b80efb3161e936cc0b44a4dcb8a41d'
+$url            = 'https://www.voxengo.com/files/VoxengoWaterChorus_12_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
