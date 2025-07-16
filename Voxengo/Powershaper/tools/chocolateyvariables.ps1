@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Powershaper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'f5f3d7c0c2707924322240963b8adefd40c6600be8dc83cd632690cc12d34e6f'
-$url            = 'https://www.voxengo.com/files/VoxengoPowershaper_15_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'ceeb1738fb7dd02e20c3b7045b18f1060ff5f1de1aea3eba6372bb2f09605a8f'
+$url            = 'https://www.voxengo.com/files/VoxengoPowershaper_16_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
