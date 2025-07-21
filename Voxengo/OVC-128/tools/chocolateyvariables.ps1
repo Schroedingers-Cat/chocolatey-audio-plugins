@@ -1,8 +1,8 @@
 ﻿$packageName    = 'OVC-128'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'ae5d38376605637bede6fffab0d7e905c8d02b490a32cbb7f5495b83792a7807'
-$url            = 'https://www.voxengo.com/files/VoxengoOVC128_113_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '3fa552e7b49206b6a1477afa2c7ad6b375bc1693aece6fcc9a9c2c272490ac50'
+$url            = 'https://www.voxengo.com/files/VoxengoOVC128_114_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
