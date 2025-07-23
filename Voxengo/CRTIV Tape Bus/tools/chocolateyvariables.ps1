@@ -1,8 +1,8 @@
 ﻿$packageName    = 'CRTIV Tape Bus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'b52ed7e0aaf0bf4abbb69163a3fc1e3b1e0e528b0244db304ab51bbee37d557e'
-$url            = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_17_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'e449a35d6c2db3463524454bc0d96000a9db3732685df7b6fa192f5bb5a70e20'
+$url            = 'https://www.voxengo.com/files/VoxengoCRTIVTapeBus_18_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
