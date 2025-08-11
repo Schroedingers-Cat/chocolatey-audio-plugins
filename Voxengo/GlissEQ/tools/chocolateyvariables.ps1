@@ -1,8 +1,8 @@
 ﻿$packageName    = 'GlissEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '04ffde119f5e8637fc648aad81ec4d391908750cfac504d450dfac00edbda5ba'
-$url            = 'https://www.voxengo.com/files/VoxengoGlissEQ_318_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'c72cc0f816f580bff1d275e2c5c3b3ae86c1b462b96cac5af94b77c5e8e746c9'
+$url            = 'https://www.voxengo.com/files/VoxengoGlissEQ_319_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
