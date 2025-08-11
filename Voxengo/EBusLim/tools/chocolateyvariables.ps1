@@ -1,8 +1,8 @@
 ﻿$packageName    = 'EBusLim'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'dca57f794068ce92dc38d3006b10ae30823f285e8070cbbbe14c443aa30b970d'
-$url            = 'https://www.voxengo.com/files/VoxengoEBusLim_110_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '3a76effedc1cd79bec12e0d233bd95769e441ba9d173cfa4ab92a3bfa8c2cdaa'
+$url            = 'https://www.voxengo.com/files/VoxengoEBusLim_111_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
