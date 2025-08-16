@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64      = 'https://madronalabs-earlyaccess.s3.amazonaws.com/SumuInstaller1.0.0.exe'
+$url64      = 'http://madronalabs.com/media/sumu/SumuInstaller1.1.0.exe'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
@@ -11,7 +11,7 @@ $packageArgs = @{
   softwareName   = 'Sumu version*'
 
   checksumType64 = 'sha256'
-  checksum64     = '1e6a936179a88e67ec33c5c25ea57ba4e029fcb9b7a2f9e6fcd4871de9a07c00'
+  checksum64     = '2cdc7e770d300305933622a2bfda223e398d8d16e161a426503cc3bfd266f1c7'
   silentArgs     = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   validExitCodes = @(0)
 }
