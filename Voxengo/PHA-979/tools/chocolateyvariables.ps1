@@ -1,8 +1,8 @@
 ﻿$packageName    = 'PHA-979'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '173b955a10e715551782a3793e48a35d748364ebf42453fb6149737678f0139e'
-$url            = 'https://www.voxengo.com/files/VoxengoPHA979_212_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '2a1cfb3eb26633296a4d5e9564a683fb65182927a3708d4aae4f3e845e89fe89'
+$url            = 'https://www.voxengo.com/files/VoxengoPHA979_213_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
