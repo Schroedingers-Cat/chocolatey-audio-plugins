@@ -70,9 +70,8 @@ jobs:
           - FabFilter\Timeless 2 (x86)
           - FabFilter\Timeless 3 (x64)
           - FabFilter\Timeless 3 (x86)
-          # 28.02.2025: GitHub Actions have connectivity issues and never succeed in downloading these 80MB files
-          # - FabFilter\Total Bundle (x64)
-          # - FabFilter\Total Bundle (x86)
+          - FabFilter\Total Bundle (x64)
+          - FabFilter\Total Bundle (x86)
           - FabFilter\Twin 2 (x64)
           - FabFilter\Twin 2 (x86)
           - FabFilter\Twin 3 (x64)
