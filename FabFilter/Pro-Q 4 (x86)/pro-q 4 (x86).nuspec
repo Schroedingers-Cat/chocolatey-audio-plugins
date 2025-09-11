@@ -8,7 +8,7 @@
     <title>FabFilter Pro-Q 4 (x86)</title>
     <authors>FabFilter</authors>
     <projectUrl>https://www.fabfilter.com/products/pro-q-4-equalizer-plug-in/</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-Q%204.jpg</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/728427fbae1deb4ebdefba081959c37de86f8c19/Icons/FabFilter/Pro-Q%204.png</iconUrl>
     <copyright>Copyright (c) FabFilter 2025</copyright>
     <licenseUrl>https://www.fabfilter.com/license-agreement</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
