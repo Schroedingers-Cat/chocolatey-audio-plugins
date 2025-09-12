@@ -1,8 +1,8 @@
 ﻿$packageName    = 'Polysquasher 3'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '23452075eb7628a8f0f47d99154cad12c07bf92e0b7a713c328ea2285bce7f7b'
-$url            = 'https://www.voxengo.com/files/VoxengoPolysquasher_35_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '584b0019fb71131cdd91fbad9dfba961f4e07c5f056ae3cb7206edd2ff558856'
+$url            = 'https://www.voxengo.com/files/VoxengoPolysquasher_36_Win32_64_VST_VST3_AAX_setup.exe'
 
 function CreateRegistryObjects () {
   # The installer does not have an option for custom paths so we need to create the registry entry before
