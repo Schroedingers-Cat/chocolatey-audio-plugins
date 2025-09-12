@@ -72,7 +72,7 @@ For example:
 choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
 ```
     ]]></description>
-    <releaseNotes>https://u-he.com/products/zebra2/releasenotes.html</releaseNotes>
+    <releaseNotes>https://u-he.com/products/zebra-legacy/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
