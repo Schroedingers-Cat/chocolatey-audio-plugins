@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- Read this before creating packages: https://chocolatey.org/docs/create-packages -->
 <!-- It is especially important to read the above link to understand additional requirements when publishing packages to the community feed aka dot org (https://chocolatey.org/packages). -->
 
@@ -15,7 +16,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 <!-- You can embed software files directly into packages, as long as you are not bound by distribution rights. -->
 <!-- * If you are an organization making private packages, you probably have no issues here -->
 <!-- * If you are releasing to the community feed, you need to consider distribution rights. -->
-<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<!-- Do not remove this test for UTF-8: if â€œÎ©â€ doesnâ€™t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
@@ -26,7 +27,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.5.1</version>
+    <version>1.5.1.20250912</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -34,47 +35,43 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>Filterscape (Install)</title>
+    <title>Filterscape</title>
     <authors>u-he</authors>
     <!-- projectUrl is required for the community feed -->
-    <projectUrl>https://u-he.com/products/filterscape</projectUrl>
+    <projectUrl>https://u-he.com/products/filterscape/</projectUrl>
     <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/aaaf7224b53830e9217e0d2ad3d950b56dc11c76/Icons/u-he/filterscape.png</iconUrl>
-    <copyright>2023 Heckmann Audio GmbH</copyright>
+    <copyright>2024 Heckmann Audio GmbH</copyright>
     <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://dl.u-he.com/manuals/plugins/filterscape/Filterscape-user-guide.pdf</docsUrl>
+    <docsUrl>https://u-he.com/downloads/manuals/plugins/filterscape/Filterscape-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>filterscape audio u-he vst effect synthesizer instrument filter delay aax admin trial</tags>
+    <tags>u-he filterscape audio vst effect synthesizer instrument filter delay aax admin trial</tags>
     <summary>Morphing EQ based effect and instrument by u-he.</summary>
-    <description>Filterscape 1.5: A trio of plug-ins with morphing EQ
-At the core of all three plugins is the distinctive EQ, capable of seamlessly transitioning between 8 different "snapshots". Each EQ band’s frequency and amplitude can be dynamically modulated, even from different sources for each snapshot! With a sleek and future-proof new design, Filterscape has become more visually appealing and more comfortable to use. 
+    <description><![CDATA[Filterscape 1.5: A trio of plug-ins with morphing EQ
+At the core of all three plugins is the distinctive EQ, capable of seamlessly transitioning between 8 different 'snapshots'. Each EQ band's frequency and amplitude can be dynamically modulated, even from different sources for each snapshot! With a sleek and future-proof new design, Filterscape has become more visually appealing and more comfortable to use.  
 
-## Package Specific
+## Installer Arguments
+If you want to select which formats and other components to install, add `-ia '/COMPONENTS=vst3_64,clap_64,presets,nks'` as parameter. The following components can be set:
 
-### Package Parameters
-The following package parameters can be set:
+* `vst3_32` - Install the x86 (32 bit) VST3 version
+* `vst3_64` - Install the x64 (64 bit) VST3 version
+* `clap_64` - Install the x64 (64 bit) CLAP version
+* `aax_64`  - Install the x64 (64 bit) AAX version
+* `presets` - Install the presets
+* `nks`     - Install the NKS integration
 
- * `/NoClapx64`       - Do not install the x64 CLAP version
- * `/NoVst2x86`       - Do not install the x86 VST2 version
- * `/NoVst2x64`       - Do not install the x64 VST2 version
- * `/NoVst3x86`       - Do not install the x86 VST3 version
- * `/NoVst3x64`       - Do not install the x64 VST3 version
- * `/NoAaxx64`        - Do not install the x64 AAX version
- * `/NoPresets`       - Do not install factory presets
- * `/Vst2Path:`       - Installation path of the VST2 version
- * `/Vst2x86Path:`    - Installation path of the x86 VST2 version on x64 CPU architecture
- * `/UserFolderPath:` - Path of the user data (presets, settings, themes) to link outside factory data (optional)
- * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location. Attention: u-he program files are expected to be directly writeable (no UAC involved) by the user running the software.
+## Package Parameters
 
-You must pass the package parameters like this:
+* `/DataPath:` - Path to the .Data directory containing the program files. Override if you want to have the program files at a custom location. Careful: u-he program files are expected to be directly writeable (no UAC involved) by the user running the software.
+
+For example:
+```powershell
+choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
 ```
-$VST2x86 = [System.Environment]::GetEnvironmentVariable('CommonProgramFiles(x86)') + "\VST2\u-he"
-choco install uhe-filterscape --package-parameters "'/NoVst2x64 /Vst2x86Path:$VST2x86 '"
-```
-    </description>
+    ]]></description>
     <releaseNotes>https://u-he.com/products/filterscape/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
@@ -89,8 +86,6 @@ choco install uhe-filterscape --package-parameters "'/NoVst2x64 /Vst2x86Path:$VS
     <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
   </metadata>
   <files>
-    <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\**.ps1" target="tools" />
-    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+    <file src="tools\*" target="tools" />
   </files>
 </package>

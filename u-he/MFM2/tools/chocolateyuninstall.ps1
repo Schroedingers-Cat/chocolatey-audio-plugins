@@ -1,17 +1,17 @@
 ﻿$ErrorActionPreference = 'Stop';
 $installerType = 'EXE'
 
-$chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
-. $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
-. $chocolateyPackageFolder\tools\chocolateyvariables.ps1
-. $chocolateyPackageFolder\tools\helpers-regkey.ps1
-
 $silentArgs = '/qn /norestart'
 $validExitCodes = @(0, 3010, 1605, 1614, 1641)
 if ($installerType -ne 'MSI') {
   $silentArgs = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
   $validExitCodes = @(0)
 }
+
+$packageNameFull = 'MFM2'
+$version = '2.5.1'
+$packageName = $packageNameFull.Replace(" ", "")
+$softwareName = "$packageName ${version}"
 
 $uninstalled = $false
 [array]$key = Get-UninstallRegistryKey -SoftwareName $softwareName
@@ -39,6 +39,3 @@ if ($key.Count -eq 1) {
   Write-Warning "Please alert package maintainer the following keys were matched:"
   $key | % {Write-Warning "- $_.DisplayName"}
 }
-
-CreateRegistryObjects
-Foreach ($item in $regKeys) { DeleteRegKeyFromObjects($item) }

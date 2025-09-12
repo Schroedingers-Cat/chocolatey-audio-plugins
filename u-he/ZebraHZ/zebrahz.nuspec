@@ -16,7 +16,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 <!-- You can embed software files directly into packages, as long as you are not bound by distribution rights. -->
 <!-- * If you are an organization making private packages, you probably have no issues here -->
 <!-- * If you are releasing to the community feed, you need to consider distribution rights. -->
-<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<!-- Do not remove this test for UTF-8: if â€œÎ©â€ doesnâ€™t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
@@ -27,7 +27,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>2.9.16765</version>
+    <version>2.9.20250912</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>Schroedingers-Cat</owners>
@@ -45,12 +45,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra2/Zebra2-user-guide.pdf</docsUrl>
+    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra-legacy/Zebra_Legacy-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>u-he zebrahz audio vst synthesizer aax admin trial</tags>
     <summary>A virtual-analog synthesizer by u-he.</summary>
-<description>ZebraHZ is an expanded version of Zebra2 made for a well known Hollywood composer featuring: 
+    <description><![CDATA[ZebraHZ is an expanded version of Zebra2 made for a well known Hollywood composer featuring: 
 - 8 extra filters based on Diva models
 - 4 comb filter modules instead of 2
 - 8 MSEGs instead of 2
@@ -58,29 +58,28 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 - X/Y pads also appear as regular modulation sources
 - 4 polyphonic compressors, one for each lane of the main grid
 - 3 resonators with additional full-range band
-- "The Dark Zebra" soundset
+- 'The Dark Zebra' soundset  
 
-## Package Specific
+## Installer Arguments
+If you want to select which formats and other components to install, add `-ia '/COMPONENTS=vst3_64,clap_64,presets,nks'` as parameter. The following components can be set:
 
-### Package Parameters
-The following package parameters can be set:
+* `vst3_32` - Install the x86 (32 bit) VST3 version
+* `vst3_64` - Install the x64 (64 bit) VST3 version
+* `clap_64` - Install the x64 (64 bit) CLAP version
+* `aax_64`  - Install the x64 (64 bit) AAX version
+* `presets` - Install the presets
+* `nks`     - Install the NKS integration
 
- * `/NoClapx64`       - Do not install the x64 CLAP version
- * `/NoVst3x86`       - Do not install the x86 VST3 version
- * `/NoVst3x64`       - Do not install the x64 VST3 version
- * `/NoAaxx64`        - Do not install the x64 AAX version
- * `/NoPresets`       - Do not install factory presets
- * `/NoNks`           - Do not install the nks integration
- * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location. Attention: u-he program files are expected to be directly writeable (no UAC involved) by the user running the software.
+## Package Parameters
 
-Note: The current u-he installer stopped accepting customizing the VST2 paths via registry keys and also doesn't have a VST2 default path anymore. This breaks silent installation. Therefore, the package parameters `NoVst2x86`, `NoVst2x64`, `Vst2Path` and `Vst2x86Path` are disabled for this version.  
+* `/DataPath:` - Path to the .Data directory containing the program files. Override if you want to have the program files at a custom location. Careful: u-he program files are expected to be directly writeable (no UAC involved) by the user running the software.
 
-You must pass the package parameters like this:
+For example:
+```powershell
+choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
 ```
-choco install uhe-zebrahz --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\u-he '"
-```
-    </description>
-    <releaseNotes>https://u-he.com/products/zebra-legacy/releasenotes.html</releaseNotes>
+    ]]></description>
+    <releaseNotes>https://u-he.com/products/zebrahz/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
@@ -95,10 +94,5 @@ choco install uhe-zebrahz --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:C
   </metadata>
   <files>
     <file src="tools\*" target="tools" />
-    <file src="..\..\SharedScripts\helpers-installer.ps1" target="tools" />
-    <file src="..\..\SharedScripts\helpers-regkey.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyinstall.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>
-

@@ -1,23 +1,23 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-$packageNameFull = 'Diva'
-$version = '1.4.8'
-$company = 'u-he'
+$packageNameFull = '[[PackageName]]'
+$version = '[[Version]]'
+$company = '[[Author]]'
 $packageName = $packageNameFull.Replace(" ", "")
 $softwareName = "$packageName ${version}"
 $versionWithoutDots = $version -replace "\.", ""
-$revision = '16519'
+$revision = '[[Revision]]'
 $urls = (
-    "https://u-he.com/downloads/releases/Diva_${versionWithoutDots}_${revision}_Win.zip", 
-    "https://u-he.com/downloads/release-archive//diva//Diva_${versionWithoutDots}_${revision}_Win.zip"
+    "https://u-he.com/downloads/releases/[[PackageNameUrl]]_${versionWithoutDots}_${revision}_Win.zip", 
+    "https://u-he.com/downloads/release-archive//[[PackageAlternativeUrlDirectory]]//[[PackageNameUrl]]_${versionWithoutDots}_${revision}_Win.zip"
 )
 $unzInstPath = "${packageName}_Win\${packageName}-${versionWithoutDots}-Winstaller.exe"
 
 $zipArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
-  checksum      = 'eec5ffc36bb7379a66fa3c03e9f475a63b1b3f9e4d2097115fd44f8b75735086'
+  checksum      = '[[Checksum]]'
   checksumType  = 'sha256'
 }
 

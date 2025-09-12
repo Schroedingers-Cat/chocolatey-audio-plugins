@@ -50,8 +50,10 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>[[Author]] [[PackageNameLower]] [[Tags]]</tags>
     <summary>[[Summary]]</summary>
-    <description>Description here
-    </description>
+    <description><![CDATA[[[Description]]  
+
+[[DescriptionShared]]
+    ]]></description>
     <releaseNotes>https://u-he.com/products/[[PackageNameLower]]/releasenotes.html</releaseNotes>
     <!-- =============================== -->
 
@@ -67,9 +69,5 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
   </metadata>
   <files>
     <file src="tools\*" target="tools" />
-    <file src="$sharedscripts$\helpers-installer.ps1" target="tools" />
-    <file src="$sharedscripts$\helpers-regkey.ps1" target="tools" />
-    <file src="$sharedscripts$\chocolateyinstall.ps1" target="tools" />
-    <file src="$sharedscripts$\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>
