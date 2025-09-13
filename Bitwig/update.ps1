@@ -3,7 +3,7 @@ import-module Chocolatey-AU
 function global:au_GetLatest {
     $releases = "https://www.bitwig.com/previous_releases/"
     $download_page = Invoke-WebRequest -UseBasicParsing -Uri $releases
-    $regexVersion = '(\d[.]\d[.]?\d?)\/installer_windows\/'
+    $regexVersion = '(\d[.]\d[.]?\d*)\/installer_windows\/'
     # Filter the links, extract the version and store the URL
     $link = $download_page.links |
         Where-Object { $_.href -match $regexVersion } |
