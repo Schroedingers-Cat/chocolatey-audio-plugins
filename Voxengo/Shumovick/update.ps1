@@ -12,7 +12,7 @@ function global:au_GetLatest {
         Version     = $version; 
         URL         = $url; 
         # Workaround because AU changes package ID in the nuspec to the folder name without asking
-        PackageName = "voxengo-shumovick" 
+        PackageName = "voxengo-crtiv-shumovick" 
     }
 }
 
