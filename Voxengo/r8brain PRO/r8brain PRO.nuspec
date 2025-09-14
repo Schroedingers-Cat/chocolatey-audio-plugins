@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>voxengo-r8brain-pro</id>
-    <version>2.12</version>
+    <version>2.12.20250913</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Voxengo r8brain PRO</title>
@@ -15,24 +15,32 @@
     <docsUrl>https://www.voxengo.com/files/userguides/Voxengor8brainPRO_en.pdf/getbyname/Voxengo%20r8brain%20PRO%20User%20Guide%20en.pdf</docsUrl>
     <tags>voxengo r8brain pro audio mixing mastering recording samplerate conversion trial</tags>
     <summary>An audio samplerate converter by Voxengo.</summary>
-    <description>
-8brain PRO is a professional sample rate converter tool software designed to deliver an unprecedented sample rate conversion (SRC) quality.  Unlike other existing SRC algorithms available on the market, r8brain PRO implements sample rate conversion processing in its full potential: interpolation and decimation steps without exploiting any kind of simplifications; the signal is resampled in a multi-step manner using a series of least common multiple sample rates which makes conversion perfect – both in signal-to-noise and timing precision aspects.  Such whole number-factored SRC can be considered a golden standard in sample rate conversion as it is not subject to jitter and timing errors.
+    <description><![CDATA[8brain PRO is a professional sample rate converter tool software designed to deliver an unprecedented sample rate conversion (SRC) quality.  Unlike other existing SRC algorithms available on the market, r8brain PRO implements sample rate conversion processing in its full potential: interpolation and decimation steps without exploiting any kind of simplifications; the signal is resampled in a multi-step manner using a series of least common multiple sample rates which makes conversion perfect - both in signal-to-noise and timing precision aspects.  Such whole number-factored SRC can be considered a golden standard in sample rate conversion as it is not subject to jitter and timing errors.  
 
-## Package Specific
-
-### Package Parameters
-The following package parameters can be set:
-
- * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
- * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
- * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
-
-You must pass the package parameters like this:
+## Installer Arguments
+If you want to select which formats and other components to install, use the following parameter:
 ```
-$ProgramFiles = [System.Environment]::GetEnvironmentVariable('ProgramFiles') + "\Voxengo"
-choco install voxengo-r8brain-pro --package-parameters "'/NoShortcuts /InstallerPath:$ProgramFiles '"
+choco install voxengo-package -ia '/COMPONENTS=shortcuts /Dir=C:\Program Files\Audio\Voxengo\r8brain PRO'
 ```
-    </description>
+
+Components:
+* `exec_64`   - Install 64 bit executable
+* `guides`    - Install the user guides
+* `shortcuts` - Install start menu shortcuts
+* `desktopsc` - Install desktop shortcuts
+
+Others:
+* `Dir` - Set the directory to install the guide files to
+
+## Package Parameters
+
+* `/CompanyPath:` - More comfortable way than /Dir because this one gets the package name automatically postfixed to the path so this parameter can be shared with other Voxengo packages
+
+For example:
+```powershell
+choco install voxengo-package --package-parameters "'/CompanyPath:C:\Program Files\Audio\Voxengo'"
+```
+    ]]></description>
     <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
@@ -40,10 +48,5 @@ choco install voxengo-r8brain-pro --package-parameters "'/NoShortcuts /Installer
   </metadata>
   <files>
     <file src="tools\*" target="tools" />
-    <file src="..\..\SharedScripts\helpers-installer.ps1" target="tools" />
-    <file src="..\..\SharedScripts\helpers-regkey.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyinstall.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>
-

@@ -7,6 +7,37 @@ param (
 $Author = "Voxengo"
 $AuthorLowerNowhite = $Author.ToLower().Replace(" ", "")
 $MaintainerName = "Schroedingers-Cat"
+$DescriptionShared = @"
+## Installer Arguments
+If you want to select which formats and other components to install, use the following parameter:
+``````
+choco install voxengo-package -ia '/COMPONENTS=shortcuts,guides,vst2_64 /Dir=C:\Program Files\Audio\Voxengo\Package'
+``````
+
+Components:
+* ``shortcuts`` - Install start menu shortcuts to the user guides
+* ``guides``    - Install the user guide files
+* ``vst2_32``   - Install the x86 (32 bit) VST2 version
+* ``vst2_64``   - Install the x64 (64 bit) VST2 version
+* ``vst3_32``   - Install the x86 (32 bit) VST3 version
+* ``vst3_64``   - Install the x64 (64 bit) VST3 version
+* ``aax_64``    - Install the x64 (64 bit) AAX version
+* ``aax_32``    - Install the x86 (32 bit) AAX version
+
+Others:
+* ``Dir`` - Set the directory to install the guide files to
+
+## Package Parameters
+
+* ``/VST2x64Path:`` - Path of the x64 (64 bit) VST2 plugins
+* ``/VST2x86Path:`` - Path of the x86 (32 bit) VST2 plugins
+* ``/CompanyPath:`` - More comfortable way than /Dir because this one gets the package name automatically postfixed to the path so this parameter can be shared with other Voxengo packages
+
+For example:
+``````powershell
+choco install voxengo-package --package-parameters ""'/VST2x64Path:C:\Program Files\Common Files\VST2 /CompanyPath:C:\Program Files\Audio\Voxengo'""
+``````
+"@
 
 # Use lower versions than the current to verify updating works
 $products = @(
@@ -19,6 +50,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoAnSpec_en.pdf/getbyname/Voxengo%20AnSpec%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoAnSpec_17_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An analog-style spectrum analyser plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "AnSpec is an analog-style one/third-octave spectrum analyzer AAX, AU and VST plugin for professional music production applications.  It was designed to be a handy visual feedback tool for those who like visual smoothness and easiness of use of analog analyzers.  AnSpec also provides peak level indication."
     },
     @{
         SoftwareName = "Beeper"
@@ -29,6 +61,9 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoBeeper_en.pdf/getbyname/Voxengo%20Beeper%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoBeeper_212_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A plugin for VST2/3 and AAX compatible hosts by Voxengo to insert beeps and noise into your audio."
+        Description  = "Beeper is an auxiliary audio processing AAX, AudioUnit and VST plugin which you can use to insert short beep, noise burst or silence signals to any sound material.  This plugin may help you protect your work from unauthorized use.  It is safe to apply this plugin to any mission-critical material because plugin does not perform any processing on the audio between the inserted signals.  
+
+You may specify signal's duration, beep frequency, signal's loudness, period between signals and the amount of random variation of all parameters."
     },
     @{
         SoftwareName = "BMS"
@@ -39,6 +74,9 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoBMS_en.pdf/getbyname/Voxengo%20BMS%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoBMS_26_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A bass management plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "BMS is a bass management system AAX, AudioUnit and VST plugin for professional surround sound applications.  BMS is able to extract and manipulate low-frequency content of non-LFE channels in up to 7.1 surround configurations.
+The main purpose of BMS is to simplify evaluation of low-frequency content present in non-LFE channels during mastering.  At the same time, it is possible to mix extracted low-frequency content to the LFE (Low Frequency Effects) channel.  An option to remove the extracted signal from non-LFE channels is also available.
+In BMS you can specify a desired frequency of the crossover filter, and adjust its steepness."
     },
     @{
         SoftwareName = "Boogex"
@@ -49,6 +87,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoBoogex_en.pdf/getbyname/Voxengo%20Boogex%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoBoogex_37_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A guitar amp plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Boogex is a guitar amplifier AAX, AU, and VST plugin with a variety of sound shaping features for professional music production applications.  With Boogex it is possible to get a heavy distorted sound as well as slight jazzy saturation sound.  Boogex is also able to apply any speaker cabinet impulse response (selection of built-in impulses is available).  The processing latency is close to zero making it possible to use Boogex for real-time guitar processing.  Boogex also includes reverberation module derived from Voxengo OldSkoolVerb reverb."
     },
     @{
         SoftwareName = "Correlometer"
@@ -58,7 +97,11 @@ $products = @(
         UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/021dd94d244c35fc236e296b4f84f8686310e14f/Icons/Voxengo/Correlometer.png"
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoCorrelometer_en.pdf/getbyname/Voxengo%20Correlometer%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoCorrelometer_18_Win32_64_VST_VST3_AAX_setup.exe"
-        Summary      = "A free analog-style stereo multi-band correlation meter plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Summary      = "Correlometer is a free analog-style stereo multi-band correlation meter AudioUnit, AAX and VST plugin for professional music production applications.  It is based on correlation meter found in PHA-979 phase-alignment plugin.
+
+Multi-band correlation meter is an advanced way to check for presence of out-of-phase elements in the mix.  Broadband correlation metering reports overall phase issues and may misrepresent problems present in select spectral bands, while multi-band correlation meter easily highlights problems present in mid to high frequencies that are not easily heard by ear, but may still reduce clarity of the mix.  Another application of multi-band correlation metering is phase- and time-aligning of channels and tracks, especially bass and bass-drum pairs, guitar mic and D.I. source pairs, two-microphone stereo recordings, etc.
+
+Correlometer can display 4 to 64 individual spectral bands, with adjustable band quality factor that controls the degree of band's selectivity.  Averaging time of correlation estimator can be adjusted.  Correlometer supports side-chain inputs for easy correlation estimation between separate audio tracks."
     },
     @{
         SoftwareName = "CRTIV Tape Bus"
@@ -69,6 +112,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoCRTIVTapeBus_en.pdf/getbyname/Voxengo%20CRTIV%20Tape%20Bus%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoCRTIVTapeBus_17_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A tape saturation plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "CRTIV Tape Bus plug-in for professional music production applications recreates characteristic elements of the reel-to-reel tape sound.  This includes saturation, modulation noise and smearing effects which are known for the analog feel they bring to audio recordings.  This plug-in also applies a selected impulse response taken by us from the existing tape machines."
     },
     @{
         SoftwareName = "Crunchessor"
@@ -79,6 +123,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoCrunchessor_en.pdf/getbyname/Voxengo%20Crunchessor%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoCrunchessor_219_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A compressor plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Crunchessor is a general-purpose track compressor AU and VST plugin for professional audio production applications.  One of its main advantages is the ease of tuning, which at the same time instantly delivers an excellent sonic performance.  Another remarkable feature of Crunchessor is its valve-type processing, which is applied in parallel to compression.  This makes Crunchessor an ideal choice for musicians and producers who are fond of analog compression sound and its warmness."
     },
     @{
         SoftwareName = "CurveEQ"
@@ -89,9 +134,10 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoCurveEQ_en.pdf/getbyname/Voxengo%20CurveEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoCurveEQ_314_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A matching eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Linear-phase spline equalizer AAX, AU and VST plugin. Features high-quality spectrum matching and ultra-clean sound. Ideal for mastering applications."
     },
     @{
-        SoftwareName = "Deft Compressor"
+        SoftwareName = "DeftCompressor"
         Version      = "1.12"
         Tags         = "vst aax audio mixing mastering recording trial"
         Checksum   = "7f0fa750e43ff4a1058fc7065d963b5eca526d483f4abaf11b512920f6832dca"
@@ -99,6 +145,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoDeftCompressor_en.pdf/getbyname/Voxengo%20Deft%20Compressor%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoDeftCompressor_113_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A compressor plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Deft Compressor is an audio signal compressor AAX, AU and VST plugin for professional audio production applications. The characteristic feature of this compressor is its ability to produce slim and slick sounding compression, with intelligibility enhancement effect. Such result is achieved by compressor's timing function that closely resembles the S-curve (sigmoid curve) on both attack and release stages.  S-curve timing function also helps compressor to sound warm and clean at most settings."
     },
     @{
         SoftwareName = "Drumformer"
@@ -109,6 +156,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoDrumformer_en.pdf/getbyname/Voxengo%20Drumformer%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoDrumformer_111_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A multiband drum and master track dynamics processing plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Drumformer is a multiband drum and master track dynamics processing AU and VST plugin for professional music and audio production applications.  Drumformer was designed to be a comprehensive solution for the broadest range of sound processing tasks, allowing you to easily implement almost any dynamics processing idea you may have."
     },
     @{
         SoftwareName = "EBusLim"
@@ -119,6 +167,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoEBusLim_en.pdf/getbyname/Voxengo%20EBusLim%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoEBusLim_110_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A brickwall limiter plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "EBusLim is a brickwall peak limiter and loudness maximization plug-in for professional music production applications.  EBusLim implements a single EL-4-based limiter mode originally designed in Elephant mastering limiter plug-in.  This mode is suitable for bus, drum bus, master bus and track processing.  The design idea behind EBusLim is to produce an extremely easy-to-use yet effective limiter."
     },
     @{
         SoftwareName = "Elephant"
@@ -129,6 +178,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoElephant_en.pdf/getbyname/Voxengo%20Elephant%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoElephant_55_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A transparent mastering limiter plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Voxengo Elephant is a mastering limiter AAX, AU and VST plugin for professional music production applications.  The most remarkable feature of this signal limiter is its sonic transparency.  Elephant brings sound limiting and loudness maximization without audible fuzz and pumping sonic artifacts."
     },
     @{
         SoftwareName = "GlissEQ"
@@ -139,6 +189,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoGlissEQ_en.pdf/getbyname/Voxengo%20GlissEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoGlissEQ_318_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A matching eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Dynamic equalizer AAX, AU and VST plugin with real-time cross-track spectrum analyzer.  Emphasizes transients boosting the life and dimension of your tracks."
     },
     @{
         SoftwareName = "HarmoniEQ"
@@ -149,6 +200,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoHarmoniEQ_en.pdf/getbyname/Voxengo%20HarmoniEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoHarmoniEQ_211_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A harmonically-enhanced eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "HarmoniEQ is a parametric, harmonically-enhanced equalizer AU and VST plugin for professional music production applications.  Harmonic enhancement HarmoniEQ applies to the sound is an inherent element of its overall sonic quality.  HarmoniEQ also features dynamic equalization modes that offer you a vast palette of sound-shaping capabilities, suitable for mastering."
     },
     @{
         SoftwareName = "Latency Delay"
@@ -159,6 +211,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoLatencyDelay_en.pdf/getbyname/Voxengo%20Latency%20Delay%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoLatencyDelay_210_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A latency delay plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Latency Delay is an auxiliary AAX, AU and VST plugin which allows you to compensate latency produced by any audio plugins, instruments and processes which produce latency but do not try to report it to the host audio application.  Latency Delay introduces 10000 samples latency itself and delays the audio signal by 10000 minus the specified amount of samples or milliseconds, thus eliminating the unreported latency.  Please note that host audio application should support the latency compensation itself for this plugin to function properly."
     },
     @{
         SoftwareName = "LF Max Punch"
@@ -169,6 +222,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoLFMaxPunch_en.pdf/getbyname/Voxengo%20LF%20Max%20Punch%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoLFMaxPunch_115_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A bass booster plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Voxengo LF Max Punch is a professional audio effect AAX, AU and VST plugin for music and sounds where low-frequency thump and punch are most welcome, and where distortion is applied specifically to bring the bass sound to life.  LF Max Punch provides a low-frequency effect specially designed for serious contemporary music producers offering them a convenient tool for applying a smooth punch and oomph to audio tracks and sounds."
     },
     @{
         SoftwareName = "Marquis Compressor"
@@ -179,6 +233,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoMarquisCompressor_en.pdf/getbyname/Voxengo%20Marquis%20Compressor%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoMarquisCompressor_28_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A compressor plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Marquis Compressor is a universal compressor AAX, AU and VST plugin for professional music production applications.  You'll find a very smooth compression performance in this compressor, coupled with a harmonically-rich sound, both suitable for mixing and mastering.  Being universal this compressor can be used on a wide range of sound material: individual tracks, stems and mixes, producing clean or colored sound."
     },
     @{
         SoftwareName = "Marvel GEQ"
@@ -189,6 +244,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoMarvelGEQ_en.pdf/getbyname/Voxengo%20Marvel%20GEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoMarvelGEQ_115_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A linear-phase eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Marvel GEQ is a free linear-phase 16-band graphic equalizer AAX, AU and VST plugin that offers you a mastering-grade sound quality."
     },
     @{
         SoftwareName = "MSED"
@@ -199,6 +255,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoMSED_en.pdf/getbyname/Voxengo%20MSED%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoMSED_311_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An MS encoder and decoder plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "MSED is a professional audio encoder-decoder AAX, AU and VST plugin for mid-side processing which is able to encode (split) the incoming stereo signal into two components: mid-side pair, and vice versa: decode mid-side signal pair into stereo signal."
     },
     @{
         SoftwareName = "OldSkoolVerb"
@@ -209,6 +266,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoOldSkoolVerb_en.pdf/getbyname/Voxengo%20OldSkoolVerb%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoOldSkoolVerb_213_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A classic reverb plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "OldSkoolVerb is a freeware algorithmic reverberation AU and VST plugin for professional music production applications.  This plugin implements a kind of classic stereo reverb algorithm which is technically simple yet optimal.  It also produces a very clear spatial image that blends well with the mix."
     },
     @{
         SoftwareName = "OldSkoolVerb Plus"
@@ -219,6 +277,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoOldSkoolVerbPlus_en.pdf/getbyname/Voxengo%20OldSkoolVerb%20Plus%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoOldSkoolVerbPlus_16_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A classic reverb plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "OldSkoolVerb Plus is an algorithmic reverberation plug-in for professional music production applications.  This plug-in is an extended version of freeware OldSkoolVerb plug-in.  OldSkoolVerb Plus plug-in implements a kind of classic stereo reverb algorithm which is technically simple yet optimal.  It produces a very clear spatial image that blends well with the mix."
     },
     @{
         SoftwareName = "OVC-128"
@@ -229,6 +288,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoOVC128_en.pdf/getbyname/Voxengo%20OVC-128%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoOVC128_113_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A massively oversampled soft/hard clipping effect plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "OVC-128 is a massively-oversampled soft/hard clipping effect AudioUnit, AAX and VST plugin for professional music production applications.  A common use for this plug-in is hard-clipping before the final peak limiter.  This is an effective approach in contemporary electronic music when loudness is boosted using a clipper plug-in while minor excessive peaks are absorbed by a final peak limiter that applies no additional gain itself."
     },
     @{
         SoftwareName = "Overtone GEQ"
@@ -239,6 +299,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoOvertoneGEQ_en.pdf/getbyname/Voxengo%20Overtone%20GEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoOvertoneGEQ_117_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A band-harmonic eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Overtone GEQ is 7-band harmonic (overtone) graphic equalizer AU and VST plugin with multi-channel operation support (supporting up to 8 input/output channels, host setup-dependent).  Overtone GEQ offers extensive internal channel routing capabilities, and supports mid/side channel processing."
     },
     @{
         SoftwareName = "Peakbuster"
@@ -249,6 +310,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoPeakbuster_en.pdf/getbyname/Voxengo%20Peakbuster%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoPeakbuster_17_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An automatic spectral balancing audio plugin."
+        Description  = "Peakbuster is an attack-phase boosting and harmonic enhancement AU, AAX, and VST plugin for professional music and sound production applications.  Peakbuster is a multi-band transient enhancer effect plug-in that uses an advanced automatic algorithm.  Peakbuster stands out from the competition in its ability to always sound natural, even on a full-spectrum master bus.  The strength of the effect depends on the material being processed: the algorithm masterfully analyses dynamics of the sound it processes, and applies boosting in quantities that are exactly right.  Moreover, the algorithm has a suitably fast reaction time making its adjustments sound fluid, not over the place."
     },
     @{
         SoftwareName = "PHA-979"
@@ -259,9 +321,10 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoPHA979_en.pdf/getbyname/Voxengo%20PHA-979%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoPHA979_212_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A phase shift plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "PHA-979 is a professional audio AU and VST plugin which allows you to apply an arbitrary phase shift to sound material.  What is meant by the phase shift here is simultaneous shifting of all frequencies across the active frequency range of the signal by the given value in degrees.  This is achieved by linear-phase design."
     },
     @{
-        SoftwareName = "Polysquasher 3"
+        SoftwareName = "Polysquasher3"
         Version      = "3.4"
         Tags         = "compressor transparent vst aax audio mixing mastering recording trial"
         Checksum   = "23452075eb7628a8f0f47d99154cad12c07bf92e0b7a713c328ea2285bce7f7b"
@@ -269,6 +332,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoPolysquasher_en.pdf/getbyname/Voxengo%20Polysquasher%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoPolysquasher_35_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A mastering compressor plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Mastering compressor AAX, AU and VST plugin with transparent, tight and punchy sound.  An ideal choice for mix compression."
     },
     @{
         SoftwareName = "Powershaper"
@@ -279,6 +343,11 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoPowershaper_en.pdf/getbyname/Voxengo%20Powershaper%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoPowershaper_15_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A saturation, distortion and overdrive plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Powershaper is a saturation, distortion and overdrive effect plug-in for professional music production applications.  Powershaper's approach to saturation is quite unique as it works in multi-stage manner utilizing dozens of saturation stages in a specified variation.  While Powershaper was designed to apply extreme saturation, it can be also used to boost presence of audio tracks subtly.
+
+The flexibility of this saturation plug-in is most apparent when applying saturation to the drums: it is possible to dial settings that retain or even extend the punch while applying strong pleasant coloration and presence effect.
+
+Powershaper can be used to apply saturation with good results to various sounds: vocals, drums, bass, guitars, synths, mixes."
     },
     @{
         SoftwareName = "PrimeEQ"
@@ -289,6 +358,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoPrimeEQ_en.pdf/getbyname/Voxengo%20PrimeEQ%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoPrimeEQ_18_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A simple eq plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "PrimeEQ is a parametric equalizer plug-in for professional music production applications.  PrimeEQ was designed to be the first equalizer to reach for when track or mix equalization is necessary: just insert the plug-in, put and drag the control points to the desired positions."
     },
     @{
         SoftwareName = "r8brain PRO"
@@ -299,6 +369,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/Voxengor8brainPRO_en.pdf/getbyname/Voxengo%20r8brain%20PRO%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/Voxengor8brainPRO_212_Win64_setup.exe"
         Summary      = "An audio samplerate converter by Voxengo."
+        Description  = "8brain PRO is a professional sample rate converter tool software designed to deliver an unprecedented sample rate conversion (SRC) quality.  Unlike other existing SRC algorithms available on the market, r8brain PRO implements sample rate conversion processing in its full potential: interpolation and decimation steps without exploiting any kind of simplifications; the signal is resampled in a multi-step manner using a series of least common multiple sample rates which makes conversion perfect - both in signal-to-noise and timing precision aspects.  Such whole number-factored SRC can be considered a golden standard in sample rate conversion as it is not subject to jitter and timing errors."
     },
     @{
         SoftwareName = "Shinechilla"
@@ -309,6 +380,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoShinechilla_en.pdf/getbyname/Voxengo%20Shinechilla%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoShinechilla_15_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An exciter plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Voxengo Shinechilla is an experimental creative sound effect AU and VST plugin for professional sound and music production applications.  Shinechilla allows you to generate and blend 2nd, 3rd and 4th harmonics with the original dry sound.  The harmonic generation process offered by Shinechilla is quite unique on the plugin market since it produces almost no intermodulation distortion."
     },
     @{
         SoftwareName = "Shumovick"
@@ -319,6 +391,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoShumovick_en.pdf/getbyname/Voxengo%20Shumovick%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoShumovick_22_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A creative noise-floor padding effect plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "CRTIV Shumovick AU, AAX, and VST plugin for professional music production applications produces a creative dynamic noise-floor padding effect.  This effect is most effective on beats and synth sounds used in electronic music production - EDM, hip-hop, and many others.  The noise-floor effect created by this plug-in is correlated to the spectral content of the sound being processed."
     },
     @{
         SoftwareName = "Sobor"
@@ -329,6 +402,13 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSobor_en.pdf/getbyname/Voxengo%20Sobor%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSobor_33_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A reverb plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Sobor is a stereo reverberation effect AU, AAX, and VST plugin for professional music production applications.  This reverb plugin provides a wide palette of reverb spaces while requiring only a minimal effort to obtain useful results.  The tails created by this reverb are very dense and produce a well-defined spatialization.  Since the reverb uses a kind of true-stereo algorithm the panned sounds receive a good stereo field placement.  We believe Sobor provides one of the lushest and widest reverb tails available on the market.
+
+Beside producing a shining reverb sound at medium and larger space settings, Sobor is equally great-sounding at ultra-small space settings, going as far as being able to imitate guitar cabinet sound at 100% wet setting.  Sobor can even be used to re-cabinet a bass-guitar sound yielding very natural results.
+
+The early reflections placement and reverb levels are chosen automatically based on a pre-defined model that depends on the Size and Ambience parameters.  Additionally, the user may specify the Pre-Delay and Stereo width parameters.  Sobor is technically based on Feedback Delay Networks (FDNs) with the Hadamard matrix, and uses self-modulation techniques.
+
+Sobor is great on any sound sources: vocals, synths, drums, mixes.  This reverb is a relatively CPU-demanding effect (it takes 7.5% of a single core of i7-7700K processor, at 44100 sample rate), for comfortable use it requires a higher-end processor."
     },
     @{
         SoftwareName = "Soniformer"
@@ -339,6 +419,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSoniformer_en.pdf/getbyname/Voxengo%20Soniformer%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSoniformer_315_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A multiband compressor plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Soniformer is a spectral mastering dynamics processor AAX, AU and VST plugin for professional music production applications.  During its operation, Soniformer splits incoming sound signal into 32 spectral bands.  This makes Soniformer a powerful and precise tool for mastering and sound restoration purposes."
     },
     @{
         SoftwareName = "Sound Delay"
@@ -349,6 +430,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSoundDelay_en.pdf/getbyname/Voxengo%20Sound%20Delay%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSoundDelay_114_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A precise technical delay plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Sound Delay is an auxiliary multi-channel signal delaying AAX, AU and VST plugin for professional audio applications.  You may specify delay time in both milliseconds and samples, with a high level of precision.  This plugin - being technical in its purpose - provides a basic signal delaying function only, without signal feedback or modulation capabilities."
     },
     @{
         SoftwareName = "SPAN"
@@ -359,6 +441,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSPAN_en.pdf/getbyname/Voxengo%20SPAN%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSPAN_322_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An fft spectrum analyser plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "SPAN is a free real-time fast Fourier transform audio spectrum analyzer AU, AAX and VST plugin for professional music and audio production applications.  For the most part it was derived from Voxengo GlissEQ dynamic parametric equalizer and reproduces its spectrum analysis functionality."
     },
     @{
         SoftwareName = "SPAN Plus"
@@ -369,6 +452,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSPANPlus_en.pdf/getbyname/Voxengo%20SPAN%20Plus%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSPANPlus_124_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An fft spectrum analyser plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "SPAN Plus is a real-time fast Fourier transform audio spectrum analyzer AAX, AU and VST plugin for professional music and audio production applications.  For the most part it was derived from Voxengo GlissEQ dynamic parametric equalizer and reproduces its spectrum analysis functionality.  SPAN Plus is an extended version of the freeware SPAN plugin: SPAN Plus provides several additional features such as PNG file export, real-time spectrum import/export and static spectrums display."
     },
     @{
         SoftwareName = "Spatifier"
@@ -379,6 +463,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoSpatifier_en.pdf/getbyname/Voxengo%20Spatifier%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoSpatifier_110_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A mono-to-stereo spatial enhancer plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Spatifier is a mono to stereo spatial enhancer AU and VST plugin for professional sound and music production applications.  This plugin can be effectively used to turn mono tracks into spatially-enhanced stereo tracks: it works great for clean and distorted guitars, synth instruments, piano, organ, back vocals and other sounds.  Beside that Spatifier can be used to densify the sound of reverb sends, and to add body to thin and flat sounds."
     },
     @{
         SoftwareName = "Stereo Touch"
@@ -389,6 +474,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoStereoTouch_en.pdf/getbyname/Voxengo%20Stereo%20Touch%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoStereoTouch_218_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A stereo widener plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "This professional audio AAX, AU and VST plugin implements a classic technique of transforming a monophonic track into spacious stereophonic track by means of mid/side coding technique."
     },
     @{
         SoftwareName = "Tempo Delay"
@@ -399,6 +485,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoTempoDelay_en.pdf/getbyname/Voxengo%20Tempo%20Delay%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoTempoDelay_28_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A stereo delay plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Tempo Delay is a multi-feature stereo delay plugin for professional music production applications.  Tempo Delay is based on tempo, incorporating filter and tremolo sections with separate controls for each stereo channel.  Instead of a single delay length control this plug-in features separate delay, repetition period and delay panning controls which allow you to create an evenly sounding ping-pong stereo echoes."
     },
     @{
         SoftwareName = "TEOTE"
@@ -409,6 +496,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoTEOTE_en.pdf/getbyname/Voxengo%20TEOTE%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoTEOTE_115_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "An automatic spectral balancing audio plugin."
+        Description  = "TEOTE is an automatic spectral balancer AudioUnit, AAX, and VST plugin for professional music production applications.  It was designed to be a very useful tool for both mixing and mastering.  It automatically performs such tasks like gentle resonances taming, de-essing, tilt equalizing, usually performed during mixing and mastering.  In mixing, TEOTE sounds good on pretty much any material."
     },
     @{
         SoftwareName = "TEQ-421"
@@ -419,6 +507,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoTEQ421_en.pdf/getbyname/Voxengo%20TEQ-421%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoTEQ421_13_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A phase shift plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "TEQ-421 is freeware equalizer plug-in for professional music production applications.  This equalizer features only three bands (Triple EQ), finely tuned to deliver good results in many cases, thus being extremely easy to use.  Beside this, the plug-in features internal non-parametric harmonic coloration modules (derived from HarmoniEQ plug-in) that produce a smooth saturation and a presence effect."
     },
     @{
         SoftwareName = "TransGainer"
@@ -429,6 +518,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoTransGainer_en.pdf/getbyname/Voxengo%20TransGainer%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoTransGainer_114_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A transient designer plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "TransGainer, an audio AAX, AU and VST plugin suitable for a wide range of professional music production uses, implements an audio signal envelope adjustment algorithm that reacts on transients rather than on a signal's loudness level.  This algorithm allows you to adjust volume of attack and sustain stages of any sounds you use it on.  TransGainer was designed in a way to be suitable for all possible sound sources - be it individual tracks or full mixes."
     },
     @{
         SoftwareName = "Tube Amp"
@@ -439,6 +529,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoTubeAmp_en.pdf/getbyname/Voxengo%20Tube%20Amp%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoTubeAmp_213_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A distortion plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Tube Amp is an audio effect AU and VST plugin that applies asymmetric tube triode overdrive usually found in single-tube microphone pre-amp boxes.  The sound this plugin produces varies from a mild warm overdrive to a fuzzy distortion."
     },
     @{
         SoftwareName = "VariSaturator"
@@ -449,6 +540,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoVariSaturator_en.pdf/getbyname/Voxengo%20VariSaturator%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoVariSaturator_26_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A saturation plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "VariSaturator is an audio effect AU and VST plugin designed to apply saturation effects to audio material.  VariSaturator can be used both to boost the loudness of the audio tracks without increasing their peak levels proportionally, and to apply subtle harmonic coloration that makes tracks sound more pronounced and polished."
     },
     @{
         SoftwareName = "Voxformer"
@@ -459,6 +551,7 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoVoxformer_en.pdf/getbyname/Voxengo%20Voxformer%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoVoxformer_222_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A vocal channel strip plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Voxformer is a multi-functional vocal channel strip AAX, AU and VST plugin for professional audio applications.  Combining several professional quality processing modules, Voxformer was designed to be a comprehensive solution for all your vocal processing needs - be it spoken or sung vocals."
     },
     @{
         SoftwareName = "Warmifier"
@@ -469,6 +562,11 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoWarmifier_en.pdf/getbyname/Voxengo%20Warmifier%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoWarmifier_28_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A tube valve coloration plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Warmifier is a special audio effect AAX, AudioUnit and VST plugin for professional sound and music production applications which processes audio signal in a way similar to analog tube/valve equipment.  By using Warmifier you can achieve valve warming and console coloration effects.
+
+Warmifier is applicable both to the complete mixes and to the individual instrument tracks.  You have several parameters at your disposal that allow you to control the strength and the color of the effect.  Also, you have several tube/valve types to choose from.  Each valve type offers a different overall coloration.
+
+While the effect of this plugin is definitely subtle, the difference it makes is similar to the difference in sound between various analog mixing consoles.  In most cases it boils down to adding a subtle sparkle, presence, warming or solidifying effect to a sound track it was applied to."
     },
     @{
         SoftwareName = "Water Chorus"
@@ -479,30 +577,38 @@ $products = @(
         UrlManual    = "https://www.voxengo.com/files/userguides/VoxengoWaterChorus_en.pdf/getbyname/Voxengo%20Water%20Chorus%20User%20Guide%20en.pdf"
         Url        = "https://www.voxengo.com/files/VoxengoWaterChorus_11_Win32_64_VST_VST3_AAX_setup.exe"
         Summary      = "A chorus plugin for VST2/3 and AAX compatible hosts by Voxengo."
+        Description  = "Water Chorus is a stereo chorus effect AAX, AudioUnit, and VST plugin for professional sound and music production applications.  Water Chorus is able to produce stereo-widening and weird watery modulation effects, possibly with a flanger vibe. Water Chorus plugin uses 4 operators for each channel thus creating a quite dense stereo chorus sound, which is also very smooth."
     }
 )
 
 foreach ($product in $products) {
     $PackageId = $product.SoftwareName.Replace(" ", "-").ToLower()
     $PackageNameNoWhite = $product.SoftwareName.Replace(" ", "").ToLower()
-    # Construct the choco new command as a single line string
-    $command = "choco new '$($product.SoftwareName)' -t voxengo.template " +
-    "Version='$($product.Version)' " +
-    "Author='$($Author)' " +
-    "AuthorLowerNowhite='$($AuthorLowerNowhite)' " +
-    "MaintainerName='$($MaintainerName)' " +
-    "Tags='$($product.Tags)' " +
-    "Checksum='$($product.Checksum)' " +
-    "UrlIcon='$($product.UrlIcon)' " +
-    "UrlManual='$($product.UrlManual)' " +
-    "Summary='$($product.Summary)' " +
-    "Url='$($product.Url)' " +
-    "PackageId='$($PackageId)' " +
-    "PackageNameNoWhite='$($PackageNameNoWhite)' " +
-    "--force"
+    # Construct the choco new command using splatting to avoid parsing issues
+    $chocoArgs = @(
+        'new'
+        $product.SoftwareName
+        '-t'
+        'voxengo.template'
+        "Version=$($product.Version)"
+        "Author=$($Author)"
+        "AuthorLowerNowhite=$($AuthorLowerNowhite)"
+        "MaintainerName=$($MaintainerName)"
+        "Tags=$($product.Tags)"
+        "Checksum=$($product.Checksum)"
+        "UrlIcon=$($product.UrlIcon)"
+        "UrlManual=$($product.UrlManual)"
+        "Summary=$($product.Summary)"
+        "Url=$($product.Url)"
+        "PackageId=$($PackageId)"
+        "PackageNameNoWhite=$($PackageNameNoWhite)"
+        "Description=$($product.Description)"
+        "DescriptionShared=$DescriptionShared"
+        '--force'
+    )
 
-    Write-Debug $command
-    Invoke-Expression $command
+    Write-Debug "choco $($chocoArgs -join ' ')"
+    & choco @chocoArgs
 
     $nuspecFilePath = "$PSScriptRoot\$($product.SoftwareName)\$($product.SoftwareName.ToLower()).nuspec"
     $nuspecDir = [System.IO.Path]::GetDirectoryName((Resolve-Path -Path $nuspecFilePath).Path)
@@ -514,9 +620,9 @@ foreach ($product in $products) {
     $relativePath = Resolve-Path -Path $SharedScriptsPath -Relative
 
     # Replace remaining variables in .nuspec file and create package
-    (Get-Content -Path $nuspecFilePath -Raw) `
-        -replace '\$sharedscripts\$', $relativePath `
-        -replace '\\+', '\' | Set-Content -Path $nuspecFilePath
+#    (Get-Content -Path $nuspecFilePath -Raw) `
+#        -replace '\$sharedscripts\$', $relativePath `
+#        -replace '\\+', '\' | Set-Content -Path $nuspecFilePath
 
     # Return to the previous location
     Pop-Location

@@ -15,8 +15,10 @@
     <docsUrl>[[UrlManual]]</docsUrl>
     <tags>[[AuthorLowerNowhite]] [[PackageNameLower]] [[Tags]]</tags>
     <summary>[[Summary]]</summary>
-    <description>[[Description]]
-    </description>
+    <description><![CDATA[[[Description]]  
+
+[[DescriptionShared]]
+    ]]></description>
     <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
@@ -24,9 +26,5 @@
   </metadata>
   <files>
     <file src="tools\*" target="tools" />
-    <file src="$sharedscripts$\helpers-installer.ps1" target="tools" />
-    <file src="$sharedscripts$\helpers-regkey.ps1" target="tools" />
-    <file src="$sharedscripts$\chocolateyinstall.ps1" target="tools" />
-    <file src="$sharedscripts$\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>

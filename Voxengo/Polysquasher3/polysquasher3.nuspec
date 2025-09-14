@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>voxengo-polysquasher3</id>
+    <version>3.6.20250913</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Voxengo Polysquasher</title>
+    <authors>Voxengo</authors>
+    <projectUrl>https://www.voxengo.com/product/polysquasher3/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/50c955ad417fd880e9446c94e7189aab6c63645e/Icons/Voxengo/polysquasher.png</iconUrl>
+    <copyright>Copyright (c) Voxengo 2024</copyright>
+    <licenseUrl>https://www.voxengo.com/terms-of-use/</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://www.voxengo.com/files/userguides/VoxengoPolysquasher_en.pdf/getbyname/Voxengo%20Polysquasher%20User%20Guide%20en.pdf</docsUrl>
+    <tags>voxengo polysquasher3 compressor transparent vst aax audio mixing mastering recording trial</tags>
+    <summary>A mastering compressor plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
+    <description><![CDATA[Mastering compressor AAX, AU and VST plugin with transparent, tight and punchy sound.  An ideal choice for mix compression.  
+
+## Installer Arguments
+If you want to select which formats and other components to install, use the following parameter:
+```
+choco install voxengo-package -ia '/COMPONENTS=shortcuts,guides,vst2_64 /Dir=C:\Program Files\Audio\Voxengo\Package'
+```
+
+Components:
+* `shortcuts` - Install start menu shortcuts to the user guides
+* `guides`    - Install the user guide files
+* `vst2_32`   - Install the x86 (32 bit) VST2 version
+* `vst2_64`   - Install the x64 (64 bit) VST2 version
+* `vst3_32`   - Install the x86 (32 bit) VST3 version
+* `vst3_64`   - Install the x64 (64 bit) VST3 version
+* `aax_64`    - Install the x64 (64 bit) AAX version
+* `aax_32`    - Install the x86 (32 bit) AAX version
+
+Others:
+* `Dir` - Set the directory to install the guide files to
+
+## Package Parameters
+
+* `/VST2x64Path:` - Path of the x64 (64 bit) VST2 plugins
+* `/VST2x86Path:` - Path of the x86 (32 bit) VST2 plugins
+* `/CompanyPath:` - More comfortable way than /Dir because this one gets the package name automatically postfixed to the path so this parameter can be shared with other Voxengo packages
+
+For example:
+```powershell
+choco install voxengo-package --package-parameters "'/VST2x64Path:C:\Program Files\Common Files\VST2 /CompanyPath:C:\Program Files\Audio\Voxengo'"
+```
+    ]]></description>
+    <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+  </files>
+</package>

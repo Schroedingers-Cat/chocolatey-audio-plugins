@@ -1,8 +1,7 @@
 ﻿import-module Chocolatey-AU
-. tools\chocolateyvariables.ps1
 
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.voxengo.com/product/ovc128/'
+    $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.voxengo.com/product/ovc-128/'
     $regex = '.exe$'
     $url = $download_page.links | ? href -match $regex | select -First 1 -expand href
     $version = $url.Split('_') | select -Index 1
@@ -23,7 +22,7 @@ function global:au_BeforeUpdate() {
 
 function global:au_SearchReplace {
     @{
-        "tools\chocolateyvariables.ps1" = @{
+        "tools\chocolateyinstall.ps1" = @{
             "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"           #1
             "(^[$]checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum)'"      #2
         }

@@ -1,5 +1,4 @@
 ﻿import-module Chocolatey-AU
-. tools\chocolateyvariables.ps1
 
 function global:au_GetLatest {
     $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.voxengo.com/product/drumformer/'
@@ -23,7 +22,7 @@ function global:au_BeforeUpdate() {
 
 function global:au_SearchReplace {
     @{
-        "tools\chocolateyvariables.ps1" = @{
+        "tools\chocolateyinstall.ps1" = @{
             "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"           #1
             "(^[$]checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum)'"      #2
         }

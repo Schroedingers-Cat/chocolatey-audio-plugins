@@ -1,10 +1,5 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-$chocolateyPackageFolder = ($(Get-ChocolateyPath -PathType 'PackagePath'))
-. $chocolateyPackageFolder\tools\chocolateyfunctions.ps1
-. $chocolateyPackageFolder\tools\chocolateyvariables.ps1
-. $chocolateyPackageFolder\tools\helpers-regkey.ps1
-
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   softwareName  = 'Voxengo Powershaper*'
@@ -28,6 +23,3 @@ if ($key.Count -eq 1) {
   Write-Warning "Please alert package maintainer the following keys were matched:"
   $key | % {Write-Warning "- $($_.DisplayName)"}
 }
-
-CreateRegistryObjects
-Foreach ($item in $regKeys) { DeleteRegKeyFromObjects($item) }

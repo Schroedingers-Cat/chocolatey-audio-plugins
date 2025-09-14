@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>voxengo-crtiv-tape-bus</id>
-    <version>1.8</version>
+    <version>1.8.20250913</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Voxengo CRTIV Tape Bus</title>
@@ -15,31 +15,38 @@
     <docsUrl>https://www.voxengo.com/files/userguides/VoxengoCRTIVTapeBus_en.pdf/getbyname/Voxengo%20CRTIV%20Tape%20Bus%20User%20Guide%20en.pdf</docsUrl>
     <tags>voxengo crtiv tape bus tape saturation vst aax audio mixing mastering recording trial</tags>
     <summary>A tape saturation plugin for VST2/3 and AAX compatible hosts by Voxengo.</summary>
-    <description>
-CRTIV Tape Bus plug-in for professional music production applications recreates characteristic elements of the reel-to-reel tape sound.  This includes saturation, modulation noise and smearing effects which are known for the “analog” feel they bring to audio recordings.  This plug-in also applies a selected impulse response taken by us from the existing tape machines.
+    <description><![CDATA[CRTIV Tape Bus plug-in for professional music production applications recreates characteristic elements of the reel-to-reel tape sound.  This includes saturation, modulation noise and smearing effects which are known for the analog feel they bring to audio recordings.  This plug-in also applies a selected impulse response taken by us from the existing tape machines.  
 
-## Package Specific
-
-### Package Parameters
-The following package parameters can be set:
-
- * `/NoVst2x86`       - Do not install the x86 VST2 version
- * `/NoVst2x64`       - Do not install the x64 VST2 version
- * `/NoVst3x86`       - Do not install the x86 VST3 version
- * `/NoVst3x64`       - Do not install the x64 VST3 version
- * `/NoAaxx86`        - Do not install the x86 AAX version
- * `/NoAaxx64`        - Do not install the x64 AAX version
- * `/NoShortcuts`     - Do not install shortcuts to manuals and uninstaller into start menu or onto desktop
- * `/Vst2Path:`       - Installation path of the VST2 version
- * `/Vst2x86Path:` - Installation path of the x86 VST2 version on x64 CPU architecture
- * `/InstallerPath:`  - Do not download the installer from the official Voxengo website and use the one passed with this argument instead. Use it, if you don't have an internet connection at your studio computer.
- * `/CompanyPath:`    - Path of the company to put all program files in. Override if you want to have the program files at a custom location.
-
-You must pass the package parameters like this:
+## Installer Arguments
+If you want to select which formats and other components to install, use the following parameter:
 ```
-choco install voxengo-crtiv-tape-bus --package-parameters "'/NoVst2x64 /Vst2x86Path:${env:CommonProgramFiles(x86)}\VST2\Voxengo '"
+choco install voxengo-package -ia '/COMPONENTS=shortcuts,guides,vst2_64 /Dir=C:\Program Files\Audio\Voxengo\Package'
 ```
-    </description>
+
+Components:
+* `shortcuts` - Install start menu shortcuts to the user guides
+* `guides`    - Install the user guide files
+* `vst2_32`   - Install the x86 (32 bit) VST2 version
+* `vst2_64`   - Install the x64 (64 bit) VST2 version
+* `vst3_32`   - Install the x86 (32 bit) VST3 version
+* `vst3_64`   - Install the x64 (64 bit) VST3 version
+* `aax_64`    - Install the x64 (64 bit) AAX version
+* `aax_32`    - Install the x86 (32 bit) AAX version
+
+Others:
+* `Dir` - Set the directory to install the guide files to
+
+## Package Parameters
+
+* `/VST2x64Path:` - Path of the x64 (64 bit) VST2 plugins
+* `/VST2x86Path:` - Path of the x86 (32 bit) VST2 plugins
+* `/CompanyPath:` - More comfortable way than /Dir because this one gets the package name automatically postfixed to the path so this parameter can be shared with other Voxengo packages
+
+For example:
+```powershell
+choco install voxengo-package --package-parameters "'/VST2x64Path:C:\Program Files\Common Files\VST2 /CompanyPath:C:\Program Files\Audio\Voxengo'"
+```
+    ]]></description>
     <releaseNotes>https://www.voxengo.com/press/</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.1.0" />
@@ -47,10 +54,5 @@ choco install voxengo-crtiv-tape-bus --package-parameters "'/NoVst2x64 /Vst2x86P
   </metadata>
   <files>
     <file src="tools\*" target="tools" />
-    <file src="..\..\SharedScripts\helpers-installer.ps1" target="tools" />
-    <file src="..\..\SharedScripts\helpers-regkey.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyinstall.ps1" target="tools" />
-    <file src="..\..\SharedScripts\chocolateyfunctions.ps1" target="tools" />
   </files>
 </package>
-

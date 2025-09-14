@@ -94,7 +94,7 @@ jobs:
           - Voxengo\CRTIV Tape Bus
           - Voxengo\Crunchessor
           - Voxengo\CurveEQ
-          - Voxengo\Deft Compressor
+          - Voxengo\DeftCompressor
           - Voxengo\Drumformer
           - Voxengo\EBusLim
           - Voxengo\Elephant
@@ -111,7 +111,7 @@ jobs:
           - Voxengo\Overtone GEQ
           - Voxengo\Peakbuster
           - Voxengo\PHA-979
-          - Voxengo\Polysquasher 3
+          - Voxengo\Polysquasher3
           - Voxengo\Powershaper
           - Voxengo\PrimeEQ
           - Voxengo\r8brain PRO
