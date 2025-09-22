@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Shumovick'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '408a1d29a4489c2f84646b4c3f77fcb28c5f73ed988641b1ef9b6cdabeeb9e64'
-$url            = 'https://www.voxengo.com/files/VoxengoShumovick_22_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '6a19da1af802f8aed0cd687dc0d146c206f7aad105757fe71a5bc01dc5627549'
+$url            = 'https://www.voxengo.com/files/VoxengoShumovick_23_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
