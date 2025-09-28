@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'SPAN Plus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '77093b2d44c773f797df0a3bc7002cbc1bbe4d4c9e10180ea6c630304b84c7cc'
-$url            = 'https://www.voxengo.com/files/VoxengoSPANPlus_124_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '4b3e1de534de3716f57b4a7610e5df4775786414ca6f75b3dcd16ff13ccea963'
+$url            = 'https://www.voxengo.com/files/VoxengoSPANPlus_125_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
