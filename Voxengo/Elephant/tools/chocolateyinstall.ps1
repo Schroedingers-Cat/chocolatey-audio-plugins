@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Elephant'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '88a4ef2a654909605fe22c7c0ab3b0cc3441a9306766dbb906f041354310607d'
-$url            = 'https://www.voxengo.com/files/VoxengoElephant_57_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'f3bed6b12ae014c257ed1ef4e2004e1f97aa9a1ffabc32ddd67c2eae78d06177'
+$url            = 'https://www.voxengo.com/files/VoxengoElephant_58_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
