@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'TEQ-421'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '295140bff3f9653a0bce6359867ea9f24498e565a85ebce6c7e61fdfd90412f8'
-$url            = 'https://www.voxengo.com/files/VoxengoTEQ421_13_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'fc32556f451fbfeffea3f29d67ee76ab1af69376fd06ab95d076602a91f0c9fd'
+$url            = 'https://www.voxengo.com/files/VoxengoTEQ421_14_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
