@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Boogex'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'fe9dda24f909a041829a1b55fae8f05a84329a31ad2eb8c1711ea18b3b4f525a'
-$url            = 'https://www.voxengo.com/files/VoxengoBoogex_37_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '44048dbdc39bc7f19206925dbc81ba35e352225620f3adcfdbc588e6bab4003e'
+$url            = 'https://www.voxengo.com/files/VoxengoBoogex_38_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
