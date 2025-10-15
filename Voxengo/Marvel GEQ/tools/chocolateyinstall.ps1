@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Marvel GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'fdf882343f998be820eb80b7eca67cf19e50ec35ab277e300f6e13e4d47a1586'
-$url            = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_116_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '32502403cf6b0da776402e718c5605c4b1f0d0eeccad815de17eb8b7c8c9b8e7'
+$url            = 'https://www.voxengo.com/files/VoxengoMarvelGEQ_117_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
