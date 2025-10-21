@@ -38,7 +38,7 @@ if (-not [string]::IsNullOrEmpty($pp["DataPath"])) {
     }
     $uheDataPathReg = @{'key' = "HKLM:\SOFTWARE\U-HE\VST"; 'name' = "DataPath" }
     $uheProductDataPathReg = @{'key' = "HKCU:\SOFTWARE\U-HE\$packageName"; 'name' = "DataPath" }
-    $regKeyValue = "$($pp["DataPath"])\" + "$packageName.data"  # literal ".data" suffix
+    $regKeyValue = Join-Path $pp["DataPath"] -ChildPath "$packageName.data"  # literal ".data" suffix
     Set-RegValue $uheDataPathReg['key'] $uheDataPathReg['name'] $regKeyValue
     Set-RegValue $uheProductDataPathReg['key'] $uheProductDataPathReg['name'] $regKeyValue
 }

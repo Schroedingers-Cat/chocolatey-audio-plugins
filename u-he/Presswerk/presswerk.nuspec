@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/presswerk/Presswerk-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he presswerk audio vst synthesizer aax admin trial</tags>
+    <tags>u-he presswerk audio clap vst synthesizer aax admin trial</tags>
     <summary>A flexible compressor by u-he.</summary>
     <description><![CDATA[Presswerk: Dynamics processor with musical soul
 Presswerk is more than an emulation of a single hardware compressor. Like Satin, Presswerk is a toolkit, drawing ideas and inspiration from a number of sources. It starts with warmth of classic analogue units and adds features only possible in the digital realm. The result is a powerful compressor with a rich feature set and a very musical soul.
@@ -70,7 +70,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/presswerk/releasenotes.html</releaseNotes>

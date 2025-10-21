@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/ace/ACE-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he ace audio vst synthesizer aax admin trial</tags>
+    <tags>u-he ace audio clap vst synthesizer aax admin trial</tags>
     <summary>A virtual-analog synthesizer by u-he.</summary>
     <description><![CDATA[ACE: Any cable everywhere
 ACE is a gateway into the world of modular synthesizers. Compact, clear, a careful selection of modules and semi-modular architecture makes ACE easy to learn. Simple but not simplistic. Compact but not limited. Clear but definitely not underpowered. With the ability to connect any output into any input (any cable everywhere), ACE is a powerful synth with tools and features ready for beginners or seasoned users.  
@@ -69,7 +69,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/ace/releasenotes.html</releaseNotes>

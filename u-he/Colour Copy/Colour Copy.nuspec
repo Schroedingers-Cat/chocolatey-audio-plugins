@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/colourcopy/ColourCopy-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he colour copy audio vst effect delay aax admin trial</tags>
+    <tags>u-he colour copy audio clap vst effect delay aax admin trial</tags>
     <summary>A virtual-analog delay effect by u-he.</summary>
     <description><![CDATA[Colour Copy: a bucketful of delay
 A virtual analog effect inspired by classic bucket-brigade delays (BBD), but extended with modern features. We called our new baby 'Colour Copy' because it can deliver the kind of colouration people still love in classic BBD units, but with a wider variety of colours. Colour Copy started life as the little delay unit called 'Lyrebird' we built into Repro-1, but the sound was too good not to be developed further and become an FX plug-in.  
@@ -69,7 +69,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/colour copy/releasenotes.html</releaseNotes>

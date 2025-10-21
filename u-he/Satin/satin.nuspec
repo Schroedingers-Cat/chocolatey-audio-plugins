@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/satin/Satin-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he satin audio vst effects aax admin trial</tags>
+    <tags>u-he satin audio clap vst effects aax admin trial</tags>
     <summary>A recording tape simulator by u-he.</summary>
     <description><![CDATA[Satin: Tape machine
 Nothing else quite sounds like tape. Satin puts the legacy of tape recording in your hands: from top-of-the-line multi-track consoles to humble cassette decks. All the good (saturation, transient smoothing, compression) as well as the bad (noise modulation, flutter, hiss) qualities are under your control. Construct your (im)perfect tape machine.  
@@ -69,7 +69,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/satin/releasenotes.html</releaseNotes>

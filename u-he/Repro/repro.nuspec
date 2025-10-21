@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/repro/Repro-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he repro audio vst synthesizer repro-1 repro-5 aax admin trial</tags>
+    <tags>u-he repro audio clap vst synthesizer repro-1 repro-5 aax admin trial</tags>
     <summary>A virtual-analog synthesizer by u-he.</summary>
     <description><![CDATA[Repro: analogue, meticulously recreated
 Repro dives into the past for analogue inspiration, meticulously modelling two famous synthesizers. Every detail of the original was captured using component-level modelling technology to create the most authentic model possible. All the subtle characteristics and quirks found in the originals are present in Repro. One product, one installer, two synths.  
@@ -69,7 +69,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/repro/releasenotes.html</releaseNotes>

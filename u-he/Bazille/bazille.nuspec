@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <docsUrl>https://u-he.com/downloads/manuals/plugins/bazille/Bazille-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he bazille audio vst synthesizer aax admin trial</tags>
+    <tags>u-he bazille audio clap vst synthesizer aax admin trial</tags>
     <summary>A modular synthesizer by u-he.</summary>
     <description><![CDATA[Bazille: Monster from the deep
 The second spawn of the Berlin Modular project, Bazille is a large polyphonic modular system with digital (PD, FM based) oscillators, multimode filters and plenty of modulation options. With so much connectivity to explore, patching in Bazille should keep you fascinated for many years - it's definitely a ''geek machine''!  
@@ -69,7 +69,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/bazille/releasenotes.html</releaseNotes>

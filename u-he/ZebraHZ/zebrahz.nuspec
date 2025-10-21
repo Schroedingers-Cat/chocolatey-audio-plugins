@@ -45,10 +45,10 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra-legacy/Zebra_Legacy-user-guide.pdf</docsUrl>
+    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra2/Zebra2-user-guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>u-he zebrahz audio vst synthesizer aax admin trial</tags>
+    <tags>u-he zebrahz audio clap vst synthesizer aax admin trial</tags>
     <summary>A virtual-analog synthesizer by u-he.</summary>
     <description><![CDATA[ZebraHZ is an expanded version of Zebra2 made for a well known Hollywood composer featuring: 
 - 8 extra filters based on Diva models
@@ -76,7 +76,7 @@ If you want to select which formats and other components to install, add `-ia '/
 
 For example:
 ```powershell
-choco install uhe-package --package-parameters "'/DataPath:C:\ProgramData\u-he\'"
+choco install uhe-package --package-parameters "'/DataPath:C:\Users\Public\Documents\u-he'"
 ```
     ]]></description>
     <releaseNotes>https://u-he.com/products/zebra-legacy/releasenotes.html</releaseNotes>
