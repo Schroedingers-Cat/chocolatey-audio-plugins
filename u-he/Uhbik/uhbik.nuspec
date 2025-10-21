@@ -53,7 +53,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 A collection of ten sophisticated effects with support for surround formats up to 7.1. Perfect for adding the finishing touches to your regular projects or for building wild, experimental quadraphonic effect chainsâ€¦ Whether you need subtle nuance or strong impact, Uhbik has you covered!
 
 ## Installer Arguments
-If you want to select which formats and other components to install, add `-ia '/COMPONENTS=vst3_64,clap_64,presets,nks'` as parameter. The following components can be set:
+If you want to select which formats and other components to install, add `-ia '/COMPONENTS=vst3_64,clap_64,presets'` as parameter. The following components can be set:
 
 * `vst3_32` - Install the x86 (32 bit) VST3 version
 * `vst3_64` - Install the x64 (64 bit) VST3 version
