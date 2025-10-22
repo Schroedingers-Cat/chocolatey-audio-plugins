@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'PrimeEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'c5a415cb152e3e1de620c2cd4fc9d39a85dc0f4882b0cfd0528e06503877ac53'
-$url            = 'https://www.voxengo.com/files/VoxengoPrimeEQ_18_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '0651a1bfaa9976980eeeb94ec08d2657f94bbd26ec16e357d92b20311e5f342c'
+$url            = 'https://www.voxengo.com/files/VoxengoPrimeEQ_19_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
