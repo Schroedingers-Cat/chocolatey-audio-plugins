@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'AnSpec'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '7ed1c05014a2c3b4930a3e7a801053d59e29d583b3c62a876436e43ae2ec7eea'
-$url            = 'https://www.voxengo.com/files/VoxengoAnSpec_18_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '860d05377ed6f2fa12c0404043099e0c2c95dd9b3b5798e5efc7086c63c1d89e'
+$url            = 'https://www.voxengo.com/files/VoxengoAnSpec_19_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
