@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Deft Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '7f0fa750e43ff4a1058fc7065d963b5eca526d483f4abaf11b512920f6832dca'
-$url            = 'https://www.voxengo.com/files/VoxengoDeftCompressor_113_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '13ff1f0d93181e62d43ca063940de0c0f0ba22a09e2e9317a5f3fe22674e679b'
+$url            = 'https://www.voxengo.com/files/VoxengoDeftCompressor_114_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
