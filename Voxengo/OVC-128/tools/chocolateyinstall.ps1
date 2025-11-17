@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'OVC-128'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '6ef35f7982ee1aa1fb5c3cc1f1c708156adb0bd6df0a67ba9c17722f31521818'
-$url            = 'https://www.voxengo.com/files/VoxengoTransGainer_115_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '3fa552e7b49206b6a1477afa2c7ad6b375bc1693aece6fcc9a9c2c272490ac50'
+$url            = 'https://www.voxengo.com/files/VoxengoOVC128_114_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
