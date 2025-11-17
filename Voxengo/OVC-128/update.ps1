@@ -1,7 +1,7 @@
 ﻿import-module Chocolatey-AU
 
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.voxengo.com/product/ovc-128/'
+    $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://www.voxengo.com/product/ovc128/'
     $regex = '.exe$'
     $url = $download_page.links | ? href -match $regex | select -First 1 -expand href
     $version = $url.Split('_') | select -Index 1
