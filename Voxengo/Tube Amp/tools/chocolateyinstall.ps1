@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Tube Amp'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '00297b5897138be2782852d780ef9b6c22aa8785abd972b33d91721dd9058ff8'
-$url            = 'https://www.voxengo.com/files/VoxengoTubeAmp_215_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '123e3478ef333d6dee789d5293d2b3f51e198de4f7e60c470ef4eed22cb1e5c7'
+$url            = 'https://www.voxengo.com/files/VoxengoTubeAmp_216_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
