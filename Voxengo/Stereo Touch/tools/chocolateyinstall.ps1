@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Stereo Touch'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '9c1b9978cfcaa7bd11ade5123183975bf6bd6fb3071191fd86f55feb17874f42'
-$url            = 'https://www.voxengo.com/files/VoxengoStereoTouch_218_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = 'f0696d846f80b3acc8d46ae1a31010e2a72fc0c949b9c5a4387308f0938b16a1'
+$url            = 'https://www.voxengo.com/files/VoxengoStereoTouch_219_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
