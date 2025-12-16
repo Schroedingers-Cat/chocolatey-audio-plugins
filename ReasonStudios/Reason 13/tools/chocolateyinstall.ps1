@@ -3,10 +3,10 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $unzipPath  = Join-Path -Path $toolsDir -ChildPath "ReasonInstaller"
 New-Item -Path $unzipPath -ItemType Directory -Force
 
-$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1333_d36-Stable-561-Win.zip'
-$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1333_d36-Stable-561-without_soundbanks-Win.zip'
-$checksum64 = 'a5813f66ba5e1625cc49bf01fd121c7a5ea2281d0a4b2f6d3ef6aa8eeab7de9e'
-$checksum64NoSB = 'b224ff80f9c3fce60755faa5d27abbc89da81f392698616fe1ab10441502a90b'
+$url64 = 'https://cdn.reasonstudios.com/update/Stable/Reason_1340_d15-Stable-696-Win.zip'
+$url64NoSB = 'https://cdn.reasonstudios.com/update/Stable/Reason_1340_d15-Stable-696-without_soundbanks-Win.zip'
+$checksum64 = 'caf413b474d7e34595c07b5b4d537f9aa46238bafd33f3e7ad93e066b52bc303'
+$checksum64NoSB = '91a90aa6ec543dbbb118d4988907272d6daf4eb92604e2ab050ed59fd61888f8'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
@@ -34,7 +34,7 @@ if ($pp['WithoutSoundbanks']) {
   $packageArgs.checksum64 =  $checksum64NoSB
 }
 
-$componentsList = "standalone,vst,aax"
+$componentsList = "standalone,companion,vst,aax"
 if ($pp['NoVst']) { $componentsList = $componentsList -replace ",vst","" }
 if ($pp['NoAax']) { $componentsList = $componentsList -replace ",aax","" }
 $packageArgs.silentArgs += " /Components=${componentsList}"
