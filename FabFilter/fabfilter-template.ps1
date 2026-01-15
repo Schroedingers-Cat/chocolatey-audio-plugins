@@ -26,7 +26,7 @@ $products = @(
         Version      = "4.00"
         Tags         = "eq dynamic equalizer filter vst clap aax audio mixing mastering recording trial"
         Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-Q%204.jpg"
+        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/575d34a8c9c15a08182c49a3b10f803c7c7809b0/Icons/FabFilter/Pro-Q%204.png"
         UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproq4-manual.pdf"
         Url          = "https://www.fabfilter.com/downloads/ffproq400x64.exe"
         UrlProduct   = "https://www.fabfilter.com/products/pro-q-4-equalizer-plug-in"
@@ -123,6 +123,19 @@ $products = @(
         UrlProduct   = "https://www.fabfilter.com/products/pro-l-2-limiter-plug-in"
         Summary      = "A high-quality limiter plug-in"
         Description  = "Feature-packed true peak limiter plug-in, with multiple advanced limiting algorithms and extensive level and loudness metering."
+        Platforms    = @('x64','x86')
+    },
+    @{
+        SoftwareName = "Pro-C 3"
+        Version      = "2.99"
+        Tags         = "compressor vst clap aax audio mixing mastering recording trial"
+        Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
+        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/d3880756903309c0c9847df09659c70fe64fb336/Icons/FabFilter/Pro-C%203.png"
+        UrlManual    = "https://www.fabfilter.com/downloads/pdf/help/ffproc3-manual.pdf"
+        Url          = "https://cdn-b.fabfilter.com/downloads/ffproc300x64.exe"
+        UrlProduct   = "https://www.fabfilter.com/products/pro-c-3-compressor-plug-in"
+        Summary      = "A high-quality compressor plug-in"
+        Description  = "Professional compressor plug-in with versatile side chain and routing options, high-quality sound and an innovative interface."
         Platforms    = @('x64','x86')
     },
     @{
@@ -377,7 +390,7 @@ $products = @(
         Version      = "2020.01.01"
         Tags         = "filter dynamics delay synthesizer vst clap aax audio creative mixing mastering recording trial"
         Checksum     = "24228C5BF884C53C702AFBF593634CE28A4AE3E4D542138269ECCE03B48A8FCD"
-        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/c2bdff4d41dcff6286653e3b7fdbb6c99374b203/Icons/FabFilter/totalbundle.jpg"
+        UrlIcon      = "https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/c2bdff4d41dcff6286653e3b7fdbb6c99374b203/Icons/FabFilter/totalbundle.png"
         UrlManual    = "https://www.fabfilter.com/help"
         Url          = "https://cdn-b.fabfilter.com/downloads/fftotalbundlex64.exe"
         UrlProduct   = "https://www.fabfilter.com/products"
