@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>fabfilter-proc3-x64</id>
+    <version>3.0.0</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>FabFilter Pro-C 3 (x64)</title>
+    <authors>FabFilter</authors>
+    <projectUrl>https://www.fabfilter.com/products/pro-c-3-compressor-plug-in/</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/d3880756903309c0c9847df09659c70fe64fb336/Icons/FabFilter/Pro-C%203.png</iconUrl>
+    <copyright>Copyright (c) FabFilter 2025</copyright>
+    <licenseUrl>https://www.fabfilter.com/license-agreement</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://www.fabfilter.com/downloads/pdf/help/ffproc3-manual.pdf</docsUrl>
+    <tags>fabfilter proc3 x64 compressor vst clap aax audio mixing mastering recording trial</tags>
+    <summary>A high-quality compressor plug-in</summary>
+    <description><![CDATA[Professional compressor plug-in with versatile side chain and routing options, high-quality sound and an innovative interface.  
+
+## Package Parameters
+The following package parameters can be set:
+
+* /Vst2Path - Set the path of the VST2 plugin directory to install the plugin(s) to. Leave empty or do not set if you want no VST2 plugins.
+
+Note that the all of the installer's plugin formats will always be available at `C:\Program Files\FabFilter\[Product Name]\`.  
+
+## Silent Install And Uninstall
+FabFilter installers only have an unattended mode for the installer. This means that the installation will be automated but the installer window will still pop up on your machine (without manual interaction necessary).  
+FabFilter uninstallers have no support for unattended mode and require user interaction to proceed.
+    ]]></description>
+    <releaseNotes>https://www.fabfilter.com/press</releaseNotes>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\*" target="tools" />
+  </files>
+</package>
+
