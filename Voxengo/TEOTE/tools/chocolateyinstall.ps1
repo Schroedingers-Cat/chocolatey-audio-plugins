@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'TEOTE'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'd32ac61fc20bf2fe909507e4baefa734a4fd3c179c12a7542689b5bf7872398b'
-$url            = 'https://www.voxengo.com/files/VoxengoTEOTE_115_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '1e23027541b16319c160a99a1326b30d0b897455aee9570b44972b294d939077'
+$url            = 'https://www.voxengo.com/files/VoxengoTEOTE_116_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
