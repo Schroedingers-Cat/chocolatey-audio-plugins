@@ -2,9 +2,9 @@
 
 $packageName= 'Bitwig'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64  = 'https://www.bitwig.com/dl/Bitwig%20Studio/5.3.13/installer_windows/'
-$checksum64 = 'ab107d6b131401cdf861bed83857bde83bbfe724b5cc3d3f66ba14133a38b7fa'
-$publicVersion = '5.3.13'
+$url64  = 'https://www.bitwig.com/dl/Bitwig%20Studio/6.0/installer_windows/'
+$checksum64 = '6f7c81dec1274465f821c302249ab44ef1895e2b3e8636d77ab7bdfd96d1018d'
+$publicVersion = '6.0'
 
 # Uninstall prevously installed version (only if via chocolatey)
 $versionToUninstall = Get-EnvironmentVariable -Name 'CHOCO_PACKAGE_VERSION_BITWIG_STUDIO' -Scope User
