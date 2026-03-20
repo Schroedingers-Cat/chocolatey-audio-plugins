@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Peakbuster'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '8024afce186c221f8dd78052187fb286e54f10c6e182a50e80527f196318611d'
-$url            = 'https://www.voxengo.com/files/VoxengoPeakbuster_17_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '02e595375941ab4bf3560e6911daf00b92230d7a0b123badb84f7cf6fff68320'
+$url            = 'https://www.voxengo.com/files/VoxengoPeakbuster_18_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {

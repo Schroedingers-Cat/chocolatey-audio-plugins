@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/fftimeless239.exe'
+    url            = 'https://www.fabfilter.com/downloads/fftimeless240.exe'
     softwareName   = 'FabFilter Timeless 2 (x86)*'
     checksumType   = 'sha256'
-    checksum       = '330d0a0612ffe21fc56e70db3c2ce88daf72ffe1dc2fcb3e890fd73e63ab44c6'
+    checksum       = 'b857b973e025869a8de53d115a8dac4bc944491b4a20f82ccc55979afd709f81'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }

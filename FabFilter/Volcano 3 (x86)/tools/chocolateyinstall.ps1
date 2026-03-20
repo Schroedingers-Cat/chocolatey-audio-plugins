@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/ffvolcano307.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffvolcano308.exe'
     softwareName   = 'FabFilter Volcano 3 (x86)*'
     checksumType   = 'sha256'
-    checksum       = '502e8e039a1cccd9dffc5f4a9589a13386c324730cdac44d324ecd04464e9ca6'
+    checksum       = '946af850871635419bb98d5b64539c1da1e02231e9a32f46707b5216aa1d16c1'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }

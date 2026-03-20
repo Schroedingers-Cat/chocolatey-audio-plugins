@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/ffprog140.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffprog141.exe'
     softwareName   = 'FabFilter Pro-G (x86)*'
     checksumType   = 'sha256'
-    checksum       = 'b3b1009d018ce09eae0791a41cfb385c1f7139d72ff17627b3d7c868175289d4'
+    checksum       = 'b8c4adb03ac555da4e22b7dc67a55795e880278fd56e08c92aa258ab338a0b06'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }
