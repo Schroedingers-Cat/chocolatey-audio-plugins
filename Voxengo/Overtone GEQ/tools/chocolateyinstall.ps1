@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Overtone GEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'e6181c8e0abda07eae3e4357c21a1692ddb7f7cc2191282261fb91fdb5d75412'
-$url            = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_118_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '589c90e8c2432a910c15373e05cb516ae2e40fe5d9315c9afacdec929c67cb89'
+$url            = 'https://www.voxengo.com/files/VoxengoOvertoneGEQ_119_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
