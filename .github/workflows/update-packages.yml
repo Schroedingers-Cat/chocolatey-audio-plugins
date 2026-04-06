@@ -40,6 +40,8 @@ jobs:
           - FabFilter\One (x86)
           - FabFilter\Pro-C 2 (x64)
           - FabFilter\Pro-C 2 (x86)
+          - FabFilter\Pro-C 3 (x64)
+          - FabFilter\Pro-C 3 (x86)
           - FabFilter\Pro-DS (x64)
           - FabFilter\Pro-DS (x86)
           - FabFilter\Pro-G (x64)
