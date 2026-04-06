@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Beeper'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'd8d1bc9cbdaeffa0e41df038e39bd371a7dbe3c0dcc6d7e7722629f87c817879'
-$url            = 'https://www.voxengo.com/files/VoxengoBeeper_213_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '1cd9e4e170b96799ca17570ec4df79821365abe7335f154e4d93ed587d30f69d'
+$url            = 'https://www.voxengo.com/files/VoxengoBeeper_214_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {

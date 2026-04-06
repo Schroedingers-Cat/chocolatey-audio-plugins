@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'MSED'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '277eab25ff79df6fa0c8783a3f71ea0a00331796d8a3cf402468d5429000c6ac'
-$url            = 'https://www.voxengo.com/files/VoxengoMSED_312_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '83fabe1380f4767a4b8b5c403464ed711a22d67802da26681b4936aa62bdef0f'
+$url            = 'https://www.voxengo.com/files/VoxengoMSED_313_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
