@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'CurveEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'd74e6488876b0dba4df1ec19259a8cfd7cf6f57cb71784631a12affd9a57b730'
-$url            = 'https://www.voxengo.com/files/VoxengoCurveEQ_315_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '2c38a32012c6b3e39aa0ee694c5901541b2650c2471ae8328184e4e658fe5539'
+$url            = 'https://www.voxengo.com/files/VoxengoCurveEQ_316_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
