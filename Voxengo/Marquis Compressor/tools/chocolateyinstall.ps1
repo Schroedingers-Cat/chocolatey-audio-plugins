@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Marquis Compressor'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '2804819aa0050414a0858a5ae605e168e8f9b709dde4df1e68437d855d0254e5'
-$url            = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_28_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '52be69a93eb30906191f2794a9c7fd23f28439af75d15ebf522a71e825cc3e69'
+$url            = 'https://www.voxengo.com/files/VoxengoMarquisCompressor_29_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
