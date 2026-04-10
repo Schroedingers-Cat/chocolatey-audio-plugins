@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'HarmoniEQ'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '64a4ff628485aca5afb8bf8337cc6d64c35566fe2026e10c86480beca082d31d'
-$url            = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_211_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '3edbd44b2c2808e9bd4e26b40a58d0a8089463e707d2b6029768190f7af52b1a'
+$url            = 'https://www.voxengo.com/files/VoxengoHarmoniEQ_212_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {

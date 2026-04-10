@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'OldSkoolVerb Plus'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'db7b3168ee0f00f76b5dac6b0289531817dc8087c7c23739cb78bd1d00d3e135'
-$url            = 'https://www.voxengo.com/files/VoxengoOldSkoolVerbPlus_16_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '58b38e05e4107101782845a830eae84fa1dfec7095bbb9a83d5b07428ee5bcfd'
+$url            = 'https://www.voxengo.com/files/VoxengoOldSkoolVerbPlus_17_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
