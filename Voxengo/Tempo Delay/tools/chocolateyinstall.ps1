@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Tempo Delay'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '5e4745b66b178f04b98e9a8d1d47432b41d578adb732a7fcc592172e7e260dd0'
-$url            = 'https://www.voxengo.com/files/VoxengoTempoDelay_28_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '1f459644e4ccf051bf281571d76278f4822a00b7f3d896b5a6ccdf73b1016c37'
+$url            = 'https://www.voxengo.com/files/VoxengoTempoDelay_29_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {

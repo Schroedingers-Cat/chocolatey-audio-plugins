@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'Shinechilla'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = 'affeac4a8a50ea509ac5fc222270d2a8d3cf69a78fd9f6bbad181e048b20feec'
-$url            = 'https://www.voxengo.com/files/VoxengoShinechilla_15_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '6a1a861582a8a218b5eb4cac94e63c8993a19603a55405827e1f5c565820c3c3'
+$url            = 'https://www.voxengo.com/files/VoxengoShinechilla_16_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {

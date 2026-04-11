@@ -4,8 +4,8 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageName    = 'BMS'
 $company        = 'Voxengo'
 $softwareName   = "$company $packageName"
-$checksum       = '334b8f1446d74022818fcbe55b5924d06d9619d5ecc1f5d366b813275d1ed981'
-$url            = 'https://www.voxengo.com/files/VoxengoBMS_26_Win32_64_VST_VST3_AAX_setup.exe'
+$checksum       = '0eba5cdd72771b583d413c97295fca26424a755782c5f827694ed18b9652d612'
+$url            = 'https://www.voxengo.com/files/VoxengoBMS_27_Win32_64_VST_VST3_AAX_setup.exe'
 
 # The installer does not have an option for custom data paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
