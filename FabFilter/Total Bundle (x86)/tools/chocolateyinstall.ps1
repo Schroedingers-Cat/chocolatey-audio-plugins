@@ -8,7 +8,7 @@ $packageArgs = @{
     url            = 'https://www.fabfilter.com/downloads/fftotalbundle.exe'
     softwareName   = 'FabFilter Total Bundle (x86)*'
     checksumType   = 'sha256'
-    checksum       = 'd1fc9638e466925b6ec9993f37bdd6f8c4f7c81153500fc6bcf8eebf200694d6'
+    checksum       = 'f2fab60c11d27bfdc22f9f2e63944597804dfcd7da76d0dd0c02eb562a53d9d0'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }

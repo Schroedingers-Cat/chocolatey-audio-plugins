@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/ffone351x64.exe'
+    url            = 'https://www.fabfilter.com/downloads/ffone352x64.exe'
     softwareName   = 'FabFilter One (x64)*'
     checksumType   = 'sha256'
-    checksum       = '2131952d53c60e0033a37cdc82952a645c5e65df2d3ba531a0b3a64d851ef060'
+    checksum       = '33422f81bd511862fbd9c59158fae8a30fe39ee0a83a76465345c65c082a41cf'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }
