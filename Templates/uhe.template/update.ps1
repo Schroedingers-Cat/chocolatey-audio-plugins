@@ -4,7 +4,7 @@ $zipSuffix = "Win.zip"
 
 function global:au_GetLatest {
   $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://u-he.com/products/[[ProductPageName]]/'
-  $regex = "$zipSuffix" + '$'
+  $regex = "\d+_$zipSuffix" + '$'
   $url = $download_page.links | ? href -match $regex | select -First 1 -expand href
   $version = ((($url.Split('/') | select -Last 1).Replace("[[PackageNameUrl]]_", "")).Replace("_${zipSuffix}", "")).Split('_') | select -First 1
   #  since u-he version numbers aren't consistent (1.4 vs 1.4.1) this causes errors with the revision number included (1.4.6987 

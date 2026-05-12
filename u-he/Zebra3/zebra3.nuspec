@@ -45,7 +45,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <licenseUrl>https://u-he.com/about/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra3/zebra3-user-guide.pdf</docsUrl>
+    <docsUrl>https://u-he.com/downloads/manuals/plugins/zebra3/Zebra3%20user%20guide.pdf</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>u-he zebra3 audio clap vst synthesizer aax admin trial</tags>
