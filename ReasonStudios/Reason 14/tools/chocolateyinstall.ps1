@@ -29,12 +29,15 @@ if ($pp['InstallationPath']) {
   $packageArgs.silentArgs += " /Dir=`"${installPath}`"" 
 }
 if ($pp['NoDesktopIcon']) { $packageArgs.silentArgs += " /TASKS=" }
-if ($pp['WithoutSoundbanks']) { 
-  $packageArgs.url64bit =  $url64NoSB
-  $packageArgs.checksum64 =  $checksum64NoSB
+
+$componentsList = "standalone,companion,vst,aax"
+if ($pp['WithoutSoundbanks']) {
+    $packageArgs.url64bit =  $url64NoSB
+    $packageArgs.checksum64 =  $checksum64NoSB
+    # The installer without soundbanks has no companion component
+    $componentsList = "standalone,vst,aax"
 }
 
-$componentsList = "standalone,vst,aax"
 if ($pp['NoVst']) { $componentsList = $componentsList -replace ",vst","" }
 if ($pp['NoAax']) { $componentsList = $componentsList -replace ",aax","" }
 $packageArgs.silentArgs += " /Components=${componentsList}"
