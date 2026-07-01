@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>reasonstudios-reason14</id>
-    <version>14.0.1</version>
+    <version>14.0.1.20260701</version>
     <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
     <owners>Schroedingers-Cat</owners>
     <title>Reason 14</title>
@@ -18,11 +18,11 @@
 
 ## Package Parameters
 This package supports the following package parameters:
-* `/NoVst` - Do not install the VST3 version
-* `/NoAax` - Do not install the AAX version
-* `/InstallationPath` - The path to install the standalone application to
-* `/NoDesktopIcon` - Do not create a shortcut on the desktop
-* `/WithoutSoundbanks` - Do not install/modify the soundbanks (you need ensure that the soundbanks exist at `%programdata%\Propellerhead Software\Soundbanks`)
+* `/NoVst`             - Do not install the VST3 version
+* `/NoAax`             - Do not install the AAX version
+* `/InstallationPath`  - The path to install the standalone application to
+* `/NoDesktopIcon`     - Do not create a shortcut on the desktop
+* `/WithoutSoundbanks` - Do not install/modify the soundbanks (you need ensure that the soundbanks exist at `%programdata%\Propellerhead Software\Soundbanks`). Also, no Reason Companion app will be installed when setting this option.
 
 For example, this is how you can use them: 
 ```
