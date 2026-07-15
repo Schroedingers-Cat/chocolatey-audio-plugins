@@ -3,7 +3,7 @@
 $zipSuffix = "Win.zip"
 
 function global:au_GetLatest {
-  $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://u-he.com/products/zebra3/'
+  $download_page = Invoke-WebRequest -UseBasicParsing -Uri 'https://u-he.com/products/plug-ins/zebra3/'
   $regex = "\d+_$zipSuffix" + '$'
   $url = $download_page.links | ? href -match $regex | select -First 1 -expand href
   $version = ((($url.Split('/') | select -Last 1).Replace("zebra3_", "")).Replace("_${zipSuffix}", "")).Split('_') | select -First 1

@@ -9,7 +9,7 @@ if ($installerType -ne 'MSI') {
 }
 
 $packageNameFull = 'Zebra3'
-$version = '3.0.0'
+$version = '3.0.2'
 $packageName = $packageNameFull.Replace(" ", "")
 $softwareName = "$packageName ${version}"
 

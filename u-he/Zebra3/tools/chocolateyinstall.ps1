@@ -2,12 +2,12 @@
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageNameFull = 'Zebra3'
-$version = '3.0.0'
+$version = '3.0.2'
 $company = 'u-he'
 $packageName = $packageNameFull.Replace(" ", "")
 $softwareName = "$packageName ${version}"
 $versionWithoutDots = $version -replace "\.", ""
-$revision = '21799'
+$revision = '22175'
 $urls = (
     "https://u-he.com/downloads/releases/zebra3_${versionWithoutDots}_${revision}_Win.zip", 
     "https://u-he.com/downloads/release-archive//zebra3//zebra3_${versionWithoutDots}_${revision}_Win.zip"
@@ -17,7 +17,7 @@ $unzInstPath = "${packageName}_Win\${packageName}-${versionWithoutDots}-Winstall
 $zipArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
-  checksum      = '6538a7e00a2bf1af66630c1cf2c31302ed38973a6c278cdcb0f4c424070cbf94'
+  checksum      = '6c8b5efe8ee8986a6a2b5bb450383788509f1f9fd1621f211dc66661a63dba04'
   checksumType  = 'sha256'
 }
 
