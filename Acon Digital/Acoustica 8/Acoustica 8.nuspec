@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>acondigital-acoustica-8</id>
+    <version>8.0.1</version>
+    <packageSourceUrl>https://github.com/Schroedingers-Cat/chocolatey-audio-plugins</packageSourceUrl>
+    <owners>Schroedingers-Cat</owners>
+    <title>Acon Digital Acoustica 8</title>
+    <authors>Acon Digital</authors>
+    <projectUrl>https://acondigital.com/products/acoustica</projectUrl>
+    <iconUrl>https://rawcdn.githack.com/Schroedingers-Cat/chocolatey-audio-plugins/66e92eb47c2ebc7f9de3b0fb21b2662ff39b8408/Icons/Acon%20Digital/acoustica_ultimate_logo_57d2c0465c.png</iconUrl>
+    <copyright>Copyright (c) Acon Digital 2026</copyright>
+    <licenseUrl>https://acondigital.com/terms-and-conditions</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>https://acondigital.com/help/acoustica8/</docsUrl>
+    <tags>acondigital acoustica8 audio editor restoration mastering vst vst3 aax</tags>
+    <summary>Acoustica 8 — audio editing, restoration and mastering platform with a full plugin suite.</summary>
+    <description><![CDATA[Acoustica 8 is a complete audio editing, restoration and mastering platform — a standalone application backed by a full plugin suite. New machine-learning-powered restoration tools, redesigned UI, ARA2 integration, and immersive audio support up to 9.1.6.
+
+## Installer Arguments
+If you want to select which components to install, add `-ia '/COMPONENTS=acoustica,acousticaaragroup,acousticaaragroup\acousticaara_vst3,acousticaaragroup\acousticaara_aax,acousticaaragroup\aax_link,premiumeditionpluginpackgroup,premiumeditionpluginpackgroup\vst_premiumeditionpluginpack,premiumeditionpluginpackgroup\vst3_premiumeditionpluginpack,premiumeditionpluginpackgroup\aax_premiumeditionpluginpack,ultimateeditionpluginpackgroup,ultimateeditionpluginpackgroup\vst_ultimateeditionpluginpack,ultimateeditionpluginpackgroup\vst3_ultimateeditionpluginpack,ultimateeditionpluginpackgroup\aax_ultimateeditionpluginpack'` as parameter. The following components can be set:
+
+* `acoustica`                                                    - Install the standalone application
+*  
+* `acousticaaragroup`                                            - ARA plug-in group (parent)
+* `acousticaaragroup\acousticaara_vst3`                          - Install the ARA VST3 version
+* `acousticaaragroup\acousticaara_aax`                           - Install the ARA AAX version
+* `acousticaaragroup\aax_link`                                   - Install the AAX Link plug-in for Pro Tools
+*  
+* `premiumeditionpluginpackgroup`                                - Premium Edition plug-in pack group (parent)
+* `premiumeditionpluginpackgroup\vst_premiumeditionpluginpack`   - Install the Premium Edition VST2 version
+* `premiumeditionpluginpackgroup\vst3_premiumeditionpluginpack`  - Install the Premium Edition VST3 version
+* `premiumeditionpluginpackgroup\aax_premiumeditionpluginpack`   - Install the Premium Edition AAX version
+*  
+* `ultimateeditionpluginpackgroup`                               - Ultimate Edition plug-in pack group (parent)
+* `ultimateeditionpluginpackgroup\vst_ultimateeditionpluginpack` - Install the Ultimate Edition VST2 version
+* `ultimateeditionpluginpackgroup\vst3_ultimateeditionpluginpack`- Install the Ultimate Edition VST3 version
+* `ultimateeditionpluginpackgroup\aax_ultimateeditionpluginpack` - Install the Ultimate Edition AAX version
+
+Other Inno Setup arguments like `/Dir=`, `/TASKS=`, `/LOADINF=` can also be passed via `-ia`.
+
+## Package Parameters
+* `/Vst2Path:`  - Installation path of the x64 VST2 version (written to registry for the installer to pick up)
+* `/CompanyPath:` - The path to install the application to (more comfortable than `/Dir` via `-ia` because this one gets the package name automatically postfixed to the path)
+
+For example:
+```powershell
+choco install acondigital-acoustica-8 --package-parameters "'/Vst2Path:${env:CommonProgramFiles}\VST2\Acon Digital /CompanyPath:${env:PROGRAMFILES}\AudioTools\Acon Digital'"
+```
+    ]]></description>
+    <releaseNotes>https://acondigital.com/products/acoustica</releaseNotes>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
