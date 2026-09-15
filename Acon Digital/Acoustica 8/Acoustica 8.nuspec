@@ -13,9 +13,11 @@
     <licenseUrl>https://acondigital.com/terms-and-conditions</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <docsUrl>https://acondigital.com/help/acoustica8/</docsUrl>
-    <tags>acondigital acoustica8 audio editor restoration mastering vst vst3 aax</tags>
+    <tags>acondigital acoustica8 audio editor restoration mastering vst vst3 aax trial</tags>
     <summary>Acoustica 8 — audio editing, restoration and mastering platform with a full plugin suite.</summary>
-    <description><![CDATA[Acoustica 8 is a complete audio editing, restoration and mastering platform — a standalone application backed by a full plugin suite. New machine-learning-powered restoration tools, redesigned UI, ARA2 integration, and immersive audio support up to 9.1.6.
+    <description><![CDATA[Acoustica 8 is a complete audio editing, restoration and mastering platform — a standalone application backed by a full plugin suite. New machine-learning-powered restoration tools, redesigned UI, ARA2 integration, and immersive audio support up to 9.1.6.  
+  
+Acoustica 8 is commercial software and needs a valid license key to work beyond the free 30-day trial.
 
 ## Installer Arguments
 If you want to select which components to install, add `-ia '/COMPONENTS=acoustica,acousticaaragroup,acousticaaragroup\acousticaara_vst3,acousticaaragroup\acousticaara_aax,acousticaaragroup\aax_link,premiumeditionpluginpackgroup,premiumeditionpluginpackgroup\vst_premiumeditionpluginpack,premiumeditionpluginpackgroup\vst3_premiumeditionpluginpack,premiumeditionpluginpackgroup\aax_premiumeditionpluginpack,ultimateeditionpluginpackgroup,ultimateeditionpluginpackgroup\vst_ultimateeditionpluginpack,ultimateeditionpluginpackgroup\vst3_ultimateeditionpluginpack,ultimateeditionpluginpackgroup\aax_ultimateeditionpluginpack'` as parameter. The following components can be set:
