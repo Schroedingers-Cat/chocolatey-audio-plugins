@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64      = 'https://www.meldaproduction.com/downloads/down?name=MPluginManager_02_31_setup.exe&platform=win&version=02.31&mirror=bunnycdn&url=https%3A%2F%2Fmeldaproduction.b-cdn.net%2Fdownload%2Fmpluginmanager%2FMPluginManager_02_31_setup.exe&checksum=a7cacdedd7399f30c1f390700254733383b637d4'
+$url64      = 'https://www.meldaproduction.com/downloads/down?name=MPluginManager_03_00_setup.exe&platform=win&version=03.00&mirror=bunnycdn&url=https%3A%2F%2Fmeldaproduction.b-cdn.net%2Fdownload%2Fmpluginmanager%2FMPluginManager_03_00_setup.exe&checksum=a79f7d616d01a3732569a40ccca497aaaf7874a1'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -9,7 +9,7 @@ $packageArgs = @{
   url           = $url
   url64bit      = $url64
   softwareName  = 'MPluginManager*'
-  checksum64    = 'f367f3191201962de39966c5e04f76e8b7047e5af0ed790d9b08f78009d9991a'
+  checksum64    = 'fe974b41f2916e3af24569398331a8ba9e245f381d51e087bc205f602e75a312'
   checksumType64= 'sha256'
   silentArgs   = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
   validExitCodes= @(0)
