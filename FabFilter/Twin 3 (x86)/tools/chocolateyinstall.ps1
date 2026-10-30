@@ -5,10 +5,10 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     unzipLocation  = $toolsDir
     fileType       = 'exe'
-    url            = 'https://www.fabfilter.com/downloads/fftwin307.exe'
+    url            = 'https://www.fabfilter.com/downloads/fftwin310.exe'
     softwareName   = 'FabFilter Twin 3 (x86)*'
     checksumType   = 'sha256'
-    checksum       = 'a7f5fe733479d15bac756e4c87bbadc8e4f3853573665dc3030bce33d0f94fe2'
+    checksum       = '952b9a8cf847b3f9b1114a9a46474b6764329b778dce3a4eaf8e2b9fb2aa3197'
     silentArgs     = '/Unattended' # FabFilter Installer
     validExitCodes = @(0)
 }
