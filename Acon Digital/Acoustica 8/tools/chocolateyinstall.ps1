@@ -1,11 +1,11 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageName    = 'Acoustica 8'
 $company        = 'Acon Digital'
 $softwareName   = "$company $packageName"
-$checksum       = '1BD333C97E85E7FF11C264E630F9EE5DD2677AE0B3821C825AC32E57A3BCD744'
-$url            = 'https://downloads.acondigital.com/Acoustica_Win64_8_0_5.exe'
+$checksum       = 'f2a448569f7c0720fc86fc320b5a20476b208f8cb55f14a588a0c145c3d8ca47'
+$url            = 'https://downloads.acondigital.com/Acoustica_Win64_8_0_9.exe'
 
 # The installer does not have an option for custom VST2 paths but reads defaults from the registry
 function Set-RegValue([string]$Key, [string]$Name, [string]$Value) {
